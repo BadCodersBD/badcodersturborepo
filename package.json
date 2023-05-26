@@ -21,6 +21,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "antd": "^5.5.1",
     "styled-components": "^6.0.0-rc.1"
   }
 }
