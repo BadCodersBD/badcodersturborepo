@@ -1,9 +1,15 @@
-import Image from 'next/image'
+"use client";
+import react from 'react';
+import Header from '@/components/ui/features/Header/Header';
+import Footer from '@/components/ui/features/footer/Footer';
+import Body from '@/components/ui/features/Body/Body';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Foodies App</h1>
-    </main>
+    <>
+      <Header/>
+      <Body/>
+      <Footer/>
+    </>
   )
 }
