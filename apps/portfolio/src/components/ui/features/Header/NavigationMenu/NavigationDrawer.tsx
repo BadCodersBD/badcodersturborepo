@@ -9,24 +9,20 @@ export const Data = [
     id: "#home",
   },
   {
-    name: "Media",
-    id: "#media",
+    name: "Experience",
+    id: "#experience",
   },
   {
-    name: "Our Brands",
-    id: "#our-brands",
-  },
-  {
-    name: "About Us",
-    id: "#about-us",
+    name: "Projects",
+    id: "#project",
   },
   {
     name: "Career",
     id: "#career",
   },
   {
-    name: "Contact Us",
-    id: "#contact-us",
+    name: "Contact",
+    id: "#contact",
   },
   {
     name: "Footer",
