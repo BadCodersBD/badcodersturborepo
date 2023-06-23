@@ -1,55 +1,74 @@
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
+import { Styled } from "./Navigation.styled";
 
-export const Data = ([
-    {
-      name: 'Home',
-      url: '/Development',
-    },
-    {
-      name: 'Our Brands',
-      url: '/under-construction',
-    },
-    {
-      name: 'About Us',
-      url: '/about',
-    },
-    {
-      name: 'Career',
-      url: '/under-construction',
-    },
-    {
-      name: 'Contact Us',
-      url: '/under-construction',
-    },
-    {
-      name: 'Media',
-      url: '/under-construction',
-    },
-  ]);
+export const Data = [
+  {
+    name: "Home",
+    id: "#home",
+  },
+  {
+    name: "Media",
+    id: "#media",
+  },
+  {
+    name: "Our Brands",
+    id: "#our-brands",
+  },
+  {
+    name: "About Us",
+    id: "#about-us",
+  },
+  {
+    name: "Career",
+    id: "#career",
+  },
+  {
+    name: "Contact Us",
+    id: "#contact-us",
+  },
+  {
+    name: "Footer",
+    id: "#footer",
+  },
+];
 
- const NavigationDrawer = (props: any) => {
+const NavigationDrawer = (props: any) => {
   const [open, setOpen] = useState<boolean>(false);
-  
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+
+    if (elem) {
+      const rect = elem.getBoundingClientRect();
+      const top = rect.top + window.scrollY;
+      window.scrollTo({
+        top: top - 100,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="">
+    <>
       <Drawer anchor={"left"} open={props.open} onClose={() => setOpen(false)}>
         <div className="my-2 flex flex-col py-4">
-          {Data.map(({ name, url }, index) => (
+          {Data.map(({ name, id }, index) => (
             <Link
-              className="mx-6 py-1 hover:border-b-green-500"
+              className="mx-2"
               key={index}
-              href={`${url}`}
+              href={`${id}`}
+              onClick={handleScroll}
             >
-              <span className="cursor-pointer text-slate-500 hover:text-green-600">
-                {name}
-              </span>
+              <Styled.Navigation>{name}</Styled.Navigation>
             </Link>
           ))}
         </div>
       </Drawer>
-    </div>
+    </>
   );
 };
 
