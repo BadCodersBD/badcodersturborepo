@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Body = styled.div`
+const Main = styled.div`
   width: 100%;
   height: 30rem;
   background-color: orange;
@@ -15,6 +15,6 @@ const Heading = styled.h1`
 `;
 
 export const Styled = {
-    Body,
+    Main,
     Heading,
 };
