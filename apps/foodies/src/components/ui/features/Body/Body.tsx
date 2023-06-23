@@ -6,7 +6,7 @@ const Body = () => {
 
     return (
         <>
-        <Styled.Body>
+        <Styled.Body id="home">
             <Styled.Heading>
                 Body content
             </Styled.Heading>

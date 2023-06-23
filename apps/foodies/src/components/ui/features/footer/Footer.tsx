@@ -6,7 +6,7 @@ const Footer = () => {
 
     return (
         <>
-            <Styled.Footer>
+            <Styled.Footer id="footer">
                 <Styled.Heading>Footer</Styled.Heading>
                 <Image
                     src="/foodie.png"

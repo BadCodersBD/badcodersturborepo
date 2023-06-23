@@ -12,13 +12,22 @@ const Header = () => {
   return (
     <Styled.Header>
       <div className="flex">
-        <Image
+        <div className="flex">
+          {/* <span>
+          <Image
           src="/vercel.svg"
-          width={170}
-          height={10}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{width: '100%', height: '100%'}}
           alt="AVL Logo"
           className="hidden md:inline"
         />
+          </span> */}
+        <span className=" text-black text-opacity-80 font-bold max-md:hidden lg:text-3xl ml-2 mt-6">
+          Rakib Khan
+        </span>
+        </div>
         <button onClick={() => setOpen(!open)} className="inline lg:hidden">
           <div className="mr-4 text-black">
             <MenuIcon className="h-10 w-10" />

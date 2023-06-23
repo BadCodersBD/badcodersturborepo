@@ -5,10 +5,11 @@ const Navigation = styled.button`
   color: #000000;
   position: relative;
   border-radius: 5px;
-  width: 100px;
-  height: 2rem;
+  padding: 10px;
+  height: auto;
   font-size: 1rem;
-  
+  scroll-behavior: smooth;
+
   &:hover {
     color: green;
     background: transparent;
@@ -23,7 +24,7 @@ const Navigation = styled.button`
     right: 0;
     height: 2px;
     width: 0;
-    background: green;
+    background: #000000;
     box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
       4px 4px 5px 0px #0002;
     transition: 400ms ease all;
