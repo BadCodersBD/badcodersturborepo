@@ -20,13 +20,13 @@ const Header = () => {
           height={0}
           sizes="100vw"
           style={{width: '100%', height: '100%'}}
-          alt="AVL Logo"
+          alt="Logo"
           className="hidden md:inline"
         />
           </span> */}
-        <span className=" text-black text-opacity-80 font-bold max-md:hidden lg:text-3xl ml-2 mt-6">
-          Rakib Khan
-        </span>
+        <Styled.Signature>
+          {"<Rakib Khan />"}
+        </Styled.Signature>
         </div>
         <button onClick={() => setOpen(!open)} className="inline lg:hidden">
           <div className="mr-4 text-black">
