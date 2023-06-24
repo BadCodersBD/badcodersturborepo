@@ -1,6 +1,6 @@
 import React from "react";
 import GitHubIcon from '@mui/icons-material/GitHub';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Link from "next/link"
 
 const UserWidget = () => {
@@ -12,7 +12,7 @@ const UserWidget = () => {
       </Link>
       <Link href="https://www.linkedin.com/in/rakibkhanofficial" className="flex rounded-3xl border-2 w-full h-full border-blue-800 py-1 px-3 hover:bg-blue-800 hover:text-white">
         LinkedIn
-        <AccountCircleIcon/>
+        <LinkedInIcon/>
       </Link>
     </div>
   );
