@@ -1,4 +1,4 @@
-import productdetails from './productdetails'
+import productdetails from './logo'
 import experience from './experience'
 import pageInfo from './pageInfo'
 import project from './project'
