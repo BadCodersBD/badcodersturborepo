@@ -18,14 +18,6 @@ const Header = styled.header`
   -moz-box-shadow: 0rem 0.5rem 0.5rem rgba(0.2,0,0.2,0.2);
 `;
 
-const Signature = styled.span`
-  color: #000000;
-  font-weight: 600;
-  margin-left: 0.5rem;
-  margin-top: 1.5rem;
-`;
-
 export const Styled = {
   Header,
-  Signature,
 };

@@ -10,9 +10,12 @@ const Footer = () => {
                 <Styled.Heading>Footer</Styled.Heading>
                 <Image
                     src="/foodie.png"
-                    width={170}
-                    height={10}
                     alt="Foodies logo"
+                    priority={true}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{width: '50%', height: '50%'}}
                 />
             </Styled.Footer>
         </>

@@ -5,7 +5,7 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'Ecom-Cms',
+  title: 'Portfolio',
 
   projectId: 'ldr72k6k',
   dataset: 'production',

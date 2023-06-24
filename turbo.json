@@ -4,12 +4,37 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": [
+        "NODE_ENV",
+        "NEXT_PUBLIC_PASS",
+        "VERCEL_URL",
+        "PORT",
+        "VERCEL",
+        "ALLOW_ROBOTS",
+        "CURRENT_DOMAIN",
+        "NEXT_PUBLIC_SANITY_DATASET",
+        "NEXT_PUBLIC_SANITY_PROJECT_ID",
+        "NEXT_PUBLIC_CAPTCHA_SITE_KEY",
+        "NEXT_PUBLIC_SANITY_API_TOKEN",
+        "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY",
+        "NEXT_PUBLIC_AKIJ_ECOM",
+        "FACEBOOK_ID",
+        "FACEBOOK_SECRET",
+        "GOOGLE_ID",
+        "GOOGLE_SECRET"
+      ]
     },
-    "lint": {},
+    "test": {
+      "dependsOn": ["lint", "^build"],
+      "outputs": ["coverage/**"]
+    },
+    "lint": {
+      "dependsOn": [],
+      "outputs": []
+    },
     "dev": {
-      "cache": false,
-      "persistent": true
+      "cache": false
     }
   }
 }
