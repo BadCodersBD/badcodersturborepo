@@ -32,8 +32,6 @@ const Header = () => {
     fetchData();
   }, []);
 
-  console.log(Logos);
-
   if (loading) {
     return (
        <div className="relative flex h-[90vh] items-center justify-center overflow-hidden">

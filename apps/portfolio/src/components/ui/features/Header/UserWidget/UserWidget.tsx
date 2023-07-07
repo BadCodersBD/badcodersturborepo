@@ -1,20 +1,35 @@
-import React from "react";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Link from "next/link"
+import React, { useState, useEffect } from "react";import Link from "next/link"
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import { fetchcv } from '../../../../../utils/fetchcv';
+import type { ResumeType } from '../../../../../types/type';
 
 const UserWidget = () => {
+  const [Resume, setCv] = useState<ResumeType[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const cv = await fetchcv();
+        setCv(cv);
+      } catch (e) {
+        console.log("Error", e);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="flex justify-center space-x-4 py-5 text-black">
-      <Link href="https://github.com/rakibkhanofficial" className="flex rounded-3xl border-2 w-full h-full border-fuchsia-900 py-1 px-3 hover:bg-fuchsia-900 hover:text-white">
-        Github
-        <GitHubIcon/>
-      </Link>
-      <Link href="https://www.linkedin.com/in/rakibkhanofficial" className="flex rounded-3xl border-2 w-full h-full border-blue-800 py-1 px-3 hover:bg-blue-800 hover:text-white">
-        LinkedIn
-        <LinkedInIcon/>
+    <>
+    {Resume.map((data, index) => (
+    <div key={index} className="flex justify-center space-x-4 py-5 px-2 text-black">
+      <Link href={data.url} className="flex rounded-lg border-2 w-full h-full border-green-500 py-1 px-3 hover:bg-green-600 hover:text-white">
+        Dowbnlod CV
+        <CloudDownloadIcon/>
       </Link>
     </div>
+    ))}
+    </>
   );
 };
 

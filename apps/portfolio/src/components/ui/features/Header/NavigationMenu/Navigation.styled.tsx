@@ -12,7 +12,7 @@ const Navigation = styled.button`
 
   &:hover {
     color: white;
-    background-color: blue;
+    background-color: #05AD1B;
     box-shadow: none;
   }
 `;
