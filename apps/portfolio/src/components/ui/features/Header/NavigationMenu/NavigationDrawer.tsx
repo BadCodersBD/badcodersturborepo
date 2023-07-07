@@ -24,10 +24,6 @@ export const Data = [
     name: "Contact",
     id: "#contact",
   },
-  {
-    name: "Footer",
-    id: "#footer",
-  },
 ];
 
 const NavigationDrawer = (props: any) => {

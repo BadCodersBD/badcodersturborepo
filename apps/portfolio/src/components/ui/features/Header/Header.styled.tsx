@@ -4,8 +4,8 @@ const Header = styled.header`
   position: fixed;
   scroll-behavior: smooth;
   z-index: 1000;
-  backdrop-filter: 20px;
   display: flex;
+  background-color: #ffffff;
   height: 5rem;
   width: 100%;
   justify-content: space-between;

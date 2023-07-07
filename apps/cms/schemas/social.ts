@@ -10,8 +10,15 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      description: 'Title of Platform for social media',
       type: 'string',
+    }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: 'url',

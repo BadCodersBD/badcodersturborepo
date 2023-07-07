@@ -1,20 +1,32 @@
 export type LogoPropsType = {
   logoimage: string;
-    logoname: string;
+  logoname: string;
 };
 
 export type HeroType = {
-  video: string
-  herovideo: string
-  url: string
+  name: string;
+  image: string;
+  designation: string;
+  gretting: string;
+};
+
+export type SocialIconType = {
+  title: string;
+  image: string;
+  url: string;
+};
+
+export type ResumeType = {
+  cvname: string;
+  resume: any;
+  url: string;
 };
 
 export type FooterSloganType = {
-  img: string
-  slogan: string
-}
+  img: string;
+  slogan: string;
+};
 
 export type FooterTopBrandsType = {
   topBrands: string[];
 };
-
