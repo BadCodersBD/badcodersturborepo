@@ -23,7 +23,7 @@ const UserWidget = () => {
     <>
     {Resume.map((data, index) => (
     <div key={index} className="flex justify-center space-x-4 py-5 px-2 text-black">
-      <Link href={data.url} className="flex rounded-3xl border-2 w-full h-full border-green-500 py-1 px-3 hover:bg-green-600 hover:text-white">
+      <Link href={data.url} className="flex rounded-lg border-2 w-full h-full border-green-500 py-1 px-3 hover:bg-green-600 hover:text-white">
         Dowbnlod CV
         <CloudDownloadIcon/>
       </Link>
