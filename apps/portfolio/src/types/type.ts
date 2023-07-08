@@ -16,6 +16,14 @@ export type SocialIconType = {
   url: string;
 };
 
+export type ProjectType = {
+  title: string;
+  image: string;
+  summary: string;
+  technologies: any;
+  linkToBuild: string;
+};
+
 export type ResumeType = {
   cvname: string;
   resume: any;
