@@ -59,7 +59,7 @@ const Hero = () => {
                 animate={{ x: 0, y: 0 }}
                 initial={false}
               >
-                <Styled.Greetting>{data.gretting}</Styled.Greetting>
+                <Styled.Greetting>{data.name}</Styled.Greetting>
               </motion.section>
               <Styled.Heading>{data.name}</Styled.Heading>
               <Styled.designation>

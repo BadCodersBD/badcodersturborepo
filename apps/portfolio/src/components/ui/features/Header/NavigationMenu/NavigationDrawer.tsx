@@ -17,10 +17,6 @@ export const Data = [
     id: "#project",
   },
   {
-    name: "Career",
-    id: "#career",
-  },
-  {
     name: "Contact",
     id: "#contact",
   },
