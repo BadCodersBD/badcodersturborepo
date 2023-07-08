@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
+    "@types/react-vertical-timeline-component": "^3.3.3",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "prettier": "^2.5.1",
@@ -26,6 +27,7 @@
     "@mui/material": "^5.13.5",
     "antd": "^5.5.1",
     "framer-motion": "^10.12.18",
+    "react-vertical-timeline-component": "^3.6.0",
     "styled-components": "^6.0.0-rc.1"
   }
 }

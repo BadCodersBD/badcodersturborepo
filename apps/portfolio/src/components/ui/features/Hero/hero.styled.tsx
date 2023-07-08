@@ -18,8 +18,9 @@ const Greetting = styled.div`
   padding-top: 4rem;
   margin-left: 1rem;
   margin-bottom: -2.5rem;
-  font-size: 4rem;
-  line-height: 2.5rem;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 2rem;
   background: -webkit-linear-gradient(gray, transparent);
   background-clip: clip;
   -webkit-background-clip: text;

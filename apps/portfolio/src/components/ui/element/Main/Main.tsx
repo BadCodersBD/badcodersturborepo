@@ -10,8 +10,8 @@ const Main = () => {
         <div>
             <Hero/>
             <Experience/>
-            <Contact/>
             <Project/>
+            <Contact/>
         </div>
     );
 };
