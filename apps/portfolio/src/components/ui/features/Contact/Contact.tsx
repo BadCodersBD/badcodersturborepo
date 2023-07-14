@@ -1,10 +1,12 @@
 import React from "react";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
 
     return (
-        <div id="contact" className="w-full h-40 bg-blue-600 text-center text-2xl">
-        contact
+        <div id="contact" style={{ backgroundColor: "white", padding: '2rem' }}>
+            <h1 className="text-black text-4xl font-semibold text-center">Contact with me</h1>
+            <ContactForm/>
         </div>
     );
 };
