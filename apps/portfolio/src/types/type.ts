@@ -16,12 +16,38 @@ export type SocialIconType = {
   url: string;
 };
 
+export type SkilProptype = {
+  title: string;
+  progress: number;
+  image: string;
+};
+
+export type TechnologiesPropType = {
+  _key: string
+  _ref: string
+  _type: string
+};
+
 export type ProjectType = {
   title: string;
   image: string;
   summary: string;
-  technologies: any;
+  technologies: TechnologiesPropType[];
   linkToBuild: string;
+};
+
+export type BrandContactFormType = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+  policy: boolean;
+};
+
+export type FormElementProps = {
+  register: any;
+  errors: any;
 };
 
 export type ResumeType = {

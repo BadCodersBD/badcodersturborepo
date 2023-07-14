@@ -8,6 +8,8 @@ import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
 import { fetchProjects } from "../../../../utils/fetchProjects";
 import type { ProjectType } from "../../../../types/type";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Project = () => {
   const [Project, setProject] = useState<ProjectType[]>([]);
@@ -66,7 +68,7 @@ const Project = () => {
                   <h1 className="text-lg font-normal">{Data.summary}</h1>
                   <div className="p-2 flex">
                   {/* <Image
-                    src={urlForThumbnail(Data.technologies)}
+                    src={urlForThumbnail(Data.technologies?._ref)}
                     alt={Data.title}
                     height={0}
                     width={0}
@@ -76,7 +78,7 @@ const Project = () => {
                       width: "100%",
                       objectFit: "contain",
                     }}
-                  /> */}
+                  />  */}
                   Technologys
                   </div>
                 </Styled.Card>

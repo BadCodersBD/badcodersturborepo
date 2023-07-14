@@ -5,10 +5,10 @@ import { Styled } from "./Footer.styled";
 const Footer = () => {
 
     return (
-        <>
-            <Styled.Footer id="footer">
+        <div>
+            <Styled.Footer>
                 <Styled.Heading>Footer</Styled.Heading>
-                <Image
+                {/* <Image
                     src="/foodie.png"
                     alt="Foodies logo"
                     priority={true}
@@ -16,9 +16,12 @@ const Footer = () => {
                     height={0}
                     sizes="100vw"
                     style={{width: '50%', height: '50%'}}
-                />
+                /> */}
             </Styled.Footer>
-        </>
+            <div className="w-full h-20 bg-gray-800">
+                down footer
+            </div>
+        </div>
     );
 };
 
