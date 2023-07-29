@@ -59,9 +59,9 @@ const Project = () => {
                     width={0}
                     sizes="100vw"
                     style={{
-                      height: "auto",
+                      height: "200px",
                       width: "100%",
-                      objectFit: "contain",
+                      objectFit: "cover",
                     }}
                   />
                   <h1 className="text-2xl p-1 font-semibold">{Data.title}</h1>
