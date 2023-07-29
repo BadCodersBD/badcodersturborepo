@@ -1,30 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import { Styled } from "./Footer.styled";
+import Grid from "@mui/material/Grid";
+import { GridColumn } from "../../element/GridColumn/GridColumn";
+import Link from "next/link";
 
 const Footer = () => {
-
-    return (
-        <div>
-            <Styled.Footer>
-                <Styled.Heading>Footer</Styled.Heading>
-                {/* <Image
-                    src="/foodie.png"
-                    alt="Foodies logo"
-                    priority={true}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{width: '50%', height: '50%'}}
-                /> */}
-            </Styled.Footer>
-            <div className="w-full h-20 bg-gray-800">
-                down footer
-            </div>
-        </div>
-    );
+  return (
+    <>
+      <Styled.Footer>
+        <div>Design & Develop By @Rakib Khan ©2023</div>
+        <div>For any Development Contact Me</div>
+      </Styled.Footer>
+    </>
+  );
 };
 
 export default Footer;
-
-//adding comment for rebuild

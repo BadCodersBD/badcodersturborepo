@@ -30,6 +30,7 @@
     "aos": "^2.3.4",
     "framer-motion": "^10.12.18",
     "react-hook-form": "^7.45.1",
+    "react-messenger-customer-chat": "^0.8.0",
     "react-vertical-timeline-component": "^3.6.0",
     "styled-components": "^6.0.0-rc.1"
   }
