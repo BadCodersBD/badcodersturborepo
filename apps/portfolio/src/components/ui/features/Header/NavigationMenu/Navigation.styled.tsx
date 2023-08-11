@@ -9,11 +9,12 @@ const Navigation = styled.button`
   height: auto;
   font-size: 1rem;
   scroll-behavior: smooth;
-
+  transition: 0.3s;
   &:hover {
     color: white;
     background-color: #05AD1B;
     box-shadow: none;
+    transition: 0.3s;
   }
 `;
 

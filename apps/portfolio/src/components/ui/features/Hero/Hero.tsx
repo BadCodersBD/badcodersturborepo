@@ -67,21 +67,31 @@ const Hero = () => {
                 {data.designation}
               </Styled.designation>
             </Styled.Content>
-            <div className="flex justify-start pt-2 pl-20 gap-2">
-            {socialicon.map((data, index) => (
-              <div key={index}>
-                <Link href={data.url}>
-                  <Image
-                    className="hover:bg-slate-800 rounded-lg p-1"
-                    src={urlForThumbnail(data.image)}
-                    alt={data.title}
-                    height={60}
-                    width={60}
-                    priority={true}
-                  />
-                </Link>
-              </div>
-            ))}
+            <div className="flex justify-start pt-2 ml-20 gap-2">
+              {socialicon.map((data, index) => (
+                <div key={index}>
+                  <Link href={data.url}>
+                    <Image
+                      className=" hover:bg-lime-500 "
+                      src={urlForThumbnail(data.image)}
+                      alt={data.title}
+                      height={0}
+                      width={0}
+                      sizes="100vw"
+                      priority={true}
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        objectFit: "contain",
+                        border: "2px solid green",
+                        padding: "0.5rem",
+                        borderRadius: "20px",
+                        transition: "0.2s",
+                      }}
+                    />
+                  </Link>
+                </div>
+              ))}
             </div>
           </GridColumn>
           <GridColumn xs={12} lg={6}>
