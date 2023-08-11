@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Styled } from "./Project.styled";
 import Grid from "@mui/material/Grid";
-import { GridColumn } from "../../element/GridColumn/GridColumn";
 import Image from "next/image";
 import Link from "next/link";
 import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
 import { fetchProjects } from "../../../../utils/fetchProjects";
 import type { ProjectType } from "../../../../types/type";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Project = () => {
   const [Project, setProject] = useState<ProjectType[]>([]);
@@ -42,32 +41,23 @@ const Project = () => {
   return (
     <Styled.Main id="project">
       <h1 className="text-center text-4xl p-4 font-bold"> Projects </h1>
-      <div className="flex justify-center h-full w-full gap-4">
+      <div className=" lg:flex gap-3 ">
         {Project.map((Data, index) => (
-          <Grid
-            key={index}
-            rowSpacing={2}
-            columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}
-          >
-            <GridColumn xs={12} md={6} lg={4}>
+          <Grid container key={index}>
+            <Grid item>
               <Link href={Data.linkToBuild}>
                 <Styled.Card>
-                  <Image
+                  <Styled.CardImage
                     src={urlForThumbnail(Data.image)}
                     alt={Data.title}
                     height={0}
                     width={0}
                     sizes="100vw"
-                    style={{
-                      height: "200px",
-                      width: "100%",
-                      objectFit: "cover",
-                    }}
                   />
                   <h1 className="text-2xl p-1 font-semibold">{Data.title}</h1>
                   <h1 className="text-lg font-normal">{Data.summary}</h1>
                   <div className="p-2 flex">
-                  {/* <Image
+                    {/* <Image
                     src={urlForThumbnail(Data.technologies?._ref)}
                     alt={Data.title}
                     height={0}
@@ -79,11 +69,11 @@ const Project = () => {
                       objectFit: "contain",
                     }}
                   />  */}
-                  Technologys
+                    Technologys
                   </div>
                 </Styled.Card>
               </Link>
-            </GridColumn>
+            </Grid>
           </Grid>
         ))}
       </div>
