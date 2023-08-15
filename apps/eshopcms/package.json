@@ -5,7 +5,7 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
+    "dev": "sanity dev --port 3334",
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
@@ -15,6 +15,7 @@
     "sanity"
   ],
   "dependencies": {
+    "@sanity/color-input": "^3.1.0",
     "@sanity/vision": "^3.11.1",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.23",
@@ -22,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "sanity": "^3.11.1",
+    "sanity-plugin-hotspot-array": "^1.0.1",
     "styled-components": "^5.3.9",
     "tailwindcss": "^3.3.2"
   },
