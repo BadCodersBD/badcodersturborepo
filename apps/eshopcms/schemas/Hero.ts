@@ -20,15 +20,5 @@ export default defineType({
               hotspot: true,
             },
           }),
-          defineField({
-            name: 'designation',
-            title: 'Designation',
-            type: 'string',
-          }),
-          defineField({
-            name: 'gretting',
-            title: 'Greating',
-            type: 'string',
-          }),
     ],
 })

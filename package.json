@@ -33,7 +33,8 @@
     "framer-motion": "^10.12.18",
     "react-hook-form": "^7.45.1",
     "react-vertical-timeline-component": "^3.6.0",
-    "styled-components": "^6.0.0-rc.1"
+    "styled-components": "^6.0.0-rc.1",
+    "swiper": "^10.2.0"
   },
   "config": {
     "commitizen": {
