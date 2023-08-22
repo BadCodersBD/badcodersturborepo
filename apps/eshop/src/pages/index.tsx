@@ -9,15 +9,15 @@ import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot"
 export default function Home() {
   return (
     <>
-      <Head>
+    <Head>
         <title>E-Trip</title>
         <meta name="description" content="A Travell service Company" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <Main />
-      <GoToTopButton/>
+      <GoToTopButton />
       <ChatBot/>
-    </>
+      </>
   );
 }
