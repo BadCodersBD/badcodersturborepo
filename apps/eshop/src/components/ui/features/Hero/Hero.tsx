@@ -18,6 +18,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const Hero = () => {
   const [Hero, setHero] = useState<HeroType[]>([]);
@@ -62,13 +63,12 @@ const Hero = () => {
       >
         {Hero.map((data, index) => (
           <SwiperSlide key={index}>
-            <Image
+            <Styled.CarouselImage
               src={urlForThumbnail(data.image)}
               alt="Hero"
               width={0}
               height={0}
               sizes="100vw"
-              style={{ width: "100%", height: "400px", objectFit: "cover" }}
             />
           </SwiperSlide>
         ))}
