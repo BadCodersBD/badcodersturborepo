@@ -1,24 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Styled } from "./hero.styled";
-import Grid from "@mui/material/Grid";
-import { GridColumn } from "../../element/GridColumn/GridColumn";
 import type { HeroType, SocialIconType } from "../../../../types/type";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
 import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
 import { fetchhero } from "../../../../utils/fetchHero";
-import { fetchSocialIcon } from "../../../../utils/fetchSocialIcon";
-import Image from "next/image";
-import LaptopIcon from "@mui/icons-material/Laptop";
-import { motion, useAnimation } from "framer-motion";
-import Link from "next/link";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-// import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import {
+  Autoplay,
+  Navigation,
+  Pagination,
+  Mousewheel,
+  Keyboard,
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Hero = () => {
   const [Hero, setHero] = useState<HeroType[]>([]);
@@ -54,12 +50,17 @@ const Hero = () => {
   return (
     <Styled.Main id="home">
       <Swiper
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        loop={true}
         className="flex w-full h-full justify-center"
         navigation={true}
         pagination={true}
         keyboard={true}
         cssMode={true}
-        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
       >
         {Hero.map((data, index) => (
           <SwiperSlide key={index}>
