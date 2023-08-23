@@ -12,7 +12,7 @@ const Navigation = styled.button`
   transition: 0.3s;
   &:hover {
     color: white;
-    background-color: #05AD1B;
+    background-color: #373837;
     box-shadow: none;
     transition: 0.3s;
   }

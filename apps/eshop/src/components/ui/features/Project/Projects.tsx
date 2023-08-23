@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import Link from "next/link";
 import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
-import { fetchProjects } from "../../../../utils/fetchProjects";
+import { fetchProjects } from "../../../../utils/fetchServices";
 import type { ProjectType } from "../../../../types/type";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
 import AOS from "aos";

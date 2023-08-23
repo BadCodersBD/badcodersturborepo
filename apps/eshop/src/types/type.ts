@@ -16,10 +16,12 @@ export type SocialIconType = {
   url: string;
 };
 
-export type SkilProptype = {
+export type servicesProptype = {
   title: string;
-  progress: number;
-  image: string;
+  companyImage: string;
+  passenger: string
+  luggage: string
+  wifi: string
 };
 
 export type TechnologiesPropType = {

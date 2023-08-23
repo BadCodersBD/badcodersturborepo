@@ -9,16 +9,20 @@ export const Data = [
     id: "#home",
   },
   {
-    name: "Experience",
-    id: "#experience",
+    name: "Our Services",
+    id: "#services",
   },
   {
-    name: "Projects",
-    id: "#project",
+    name: "Car Gallery",
+    id: "#gallery",
   },
   {
-    name: "Contact",
+    name: "Contact Us",
     id: "#contact",
+  },
+  {
+    name: "About Us",
+    id: "#aboutus",
   },
 ];
 
@@ -42,7 +46,7 @@ const NavigationDrawer = (props: any) => {
 
   return (
     <>
-      <Drawer anchor={"left"} open={props.open} onClose={() => setOpen(false)}>
+      <Drawer anchor={"right"} open={props.open} onClose={() => setOpen(false)}>
         <div className="my-2 flex flex-col py-4">
           {Data.map(({ name, id }, index) => (
             <Link
