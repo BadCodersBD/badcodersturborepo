@@ -1,7 +1,7 @@
 import productdetails from './logo'
 import services from './service'
 import pageInfo from './pageInfo'
-import project from './project'
+import brands from './Brands'
 import skill from './skill'
 import social from './social'
 import hero from './Hero'
@@ -11,7 +11,7 @@ export const schemaTypes = [
     hero,
     services,
     pageInfo,
-    project,
+    brands,
     skill,
     social,
     cv,

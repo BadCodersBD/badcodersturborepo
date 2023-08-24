@@ -1,8 +1,8 @@
 import React from "react";
 import Hero from "../../features/Hero/Hero"
-import Project from "../../features/Project/Projects"
 import Footer from "@/components/ui/features/footer/Footer";
 import Services from "../../features/OurServices/Services";
+import OurBrands from "../../features/OurBrands/OurBrands";
 
 const Main = () => {
 
@@ -10,7 +10,7 @@ const Main = () => {
         <div>
             <Hero/>
             <Services/>
-            <Project/>
+            <OurBrands/>
             <Footer />
         </div>
     );

@@ -24,6 +24,11 @@ export type servicesProptype = {
   wifi: string
 };
 
+export type BrandsProptype = {
+  title: string;
+  logo: string
+};
+
 export type TechnologiesPropType = {
   _key: string
   _ref: string
