@@ -10,7 +10,7 @@ const Newsletter = () => {
         <Styled.Title>Subscribe Now</Styled.Title>
         <Styled.Content>
           Get the latest news and exclusive content by joining our newsletter
-          today. Sign up with your email below to stay up-to-date 
+          today.
         </Styled.Content>
         <Styled.InputMain>
           <div className="mt-[10rem]">
