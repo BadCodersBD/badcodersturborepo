@@ -21,21 +21,25 @@ const Header = styled.header`
 // Define keyframes
 const glow = keyframes`
   from {
-    text-shadow: 0px 0px 5px #2C2B2B, 0px 0px 5px #614ad3;
+    text-shadow: 0px 0px 5px #2C2B2B, 0px 0px 5px #F04603;
   }
   to {
-    text-shadow: 0px 0px 20px #2C2B2B, 0px 0px 20px #614ad3;
+    text-shadow: 0px 0px 20px #2C2B2B, 0px 0px 20px #F04603;
   }
 `;
 
 const Glowtext = styled.span`
-  font-size: 1.5rem;
-  color: #000000;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  color: #EC062D;
   font-family: 'Merienda', cursive;
   animation-name: ${glow};
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Styled = {
