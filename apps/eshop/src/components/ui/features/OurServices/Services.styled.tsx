@@ -10,7 +10,8 @@ const Main = styled.div`
 `;
 
 const Card = styled.div`
-  background-color: #cbc9c2;
+position: relative;
+  background-color: #FFFFFF;
   width: 100%;
   height: auto;
   padding: 1rem;
@@ -33,12 +34,14 @@ const CardImage = styled(Image)`
   height: auto;
   object-fit: contain;
   border-radius: 10px;
-  transition: 0.3s;
+  transition: 0.5s;
   ${Card}:hover & {
     transform: scale(1.1);
+    object-fit: cover;
+    transition: 0.5s;
   }
   @media (min-width: 768px) {
-    height: 100px;
+    height: 300px;
   }
 `;
 
