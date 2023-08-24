@@ -13,8 +13,12 @@ export const Data = [
     id: "#services",
   },
   {
-    name: "Car Gallery",
+    name: "Our Collection",
     id: "#gallery",
+  },
+  {
+    name: "Brands",
+    id: "#brand",
   },
   {
     name: "Contact Us",
