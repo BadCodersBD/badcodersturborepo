@@ -53,7 +53,7 @@ const Input = styled.input`
   border: 1px solid #a34405;
   box-sizing: border-box;
   height: 70px;
-  background-color: #a8a4a4;
+  background-color: #DBD1D1;
   margin-top: 10rem;
   border-radius: 10px;
   border: none;
@@ -62,7 +62,7 @@ const Input = styled.input`
   &::-webkit-input-placeholder {
     font-size: 16px;
     line-height: 3;
-    color: #717171;
+    color: #3D3D3D;
   }
 
   @media (max-width: 768px) {
@@ -82,12 +82,13 @@ const Button = styled.button`
   font-weight: 400;
   padding: 16px 32px;
   border-radius: 10px;
-  border: #c74900;
+  border: #000000;
   cursor: pointer;
-  background-color: #ca4a00;
+  background-color: #00C3CA;
   color: #000000;
   &:hover {
-    background-color: #c74900;
+    background-color: #000000;
+    transition: 0.3s;
   }
   @media (max-width: 1025px) {
     width: 18%;
