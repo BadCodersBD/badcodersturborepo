@@ -17,6 +17,7 @@ export type SocialIconType = {
 };
 
 export type servicesProptype = {
+  imagegallery: string
   title: string;
   companyImage: string;
   passenger: string
