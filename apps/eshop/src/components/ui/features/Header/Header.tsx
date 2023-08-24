@@ -60,7 +60,7 @@ const Header = () => {
       <NavigationMenu />
       <div className=" flex justify-center items-center text-black">
       <CallIcon color="success" fontSize="large"/>
-      <span className="text-blue-800">12018577757</span><Styled.Glowtext className="ml-2">Call Us For Booking</Styled.Glowtext>
+      <span className="text-blue-800">12018577757</span><Styled.Glowtext>Call Us</Styled.Glowtext>
       </div>
       {/* <div className="flex">
         <UserWidget />

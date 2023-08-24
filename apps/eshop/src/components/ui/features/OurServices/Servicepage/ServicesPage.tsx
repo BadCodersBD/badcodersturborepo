@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Styled } from "./Services.styled";
-import { fetchservicesgallery } from "../../../../utils/fetchServicesgallery";
-import type { servicesProptype } from "../../../../types/type";
-import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
-import { urlForThumbnail } from "../../../../utils/imageProcess";
+import { Styled } from "./Servicepage.styled";
+import { fetchservicesgallery } from "../../../../../utils/fetchServicesgallery";
+import type { servicesProptype } from "../../../../../types/type";
+import { GenericSpinner } from "../../../element/GenericSpinner/GenericSpinner";
+import { urlForThumbnail } from "../../../../../utils/imageProcess";
 import Link from "next/link";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const Services = () => {
+const ServicePage = () => {
   const [Services, setServices] = useState<servicesProptype[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [displayServices, setdisplayservices] = useState(4);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,13 +36,20 @@ const Services = () => {
   }
 
   return (
-    <Styled.Main id="services">
+    <Styled.Main>
+      <Link href="/">
+        <div className=" border border-green-700 w-40 h-auto mt-5 p-3 hover:bg-lime-600 hover:text-white hover:transition rounded-md">
+          <ArrowBackIcon />
+          Back to Home
+        </div>
+      </Link>
       <h1 className="text-2xl flex justify-center items-center font-bold my-5">
         Services We Provide
       </h1>
-      <div className="grid  gap-5 grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-        {Services.slice(0, displayServices).map((data, index) => (
+      <div className="grid  gap-5 grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+        {Services.map((data, index) => (
           <Styled.Card key={index}>
+            <div className="my-2">
               <Styled.CardImage
                 alt="card Image"
                 height={0}
@@ -50,17 +57,13 @@ const Services = () => {
                 sizes="100vw"
                 src={urlForThumbnail(data.imagegallery)}
               />
+            </div>
             <Styled.Title>{data.title}</Styled.Title>
           </Styled.Card>
         ))}
       </div>
-      <Link href="/service">
-        <div className="mt-5 flex justify-center">
-          <Styled.SeeMore>See More</Styled.SeeMore>
-        </div>
-      </Link>
     </Styled.Main>
   );
 };
 
-export default Services;
+export default ServicePage;
