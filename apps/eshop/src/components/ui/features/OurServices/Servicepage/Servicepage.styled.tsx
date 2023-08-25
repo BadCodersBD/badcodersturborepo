@@ -14,7 +14,7 @@ const Card = styled.div`
   background-color: #ffffff;
   width: 100%;
   height: auto;
-  border: 1.5px solid #DF5C06;
+  border: 1.5px solid #494949;
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
@@ -26,6 +26,7 @@ const CardImage = styled(Image)`
   width: 100%;
   height: auto;
   object-fit: contain;
+  border-radius: 10px;
   transition: 0.5s;
   ${Card}:hover & {
     transform: scale(1.1);
@@ -35,18 +36,16 @@ const CardImage = styled(Image)`
 `;
 
 const Title = styled.h1`
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-`;
-
-const Subspan = styled.span`
-  font-size: 1rem;
-  font-weight: 500;
-  margin-left: 0.5rem;
+  @media (min-width: 769px) {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 `;
 
 const SeeMore = styled.button`
@@ -65,45 +64,11 @@ const SeeMore = styled.button`
   }
 `;
 
-const Viewdetails = styled.button`
-  width: auto;
-  height: auto;
-  padding: 0.8rem 1.5rem 1rem 0.8rem;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  background-color: #262929;
-  color: #ffffff;
-  &:hover {
-    color: #000000;
-    background-color: #b4bbbd;
-    box-shadow: none;
-    transition: 0.3s;
-  }
-`;
-
-const BookNow = styled.button`
-  width: auto;
-  height: auto;
-  padding: 0.8rem 1.5rem 1rem 0.8rem;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  background-color: #088824;
-  color: #ffffff;
-  &:hover {
-    color: #000000;
-    background-color: #0b8f37;
-    box-shadow: none;
-    transition: 0.3s;
-  }
-`;
 
 export const Styled = {
   Main,
   Card,
   CardImage,
   Title,
-  Subspan,
   SeeMore,
-  Viewdetails,
-  BookNow,
 };
