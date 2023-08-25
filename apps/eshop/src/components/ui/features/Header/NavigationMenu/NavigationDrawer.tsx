@@ -21,6 +21,10 @@ export const Data = [
     id: "#brand",
   },
   {
+    name: "Location",
+    id: "#location",
+  },
+  {
     name: "Contact Us",
     id: "#contact",
   },

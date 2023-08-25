@@ -49,7 +49,6 @@ const ServicePage = () => {
       <div className="grid  gap-5 grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         {Services.map((data, index) => (
           <Styled.Card key={index}>
-            <div className="my-2">
               <Styled.CardImage
                 alt="card Image"
                 height={0}
@@ -57,7 +56,6 @@ const ServicePage = () => {
                 sizes="100vw"
                 src={urlForThumbnail(data.imagegallery)}
               />
-            </div>
             <Styled.Title>{data.title}</Styled.Title>
           </Styled.Card>
         ))}
