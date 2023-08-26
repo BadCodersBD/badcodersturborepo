@@ -116,8 +116,6 @@ function buildOptionsSources(
             source = { ...source, sizes: `${options.width}px` }
             imageWidthsFor1Dpr = [options.width]
         } else {
-            const percentage = options.width
-            source = { ...source, sizes: percentage.replace('%', 'vw') }
             imageWidthsFor1Dpr = breakpoints.flatMap((breakpoint) => calculateImageWidths(theme, breakpoint))
         }
     } else {
