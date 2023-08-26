@@ -72,3 +72,36 @@ export type FooterSloganType = {
 export type FooterTopBrandsType = {
   topBrands: string[];
 };
+
+export type RegisterFormType = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  policy: boolean;
+};
+
+export type ResetPasswordFormType = {
+  otp: string;
+  password: string;
+  confirmPassword: string;
+};
+
+export type ForgetPasswordFormType = {
+  email: string;
+};
+
+export type LoginFormType = {
+  email: string;
+  password: string;
+};
+
+export type pageModalType = {
+  open: boolean;
+  modalName: string;
+  triger?: boolean;
+};
+
+export type otpFormType = {
+  otp: string[];
+};

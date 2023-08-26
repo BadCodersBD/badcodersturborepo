@@ -11,7 +11,7 @@ import AccessibleIcon from '@mui/icons-material/Accessible';
 const Collections = () => {
   const [Services, setServices] = useState<servicesProptype[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [displayServices, setdisplayservices] = useState(6);
+  const [displayServices, setdisplayservices] = useState(4);
 
   const showMoreProducts = () => {
     setdisplayservices(displayServices + 4);
@@ -47,7 +47,7 @@ const Collections = () => {
   return (
     <Styled.Main id="gallery">
         <h1 className="text-2xl flex justify-center items-center font-bold my-5">We Have Everything You Need</h1>
-      <div className="grid  gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+      <div className="grid  gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Services.slice(0, displayServices).map((data, index) => (
           <Styled.Card key={index}>
             <Styled.Title>{data.title}</Styled.Title>

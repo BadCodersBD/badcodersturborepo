@@ -42,7 +42,31 @@ const Glowtext = styled.span`
   }
 `;
 
+
+const LoginButton = styled.button`
+  color: #000000;
+  border: 1px solid;
+  border-color: #000000;
+  white-space: nowrap;
+  &:hover {
+    background-color: #F08408;
+    color: #000000;
+  }
+`;
+const RegistrationButton = styled.button`
+  color: #000000;
+  border: 1px solid;
+  border-color: #000000;
+  white-space: nowrap;
+  &:hover {
+    background-color: #F08408;
+    color: #000000;
+  }
+`;
+
 export const Styled = {
   Header,
   Glowtext,
+  LoginButton,
+  RegistrationButton,
 };
