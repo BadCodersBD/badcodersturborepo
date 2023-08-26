@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
 import { Styled } from "./Navigation.styled";
-import HomeIcon from '@mui/icons-material/Home';
-import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
-import FmdGoodIcon from '@mui/icons-material/FmdGood';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import BusinessIcon from '@mui/icons-material/Business';
+import HomeIcon from "@mui/icons-material/Home";
+import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import AirportShuttleIcon from "@mui/icons-material/AirportShuttle";
+import FmdGoodIcon from "@mui/icons-material/FmdGood";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import BusinessIcon from "@mui/icons-material/Business";
+import UserWidget from "../UserWidget/UserWidget";
 
 export const Data = [
   {
@@ -76,7 +77,7 @@ const NavigationDrawer = (props: any) => {
   return (
     <>
       <Drawer anchor={"right"} open={props.open} onClose={() => setOpen(false)}>
-        <div className="my-2 flex flex-col py-4">
+        <div className="my-2 flex flex-col px-2 py-4">
           {Data.map(({ name, id, Icon, href }, index) => (
             <Link
               className="mx-2"
@@ -84,9 +85,14 @@ const NavigationDrawer = (props: any) => {
               href={`${id}`}
               onClick={handleScroll}
             >
-              <Styled.Navigation><span>{Icon}</span>{name}<span/></Styled.Navigation>
+              <Styled.Navigation>
+                <span>{Icon}</span>
+                {name}
+                <span />
+              </Styled.Navigation>
             </Link>
           ))}
+          <UserWidget />
         </div>
       </Drawer>
     </>
