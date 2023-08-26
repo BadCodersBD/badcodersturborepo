@@ -62,9 +62,9 @@ const Header = () => {
       <CallIcon color="success" fontSize="large"/>
       <span className="text-blue-800">12018577757</span><Styled.Glowtext>Call Us</Styled.Glowtext>
       </div>
-      {/* <div className="flex">
+      <div className="flex max-lg:hidden">
         <UserWidget />
-      </div> */}
+      </div>
       <button onClick={() => setOpen(!open)} className="inline lg:hidden">
         <div className="mr-4 text-black text-sm lg:text-lg">
           <MenuIcon className="h-10 w-10" />

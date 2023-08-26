@@ -6,6 +6,8 @@ import GoToTopButton from "../components/ui/element/GoToTopButton/GoToTopButton"
 import Head from "next/head";
 import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot";
 import Footer from "@/components/ui/features/footer/Footer";
+import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
+import TopBanner from "../components/ui/features/TopHeader/TopBanner";
 
 export default function Home() {
   return (
@@ -15,11 +17,15 @@ export default function Home() {
         <meta name="description" content="A Travell service Company" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <TopBanner />
       <Header />
       <Main />
       <GoToTopButton />
       <ChatBot />
       <Footer />
+      <div className="inline md:hidden">
+        <SimpleBottomNavigation />
+      </div>
     </>
   );
 }
