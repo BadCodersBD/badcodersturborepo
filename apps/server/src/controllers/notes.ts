@@ -5,7 +5,7 @@ import NoteModel from "../models/note";
 import { assertIsDefined } from "../util/assertIsDefined";
 
 export const getNotes: RequestHandler = async (req, res, next) => {
-    const authenticatedUserId = req.session.userId;
+    const authenticatedUserId = req.session.id;
 
     try {
         assertIsDefined(authenticatedUserId);
@@ -19,7 +19,7 @@ export const getNotes: RequestHandler = async (req, res, next) => {
 
 export const getNote: RequestHandler = async (req, res, next) => {
     const noteId = req.params.noteId;
-    const authenticatedUserId = req.session.userId;
+    const authenticatedUserId = req.session.id;
 
     try {
         assertIsDefined(authenticatedUserId);
@@ -52,7 +52,7 @@ interface CreateNoteBody {
 export const createNote: RequestHandler<unknown, unknown, CreateNoteBody, unknown> = async (req, res, next) => {
     const title = req.body.title;
     const text = req.body.text;
-    const authenticatedUserId = req.session.userId;
+    const authenticatedUserId = req.session.id;
 
     try {
         assertIsDefined(authenticatedUserId);
@@ -86,7 +86,7 @@ export const updateNote: RequestHandler<UpdateNoteParams, unknown, UpdateNoteBod
     const noteId = req.params.noteId;
     const newTitle = req.body.title;
     const newText = req.body.text;
-    const authenticatedUserId = req.session.userId;
+    const authenticatedUserId = req.session.id;
 
     try {
         assertIsDefined(authenticatedUserId);
@@ -122,7 +122,7 @@ export const updateNote: RequestHandler<UpdateNoteParams, unknown, UpdateNoteBod
 
 export const deleteNote: RequestHandler = async (req, res, next) => {
     const noteId = req.params.noteId;
-    const authenticatedUserId = req.session.userId;
+    const authenticatedUserId = req.session.id;
 
     try {
         assertIsDefined(authenticatedUserId);
@@ -141,7 +141,7 @@ export const deleteNote: RequestHandler = async (req, res, next) => {
             throw createHttpError(401, "You cannot access this note");
         }
 
-        await note.remove();
+        await note.replaceOne();
 
         res.sendStatus(204);
     } catch (error) {

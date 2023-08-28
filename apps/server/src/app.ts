@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use(session({
-    secret: env.SESSION_SECRET,
+    secret: "Shh, its a secret!",
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -24,7 +24,7 @@ app.use(session({
     },
     rolling: true,
     store: MongoStore.create({
-        mongoUrl: env.MONGO_CONNECTION_STRING
+        mongoUrl: "mongodb+srv://badcoder:DFHp6Zfz4BbQt1hr@badcodercluster.acw7rry.mongodb.net/?retryWrites=true&w=majority"
     }),
 }));
 
