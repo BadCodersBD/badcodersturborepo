@@ -2,6 +2,7 @@ import { useInputSave } from "../../../utils/Registration/useInputSave";
 import { usePasswordStrengthCheck } from "../../../utils/Registration/usePasswordStrengthCheck";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
 import { useState } from "react";
+import { Input, Space } from 'antd';
 
 export const Password = ({
   register,
@@ -29,7 +30,7 @@ export const Password = ({
         {label}
       </label>
       <div className="flex justify-end">
-        <input
+        <Input
           type={showPassword ? "text" : "password"}
           style={{
             outline: errors.password ? "0.125rem solid rgb(220, 38, 38)" : "",

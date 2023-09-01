@@ -1,5 +1,6 @@
 import type { FieldError, UseFormRegister } from "react-hook-form";
 import { useInputSave } from "../../../utils/Registration/useInputSave";
+import { Input, Space } from 'antd';
 
 type Props = {
   register: UseFormRegister<Record<string, string>>;
@@ -14,7 +15,7 @@ export const Email = ({ register, errors }: Props) => {
       <label htmlFor="email" className="registerLabel">
         Email or Phone
       </label>
-      <input
+      <Input
         type="text"
         id="email"
         name="email"

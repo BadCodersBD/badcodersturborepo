@@ -1,4 +1,5 @@
 import { useInputSave } from "../../../utils/Registration/useInputSave";
+import { Input, Space } from 'antd';
 
 export const ConfirmPassword = ({
   register,
@@ -18,7 +19,7 @@ export const ConfirmPassword = ({
       <label htmlFor="confirm-password" className="registerLabel">
         {label}
       </label>
-      <input
+      <Input
         type="password"
         id="confirmPassword"
         name="confirmPassword"

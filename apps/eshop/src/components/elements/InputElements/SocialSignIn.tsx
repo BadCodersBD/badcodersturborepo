@@ -22,7 +22,7 @@ export const SocialSignIn = () => {
               <span className="mr-1">
                 <GoogleIcon fontSize="small" />
               </span>
-              <span className="text-xs">Sign In Google</span>
+              <span className="text-xs">LogIn With Google</span>
             </div>
           </button>
         </div>
@@ -32,7 +32,7 @@ export const SocialSignIn = () => {
               <span className="mr-1">
                 <FacebookIcon fontSize="small" />
               </span>
-              <span className="text-xs">Sign In Facebook</span>
+              <span className="text-xs">LogIn with Facebook</span>
             </div>
           </button>
         </div>

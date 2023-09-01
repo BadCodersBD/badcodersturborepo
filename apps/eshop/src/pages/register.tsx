@@ -14,6 +14,7 @@ import Header from "@/components/ui/features/Header/Header";
 import Footer from "@/components/ui/features/footer/Footer";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Input, Space } from 'antd';
 
 const RegisterForm = () => {
   const {
@@ -54,7 +55,7 @@ const RegisterForm = () => {
           <label htmlFor="name" className="registerLabel">
             Name
           </label>
-          <input
+          <Input
             type="text"
             id="name"
             name="name"
@@ -86,7 +87,7 @@ const RegisterForm = () => {
         />
         <div className="flex items-start">
           <div className="flex h-5 items-center">
-            <input
+            <Input
               id="policy"
               type="checkbox"
               style={{
@@ -121,7 +122,7 @@ const RegisterForm = () => {
             Customer registered successfully!
           </h3>
         ) : (
-          <div className="px-8 bg-cyan-700 text-center">
+          <div className="px-8 bg-cyan-700 hover:bg-cyan-500 py-3 rounded-md text-center">
             <button
               type="submit"
               className="registerButton"
