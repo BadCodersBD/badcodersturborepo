@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 export const LoginLink = ({ title }: { title: string }) => {
   const router = useRouter();
+
   return (
     <p className="pt-1 text-sm font-light text-black">
       {title}
