@@ -1,20 +1,20 @@
 import TermsConditions from "../components/elements/InputElements/TermsConditions";
-import { useRegister } from "../utils/Registration/useRegister";
-import { SocialSignIn } from "../components/elements/InputElements/SocialSignIn";
-// import { AssociateCompanyLogo } from "ui/components/elements/AssociatedCompanyLogo/AssociatedCompanyLogo";
-import { Email } from "../components/elements/InputElements/Email";
-import { Password } from "../components/elements/InputElements/Password";
-import { ConfirmPassword } from "../components/elements/InputElements/ConfirmPassword";
-import { Captcha } from "../components/elements/InputElements/Captcha";
-import { LoginLink } from "../components/elements/InputElements/LoginLink";
-import { useInputSave } from "../utils/Registration/useInputSave";
-import { FormWrapper } from "../components/elements/InputElements/FormWrapper";
+import { useRegister } from "@/utils/Registration/useRegister";
+import { SocialSignIn } from "@/components/elements/InputElements/SocialSignIn";
+// import { AssociateCompanyLogo } from "@/components/elements/AssociatedCompanyLogo/AssociatedCompanyLogo";
+import { Email } from "@/components/elements/InputElements/Email";
+import { Password } from "@/components/elements/InputElements/Password";
+import { ConfirmPassword } from "@/components/elements/InputElements/ConfirmPassword";
+// import { Captcha } from "@/components/elements/InputElements/Captcha";
+import { LoginLink } from "@/components/elements/InputElements/LoginLink";
+import { useInputSave } from "@/utils/Registration/useInputSave";
+import { FormWrapper } from "@/components/elements/InputElements/FormWrapper";
 import Head from "next/head";
 import Header from "@/components/ui/features/Header/Header";
 import Footer from "@/components/ui/features/footer/Footer";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Input, Space } from 'antd';
+import { Input} from 'antd';
 
 const RegisterForm = () => {
   const {
@@ -23,7 +23,7 @@ const RegisterForm = () => {
     errors,
     submitting,
     registerError,
-    captchaRef,
+    // captchaRef,
     registerUserData,
     onSubmit,
   } = useRegister();
@@ -33,7 +33,7 @@ const RegisterForm = () => {
   return (
     <div className="bg-white">
       <Head>
-        <title>E-Trip::Regester</title>
+        <title>E-Trip::Register</title>
         <meta name="description" content="A Travell service Company" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -48,7 +48,7 @@ const RegisterForm = () => {
     <FormWrapper>
       <form
         className="flex flex-col space-y-1 px-1 md:space-y-1 lg:space-y-1"
-        action="# "
+        action="#"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="pb-1">
