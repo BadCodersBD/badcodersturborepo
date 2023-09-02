@@ -9,7 +9,7 @@ import { urlForThumbnail } from "../../../../utils/imageProcess";
 import type { LogoPropsType } from "../../../../types/type";
 import { fetchlogo } from "../../../../utils/fetchLogo";
 import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
-import CallIcon from '@mui/icons-material/Call';
+// import CallIcon from "@mui/icons-material/Call";
 
 const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -58,14 +58,20 @@ const Header = () => {
         ))}
       </div>
       <NavigationMenu />
-      <div className=" flex justify-center items-center text-black">
-      <CallIcon color="success" fontSize="large"/>
-      <span className="text-blue-800">12018577757</span><Styled.Glowtext>Call Us</Styled.Glowtext>
-      </div>
+      {/* <div className=" flex justify-center items-center text-black">
+        <CallIcon color="success" fontSize="large" />
+        <span className="text-blue-800">12018577757</span>
+        <Styled.Glowtext>Call Us</Styled.Glowtext>
+      </div> */}
       <div className="flex max-lg:hidden">
         <UserWidget />
       </div>
-      <button onClick={() => setOpen(!open)} className="inline lg:hidden">
+      <button
+        title="menu button"
+        type="submit"
+        onClick={() => setOpen(!open)}
+        className="inline lg:hidden"
+      >
         <div className="mr-4 text-black text-sm lg:text-lg">
           <MenuIcon className="h-10 w-10" />
         </div>
