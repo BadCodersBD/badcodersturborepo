@@ -1,29 +1,30 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Styled } from "./Collection.styled";
-import { fetchservice } from "../../../../utils/fetchServices";
-import type { servicesProptype } from "../../../../types/type";
-import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
-import { urlForThumbnail } from "../../../../utils/imageProcess";
+import { Styled } from "./Allcars.styled";
+import { fetchservice } from "../../../../../utils/fetchServices";
+import type { servicesProptype } from "../../../../../types/type";
+import { GenericSpinner } from "../../../element/GenericSpinner/GenericSpinner";
+import { urlForThumbnail } from "../../../../../utils/imageProcess";
 import WifiIcon from '@mui/icons-material/Wifi';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 import Link from "next/link";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const Collections = () => {
-  const [Services, setServices] = useState<servicesProptype[]>([]);
+const Allcars = () => {
+  const [Allcars, setAllcars] = useState<servicesProptype[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [displayServices, setdisplayservices] = useState(4);
 
-  // const showMoreProducts = () => {
-  //   setdisplayservices(displayServices + 4);
-  // };
+  const showMoreProducts = () => {
+    setdisplayservices(displayServices + 4);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         const services = await fetchservice();
-        setServices(services);
+        setAllcars(services);
         setLoading(false);
       } catch (e) {
         console.log("Error", e);
@@ -42,14 +43,20 @@ const Collections = () => {
     );
   }
 
-  const totalSerives = Services.length;
+  const totalSerives = Allcars.length;
   const showLoadMoreButton = displayServices < totalSerives;
 
   return (
     <Styled.Main id="gallery">
+        <Link href="/">
+        <div className=" border border-green-700 w-40 h-auto mt-5 p-3 hover:bg-lime-600 hover:text-white hover:transition rounded-md">
+          <ArrowBackIcon />
+          Back to Home
+        </div>
+      </Link>
         <h1 className="text-2xl flex justify-center items-center font-bold my-5">We Have Everything You Need</h1>
       <div className="grid  gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {Services.slice(0, displayServices).map((data, index) => (
+        {Allcars.slice(0, displayServices).map((data, index) => (
           <Styled.Card key={index}>
             <Styled.Title>{data.title}</Styled.Title>
             <div className="my-2">
@@ -73,18 +80,14 @@ const Collections = () => {
           </Styled.Card>
         ))}
       </div>
-      {/* {showLoadMoreButton && (
+      {showLoadMoreButton && (
         <div className="mt-5 flex justify-center">
           <Styled.SeeMore onClick={showMoreProducts}>See More</Styled.SeeMore>
         </div>
-      )} */}
-      <Link href="/allcars">
-        <div className="mt-5 flex justify-center">
-          <Styled.SeeMore>See More</Styled.SeeMore>
-        </div>
-      </Link>
+      )}
+
     </Styled.Main>
   );
 };
 
-export default Collections;
+export default Allcars;
