@@ -16,6 +16,10 @@ export type SocialIconType = {
   url: string;
 };
 
+export type ProductDetailsType = {
+  product: servicesProptype[]
+};
+
 export type servicesProptype = {
   imagegallery: string
   title: string;
@@ -23,7 +27,13 @@ export type servicesProptype = {
   passenger: string
   luggage: string
   wifi: string
+  slug: slugType
 };
+
+export type slugType = {
+  current: string
+  _type: string
+}
 
 export type BrandsProptype = {
   title: string;
@@ -56,12 +66,6 @@ export type BrandContactFormType = {
 export type FormElementProps = {
   register: any;
   errors: any;
-};
-
-export type ResumeType = {
-  cvname: string;
-  resume: any;
-  url: string;
 };
 
 export type FooterSloganType = {
