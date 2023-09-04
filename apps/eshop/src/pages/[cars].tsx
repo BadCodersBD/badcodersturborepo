@@ -1,7 +1,7 @@
 import Head from "next/head";
-import type { ProductDetailsType } from "../types/type";
-import type { servicesProptype } from "../types/type";
-import { fetchservice } from "../utils/fetchServices";
+import type { ProductDetailsType } from "@/types/type";
+import type { servicesProptype } from "@/types/type";
+import { fetchservice } from "@/utils/fetchServices";
 import Header from "@/components/ui/features/Header/Header";
 import Footer from "@/components/ui/features/footer/Footer";
 import ProductLayout from "../components/layouts/ProductLayout";
