@@ -42,7 +42,7 @@ const ProductLayout = ({ product }: ProductDetailsType) => {
 
   return (
     <div className="w-full px-[0.5rem] md:px-[0.8rem] lg:px-[1.2rem]">
-      Car Details
+      Car Details pages
     </div>
   );
 };
