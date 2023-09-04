@@ -1,8 +1,8 @@
 import { memo, useEffect, useState } from "react";
 // import ProductCarousel from '../ui/features/ProductDetails/ProductCarousel/ProductCarousel'
 
-import type { ProductDetailsType } from "../../types/type";
-import { fetchservice } from "../../utils/fetchServices";
+import type { ProductDetailsType } from "@/types/type";
+import { fetchservice } from "@/utils/fetchServices";
 
 // const MemorizedProductCarousel = memo(ProductCarousel)
 
