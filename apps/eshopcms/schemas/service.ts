@@ -3,7 +3,7 @@ import {BottleIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'services',
-  title: 'Our Services',
+  title: 'Our Services Cars',
   type: 'document',
   icon: BottleIcon,
   fields: [
@@ -33,6 +33,23 @@ export default defineType({
     defineField({
       name: 'wifi',
       title: 'wifi',
+      type: 'string',
+    }),
+    defineField({
+      name: 'dailyprice',
+      title: 'Daily Price',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'hourlyprice',
+      title: 'Hourly Price',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'speed',
+      title: 'Speed',
       type: 'string',
     }),
     defineField({

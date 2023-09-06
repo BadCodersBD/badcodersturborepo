@@ -26,6 +26,9 @@ export type servicesProptype = {
   companyImage: string;
   passenger: string
   luggage: string
+  dailyprice: string
+  hourlyprice: string
+  speed: string
   wifi: string
   slug: slugType
 };
