@@ -9,7 +9,6 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import AccessibleIcon from "@mui/icons-material/Accessible";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import product from "@/pages/[product]";
 import type { ProductDetailsType } from "@/types/type";
 
 

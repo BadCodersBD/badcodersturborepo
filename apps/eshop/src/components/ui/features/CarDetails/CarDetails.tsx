@@ -4,14 +4,13 @@ import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
 import WifiIcon from "@mui/icons-material/Wifi";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import AccessibleIcon from "@mui/icons-material/Accessible";
 import Link from "next/link";
 import type { ProductDetailsType } from "@/types/type";
 import Grid from "@mui/material/Grid";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import WcIcon from '@mui/icons-material/Wc';
 
-const Cardetails = ({ product }: ProductDetailsType) => {
+const Cardetails = ({ product }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   if (loading) {

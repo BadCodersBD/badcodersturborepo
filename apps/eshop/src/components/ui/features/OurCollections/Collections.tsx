@@ -6,7 +6,6 @@ import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
 import WifiIcon from "@mui/icons-material/Wifi";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import AccessibleIcon from "@mui/icons-material/Accessible";
 import Link from "next/link";
 import WcIcon from '@mui/icons-material/Wc';
 
