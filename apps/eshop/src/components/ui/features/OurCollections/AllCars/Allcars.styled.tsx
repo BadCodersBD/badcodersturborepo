@@ -30,7 +30,7 @@ const Card = styled.div`
 
 const CardImage = styled(Image)`
   width: 100%;
-  height: auto;
+  height: 250px;
   object-fit: contain;
   border-radius: 10px;
   transition: 0.3s;

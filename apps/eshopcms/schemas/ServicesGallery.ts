@@ -3,7 +3,7 @@ import {AddCircleIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'servicesgallery',
-  title: 'Our Services Gallery',
+  title: 'Our Services Area',
   type: 'document',
   icon: AddCircleIcon,
   fields: [

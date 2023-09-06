@@ -38,7 +38,7 @@ const CardImage = styled(Image)`
     transform: scale(1.1);
   }
   @media (min-width: 768px) {
-    height: 100px;
+    height: 150px;
   }
 `;
 

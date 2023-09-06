@@ -63,6 +63,11 @@ const Collections = () => {
                 src={urlForThumbnail(data.companyImage)}
               />
             </div>
+            <div className="flex justify-around">
+              <h1 className="text-xl font-semibold">${data.hourlyprice}/Hourly</h1>
+              <h1 className="text-xl font-semibold">{data.speed}/Kmh</h1>
+              <h1 className="text-xl font-semibold">${data.dailyprice}/Daily</h1>
+            </div>
             <div className="flex justify-center items-center">
               <Styled.Subspan>
                 <WcIcon color="success" fontSize="medium" />
