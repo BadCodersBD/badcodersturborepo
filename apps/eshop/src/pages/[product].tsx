@@ -25,27 +25,23 @@ const Product = ({ product }: ProductDetailsType) => {
 
 export default Product;
 
-export async function getStaticPaths({ locales }: any) {
+export async function getStaticPaths() {
   const productData = await fetchservice();
-  const paths = productData.flatMap((product: servicesProptype) =>
-    locales.map((locale: string) => ({
-      params: { product: product.slug.current },
-      locale,
-    }))
-  );
+  const paths = productData.map((product: servicesProptype) => {
+    return {
+      params: {
+        product: product.slug.current,
+      },
+    };
+  });
+
   return {
     paths: paths,
     fallback: false,
   };
 }
 
-export async function getStaticProps({
-  params,
-  locale,
-}: {
-  params: any;
-  locale: string;
-}) {
+export async function getStaticProps({ params }: { params: any }) {
   const productData = await fetchservice();
   const product = productData.find(
     (product: servicesProptype) => product.slug.current === params.product
