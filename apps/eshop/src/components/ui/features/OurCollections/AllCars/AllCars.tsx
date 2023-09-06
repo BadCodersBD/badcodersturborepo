@@ -60,7 +60,7 @@ const Allcars = ({ product }: ProductDetailsType) => {
       <h1 className="text-2xl flex justify-center items-center font-bold my-5">
         We Have Everything You Need
       </h1>
-      <div className="grid  gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid  gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4">
         {Allcars.slice(0, displayServices).map((data, index) => (
           <Styled.Card key={index}>
             <Styled.Title>{data.title}</Styled.Title>

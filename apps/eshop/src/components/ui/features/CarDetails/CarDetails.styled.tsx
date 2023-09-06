@@ -4,7 +4,7 @@ import Image from "next/image";
 const Main = styled.div`
   width: 100%;
   height: auto;
-  padding: 2rem;
+  padding-top: 5rem;
   background-color: #ffffff;
   color: #000000;
 `;
@@ -30,7 +30,7 @@ const Card = styled.div`
 
 const CardImage = styled(Image)`
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   border-radius: 10px;
   transition: 0.3s;
@@ -38,23 +38,20 @@ const CardImage = styled(Image)`
     transform: scale(1.1);
   }
   @media (min-width: 768px) {
-    height: 100px;
+    height: 100%;
   }
 `;
 
 const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 `;
 
 const Subspan = styled.span`
   font-size: 1rem;
   font-weight: 500;
   margin-left: 0.5rem;
+  gap: 0.5rem;
 `;
 
 const SeeMore = styled.button`

@@ -43,7 +43,7 @@ const ProductLayout = ({ product }: ProductDetailsType) => {
   // console.log(product);
 
   return (
-    <div className="w-full px-[0.5rem] md:px-[0.8rem] lg:px-[1.2rem]">
+    <div className="w-full bg-white px-[0.5rem] md:px-[0.8rem] lg:px-[1.2rem]">
       <Cardetails product={product} />
     </div>
   );
