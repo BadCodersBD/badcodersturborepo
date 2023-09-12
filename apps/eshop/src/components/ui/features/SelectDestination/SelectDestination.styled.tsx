@@ -11,8 +11,10 @@ const Main = styled.div`
 const Card = styled.div`
   width: 100%;
   height: auto;
-  box-shadow: 0.5 0.5 0.5 0.5 #4e4d4d;
-`;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  background-color: #f3eeee;
+  `;
 
 export const Styled = {
   Main,
