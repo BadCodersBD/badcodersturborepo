@@ -8,14 +8,21 @@ import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot"
 import Footer from "@/components/ui/features/footer/Footer";
 import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
 // import TopBanner from "../components/ui/features/TopHeader/TopBanner";
+import metaData from "../../public/meta.json";
 
 export default function Home() {
+  
   return (
     <>
       <Head>
-        <title>E-Trip</title>
-        <meta name="description" content="A Travell service Company" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Car Rental</title>
+        <meta name="description" content={metaData.description} />
+        <meta name="keywords" content={metaData.keywords} />
+        <meta property="og:description" content={metaData.keywords} />
+        <meta property="og:url" content={metaData.url} />
+        <meta property="og:type" content={metaData.type} />
+        <meta property="og:image" content={metaData.image} />
+        <link rel="icon" href="/rent-icon.png" />
       </Head>
       <Header />
       <Main />
