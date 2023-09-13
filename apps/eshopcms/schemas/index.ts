@@ -6,5 +6,6 @@ import skill from './skill'
 import social from './social'
 import hero from './Hero'
 import cv from './Cv'
+import logo from './logo'
 
-export const schemaTypes = [hero, servicesgallery, services, pageInfo, brands, skill, social, cv]
+export const schemaTypes = [logo,hero, servicesgallery, services, pageInfo, brands, skill, social, cv]
