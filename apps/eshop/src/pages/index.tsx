@@ -18,7 +18,7 @@ export default function Home() {
         <title>Car Rental</title>
         <meta name="description" content={metaData.description} />
         <meta name="keywords" content={metaData.keywords} />
-        <meta property="og:description" content={metaData.keywords} />
+        <meta property="og:description" content={metaData.description} />
         <meta property="og:url" content={metaData.url} />
         <meta property="og:type" content={metaData.type} />
         <meta property="og:image" content={metaData.image} />
