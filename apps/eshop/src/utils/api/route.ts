@@ -1,11 +1,21 @@
 export const endPoints = {
-  akibfb: {
-    emailToCustomer: "/customers/find-by-email",
+  auth: {
+    register: '/auth/register',
+    login: '/auth/login',
+    sendOtp: '/auth/reset-pass/send-otp',
+    otpValidation: '/auth/reset-pass/otp-validate',
+    updatePassword: '/auth/reset-pass/update-password',
   },
-  akijecom: {
-    orderCreate: "/orders/create",
-    shippingInfo: "/shippingInfo/create",
-    sslPayment: "/ssl-payment",
+  admin: {
+    auth: {
+      login: '/admin-auth/login',
+      adminOrder: '/admin-orders',
+    },
   },
-  auth: {},
-};
+  delivery: {
+    auth: {
+      login: '/delivery-man-auth/login',
+    },
+    resendOTP: '/delivery-man-otp',
+  },
+}

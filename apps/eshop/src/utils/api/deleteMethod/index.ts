@@ -1,10 +1,10 @@
 'use client'
 import { apiSetup } from '../api'
 
-export const postMethod = async (route: any, postData: any) => {
+export const deleteMethod = async (route: any, deleteData: any) => {
   try {
     const api = apiSetup()
-    const response = await (await api).post(route, postData)
+    const response = await (await api).delete(route, deleteData)
     return response
   } catch (error) {
     throw error
