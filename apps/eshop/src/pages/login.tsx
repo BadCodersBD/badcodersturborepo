@@ -32,7 +32,7 @@ const LoginForm = () => {
   return (
     <div className="bg-white">
       <Head>
-        <title>E-Trip::Login</title>
+        <title>Beach Limo::Login</title>
         <meta name="description" content="A Travell service Company" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

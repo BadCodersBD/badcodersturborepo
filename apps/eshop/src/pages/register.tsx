@@ -33,7 +33,7 @@ const RegisterForm = () => {
   return (
     <div className="bg-white">
       <Head>
-        <title>E-Trip::Register</title>
+        <title>Beach Limo::Register</title>
         <meta name="description" content="A Travell service Company" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -12,7 +12,7 @@ const Product = ({ product }: ProductDetailsType) => {
   return (
     <>
       <Head>
-        <title>E-Trip::All Cars</title>
+        <title>Beach Limo::All Cars</title>
         <meta name="description" content="A Travell service Company" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
