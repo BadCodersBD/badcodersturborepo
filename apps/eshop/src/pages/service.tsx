@@ -8,7 +8,7 @@ const service = () => {
   return (
     <>
       <Head>
-        <title>E-Trip::Service</title>
+        <title>Beach Limo::Service</title>
         <meta name="description" content="A Travell service Company" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -15,14 +15,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Car Rental</title>
+        <title>Beach Limo</title>
         <meta name="description" content={metaData.description} />
         <meta name="keywords" content={metaData.keywords} />
         <meta property="og:description" content={metaData.description} />
         <meta property="og:url" content={metaData.url} />
         <meta property="og:type" content={metaData.type} />
         <meta property="og:image" content={metaData.image} />
-        <link rel="icon" href="/rent-icon.png" />
+        <link rel="icon" href="/favico.png" />
       </Head>
       <Header />
       <Main />
