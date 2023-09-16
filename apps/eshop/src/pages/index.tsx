@@ -22,6 +22,7 @@ export default function Home() {
         <meta property="og:url" content={metaData.url} />
         <meta property="og:type" content={metaData.type} />
         <meta property="og:image" content={metaData.image} />
+        <meta name="google-site-verification" content="uF7IpXKCuelQJy81bb-K1zcDj1VXO3l366zJzWjRki8" />
         <link rel="icon" href="/favico.png" />
       </Head>
       <Header />
