@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Beach Limo</title>
+        <title>Beach Limo: Car Rental Services</title>
         <meta name="description" content={metaData.description} />
         <meta name="keywords" content={metaData.keywords} />
         <meta property="og:description" content={metaData.description} />
@@ -23,7 +23,7 @@ export default function Home() {
         <meta property="og:type" content={metaData.type} />
         <meta property="og:image" content={metaData.image} />
         <meta name="google-site-verification" content="uF7IpXKCuelQJy81bb-K1zcDj1VXO3l366zJzWjRki8" />
-        <link rel="icon" href="/favico.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <Main />
