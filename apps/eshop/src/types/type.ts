@@ -1,6 +1,7 @@
 export type LogoPropsType = {
   logoimage: string;
   logoname: string;
+  description: string;
 };
 
 export type HeroType = {
@@ -11,6 +12,12 @@ export type HeroType = {
 };
 
 export type SocialIconType = {
+  title: string;
+  image: string;
+  url: string;
+};
+
+export type PaymentIconType = {
   title: string;
   image: string;
   url: string;

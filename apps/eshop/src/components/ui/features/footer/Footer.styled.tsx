@@ -4,10 +4,10 @@ const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100% !important;
   height: auto;
   padding: 2rem;
-  background-color: #2b2a2a;
+  background-color: #322D53;
   color: white;
 `;
 
