@@ -1,11 +1,23 @@
-import servicesgallery from './ServicesGallery'
-import services from './service'
-import pageInfo from './pageInfo'
 import brands from './Brands'
+import cv from './Cv'
+import hero from './Hero'
+import payment from './PaymentIcon'
+import servicesgallery from './ServicesGallery'
+import logo from './logo'
+import pageInfo from './pageInfo'
+import services from './service'
 import skill from './skill'
 import social from './social'
-import hero from './Hero'
-import cv from './Cv'
-import logo from './logo'
 
-export const schemaTypes = [logo,hero, servicesgallery, services, pageInfo, brands, skill, social, cv]
+export const schemaTypes = [
+  logo,
+  hero,
+  servicesgallery,
+  services,
+  pageInfo,
+  brands,
+  skill,
+  social,
+  cv,
+  payment,
+]

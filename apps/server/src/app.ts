@@ -32,6 +32,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/notes", requiresAuth, notesRoutes);
 
 app.use((req, res, next) => {
+    res.send('Hello World!');
     next(createHttpError(404, "Endpoint not found"));
 });
 

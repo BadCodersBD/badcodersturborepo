@@ -1,21 +1,21 @@
-import type { SocialIconType } from "../../../../../types/type";
-import { fetchSocialIcon } from "../../../../../utils/fetchSocialIcon";
+import type { PaymentIconType } from "../../../../../types/type";
+import { fetchPaymentIcon } from "../../../../../utils/fetchPayment";
 import { urlForThumbnail } from "../../../../../utils/imageProcess";
 import { GenericSpinner } from "@/components/ui/element/GenericSpinner/GenericSpinner";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 
-const SocialIcon = () => {
-  const [SocialIcon, setSocialIcon] = useState<SocialIconType[]>([]);
+const PaymentIcon = () => {
+  const [PaymentIcon, setPaymentIcon] = useState<PaymentIconType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const Social = await fetchSocialIcon();
-        setSocialIcon(Social);
+        const Payment = await fetchPaymentIcon();
+        setPaymentIcon(Payment);
         setLoading(false);
       } catch (e) {
         console.log("Error", e);
@@ -36,20 +36,20 @@ const SocialIcon = () => {
 
   return (
     <div className="flex gap-4 w-full h-auto">
-      {SocialIcon.map((Data, index) => (
-        <Link href={Data.url} key={index}>
+      {PaymentIcon.map((Data, index) => (
+        <div key={index}>
             <Image
-              width={50}
-              height={50}
+              width={0}
+              height={0}
               sizes="100vw"
-              // style={{ objectFit: "contain", width: "100%", height: "auto" }}
+              style={{ objectFit: "cover", width: "80px", height: "50px", borderRadius: '10px' }}
               src={urlForThumbnail(Data.image)}
               alt={Data.title}
             />
-        </Link>
+        </div>
       ))}
     </div>
   );
 };
 
-export default SocialIcon;
+export default PaymentIcon;

@@ -20,5 +20,10 @@ export default defineType({
               hotspot: true,
             },
           }),
+          defineField({
+            name: 'description',
+            title: 'Company description',
+            type: 'text',
+          }),
     ],
 })
