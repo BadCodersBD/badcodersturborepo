@@ -15,10 +15,10 @@ import type { ProductDetailsType } from "@/types/type";
 const Allcars = ({ product }: ProductDetailsType) => {
   const [Allcars, setAllcars] = useState<servicesProptype[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [displayServices, setdisplayservices] = useState(4);
+  const [displayServices, setdisplayservices] = useState(6);
 
   const showMoreProducts = () => {
-    setdisplayservices(displayServices + 4);
+    setdisplayservices(displayServices + 6);
   };
 
   useEffect(() => {
