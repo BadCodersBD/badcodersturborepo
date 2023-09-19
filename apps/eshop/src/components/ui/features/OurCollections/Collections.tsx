@@ -12,7 +12,7 @@ import WcIcon from '@mui/icons-material/Wc';
 const Collections = () => {
   const [Services, setServices] = useState<servicesProptype[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [displayServices, setdisplayservices] = useState(4);
+  const [displayServices, setdisplayservices] = useState(3);
 
   // const showMoreProducts = () => {
   //   setdisplayservices(displayServices + 4);
