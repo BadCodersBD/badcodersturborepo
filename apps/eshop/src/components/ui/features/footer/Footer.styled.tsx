@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 const Footer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100% !important;
   height: auto;
   padding: 2rem;
   background-color: #322D53;
   color: white;
+  @media (min-width: 990px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Heading = styled.h1`

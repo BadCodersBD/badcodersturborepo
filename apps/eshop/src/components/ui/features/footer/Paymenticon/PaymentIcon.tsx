@@ -42,7 +42,7 @@ const PaymentIcon = () => {
               width={0}
               height={0}
               sizes="100vw"
-              style={{ objectFit: "cover", width: "80px", height: "50px", borderRadius: '10px' }}
+              style={{ objectFit: "cover", width: "70px", height: "50px", borderRadius: '10px' }}
               src={urlForThumbnail(Data.image)}
               alt={Data.title}
             />
