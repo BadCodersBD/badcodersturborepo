@@ -5,6 +5,7 @@ import OurBrands from "../../features/OurBrands/OurBrands";
 import Collections from "../../features/OurCollections/Collections";
 import OurLocation from "../../features/OurLocation/OurLocation";
 import Selectdestination from "../../features/SelectDestination/SelectDestinations";
+import ChooseUs from "../../features/WhyChooseUs/WhyChooseUs";
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
       <Collections />
       <OurBrands />
       <OurLocation />
+      <ChooseUs/>
     </div>
   );
 };
