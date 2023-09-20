@@ -28,7 +28,7 @@ const Footer = () => {
         </Grid>
         <Grid container spacing={2}>
           <Grid item xs={12} lg={12}>
-            <div className="flex justify-center">
+            <div className="flex lg:justify-center">
             <div>
             <h1 className="text-2xl font-semibold my-5">Company Info</h1>
             <h1 className="text-base underline my-2">Our Service</h1>

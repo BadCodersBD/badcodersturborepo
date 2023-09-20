@@ -26,11 +26,12 @@ const ChooseUs = () => {
           width={0}
           height={0}
           sizes="100vw"
-          style={{ width: "100vw", height: "100vh", objectFit: "contain" }}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
         <Grid container spacing={4}>
           <Grid item lg={6} xs={12}>
-            <div className="w-full ml-10">
+            <div className="flex justify-center items-center- pl-10">
+            <div className="w-full ">
               <h4 className="text-3xl font-bold ">Why Choose Us</h4>
               <h2 className="text-4xl font-extrabold my-5">
                 Best valued deals <br></br> you will ever find
@@ -47,9 +48,10 @@ const ChooseUs = () => {
                 Find Details
               </div>
             </div>
+            </div>
           </Grid>
           <Grid item lg={6} xs={12}>
-            <div>
+            <div className="pl-10">
               <div className="flex justify-center items-center gap-6">
                 <Image
                   src={`/chooseUs/icon1.png`}
@@ -57,6 +59,7 @@ const ChooseUs = () => {
                   width={200}
                   height={200}
                   sizes="100vw"
+                  className=" object-contain"
                 />
                 <div>
                   <h4 className="text-2xl font-bold">Cross Country Drive</h4>
@@ -73,6 +76,7 @@ const ChooseUs = () => {
                   width={200}
                   height={200}
                   sizes="100vw"
+                  className=" object-contain"
                 />
                 <div>
                   <h4 className="text-2xl font-bold">All Inclusive Pricing</h4>
@@ -83,13 +87,13 @@ const ChooseUs = () => {
                 </div>
               </div>
               <div className="flex gap-4">
-                {" "}
                 <Image
                   src={`/chooseUs/icon3.png`}
                   alt="coin-img"
                   width={200}
                   height={200}
                   sizes="100vw"
+                  className=" object-contain"
                 />
                 <div>
                   <h4 className="text-2xl font-bold">No Hidden Charges</h4>
