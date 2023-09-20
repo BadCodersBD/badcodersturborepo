@@ -1,22 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Styled } from "./Collection.styled";
-import { fetchservice } from "../../../../utils/fetchServices";
 import type { servicesProptype } from "../../../../types/type";
-import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
+import { fetchservice } from "../../../../utils/fetchServices";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
-import WifiIcon from "@mui/icons-material/Wifi";
+import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
+import { Styled } from "./Collection.styled";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import WcIcon from "@mui/icons-material/Wc";
+import WifiIcon from "@mui/icons-material/Wifi";
 import Link from "next/link";
-import WcIcon from '@mui/icons-material/Wc';
+import React, { useState, useEffect, useRef } from "react";
 
 const Collections = () => {
   const [Services, setServices] = useState<servicesProptype[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [displayServices, setdisplayservices] = useState(3);
-
-  // const showMoreProducts = () => {
-  //   setdisplayservices(displayServices + 4);
-  // };
+  const [displayServices, setDisplayServices] = useState(getInitialDisplay());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +30,26 @@ const Collections = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    function handleResize() {
+      setDisplayServices(getInitialDisplay());
+    }
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
+  }, []);
+
+  function getInitialDisplay() {
+    return typeof window !== "undefined" && window.innerWidth < 990 ? 4 : 3; // Adjust the breakpoint if needed
+  }
+
   if (loading) {
     return (
       <div className="relative flex h-[90vh] items-center justify-center overflow-hidden">
@@ -50,7 +66,9 @@ const Collections = () => {
       <h1 className="text-2xl flex justify-center items-center font-bold my-5">
         We Have Everything You Need
       </h1>
-      <div className="grid  gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3">
+      <div
+        className={`grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-${displayServices} xl:grid-cols-${displayServices} 2xl:grid-cols-${displayServices}`}
+      >
         {Services.slice(0, displayServices).map((data, index) => (
           <Styled.Card key={index}>
             <Styled.Title>{data.title}</Styled.Title>
@@ -64,9 +82,13 @@ const Collections = () => {
               />
             </div>
             <div className="flex justify-around">
-              <h1 className="text-xl font-semibold">${data.hourlyprice}/Hourly</h1>
+              <h1 className="text-xl font-semibold">
+                ${data.hourlyprice}/Hourly
+              </h1>
               <h1 className="text-xl font-semibold">{data.speed}/Kmh</h1>
-              <h1 className="text-xl font-semibold">${data.dailyprice}/Daily</h1>
+              <h1 className="text-xl font-semibold">
+                ${data.dailyprice}/Daily
+              </h1>
             </div>
             <div className="flex justify-center items-center">
               <Styled.Subspan>
