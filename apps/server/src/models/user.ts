@@ -1,11 +1,19 @@
-import { InferSchemaType, model, Schema } from "mongoose";
+// User.ts
 
-const userSchema = new Schema({
-    username: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true, select: false },
-    password: { type: String, required: true, select: false },
+import mongoose, { Schema, Document } from 'mongoose';
+
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password: string;
+  image: string; // Assuming 'image' is a URL to the user's image
+}
+
+const UserSchema: Schema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  image: { type: String, required: true }, // Assuming 'image' is a URL to the user's image
 });
 
-type User = InferSchemaType<typeof userSchema>;
-
-export default model<User>("User", userSchema);
+export default mongoose.model<IUser>('User', UserSchema);

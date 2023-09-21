@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
-import notesRoutes from "./routes/notes";
+// import notesRoutes from "./routes/notes";
+import carrents from "./routes/carrentals";
 import userRoutes from "./routes/users";
 import morgan from "morgan";
 import createHttpError, { isHttpError } from "http-errors";
@@ -29,10 +30,12 @@ app.use(session({
 }));
 
 app.use("/api/users", userRoutes);
-app.use("/api/notes", requiresAuth, notesRoutes);
+// app.use("/api/notes", requiresAuth, notesRoutes);
+app.use("/api/carrents", requiresAuth, carrents);
+
 
 app.use((req, res, next) => {
-    res.send('Hello World!');
+    res.send('Hello Mongo!');
     next(createHttpError(404, "Endpoint not found"));
 });
 

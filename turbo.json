@@ -22,7 +22,8 @@
         "FACEBOOK_ID",
         "FACEBOOK_SECRET",
         "GOOGLE_ID",
-        "GOOGLE_SECRET"
+        "GOOGLE_SECRET",
+        "SECRET_KEY"
       ]
     },
     "test": {

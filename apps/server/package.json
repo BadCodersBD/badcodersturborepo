@@ -15,6 +15,7 @@
     "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.17",
     "@types/express-session": "^1.17.7",
+    "@types/jsonwebtoken": "^9.0.3",
     "@types/morgan": "^1.9.5",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
@@ -30,6 +31,7 @@
     "envalid": "^7.3.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^5.8.1",
     "mongoose": "^7.4.5",
     "morgan": "^1.10.0"
