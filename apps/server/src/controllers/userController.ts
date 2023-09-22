@@ -17,3 +17,6 @@ export const getAuthenticatedUser = async (req: any, res: Response, next: NextFu
         next(error); // Pass the error to the error handling middleware
     }
 };
+
+
+//request should not be any type
