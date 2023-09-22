@@ -7,6 +7,7 @@ import OurLocation from "../../features/OurLocation/OurLocation";
 import Selectdestination from "../../features/SelectDestination/SelectDestinations";
 import ChooseUs from "../../features/WhyChooseUs/WhyChooseUs";
 import PlanTrip from "../../features/PlanYourTrip/PlanTrup";
+import MapMain from "../../features/MapBox/MapMain";
 
 const Main = () => {
   return (
@@ -17,6 +18,7 @@ const Main = () => {
       <Collections />
       <OurBrands />
       <OurLocation />
+      <MapMain/>
       <PlanTrip/>
       <ChooseUs/>
     </div>
