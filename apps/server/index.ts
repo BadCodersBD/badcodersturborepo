@@ -1,4 +1,4 @@
- import app from "./app";
+ import app from "./src/app";
 // import env from "./util/validateEnv";
 import mongoose from "mongoose";
 // import express from 'express';

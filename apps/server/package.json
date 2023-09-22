@@ -4,10 +4,10 @@
   "description": "Car rental Server installation",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon src/index.ts",
+    "start": "nodemon index.ts",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build --output public"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
