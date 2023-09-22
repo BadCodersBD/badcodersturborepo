@@ -1,8 +1,9 @@
-import { Request, Response, NextFunction } from 'express';
+import { Response, NextFunction } from 'express';
+// import { Request, Response, NextFunction } from 'express';
 import User from '../models/user';
 // import { requiresAuth } from '../middleware/auth'; 
 
-export const getAuthenticatedUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const getAuthenticatedUser = async (req: any, res: Response, next: NextFunction): Promise<void> => {
     try {
         // Assuming req.user is properly attached by requiresAuth middleware
         const user = await User.findById(req.user?.userId).select('name email image').exec();
