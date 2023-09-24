@@ -5,8 +5,11 @@ import bcrypt from "bcrypt";
 
 export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
     try {
-        const user = await UserModel.findById(req.session.id).select("+email").exec();
-        res.status(200).json(user);
+        const {id} = req.params
+        const user = await UserModel.findById(id).select("+email").exec();
+        console.log(id);
+        console.log(req.params)
+        res.status(200).json({message: `this is your params id ${id}`, userData: user});
     } catch (error) {
         next(error);
     }
@@ -48,7 +51,7 @@ export const signUp: RequestHandler<unknown, unknown, SignUpBody, unknown> = asy
             password: passwordHashed,
         });
 
-        req.session.id = newUser.id;
+        // req.session.id = newUser.id;
 
         res.status(201).json(newUser);
     } catch (error) {
@@ -82,7 +85,7 @@ export const login: RequestHandler<unknown, unknown, LoginBody, unknown> = async
             throw createHttpError(401, "Invalid credentials");
         }
 
-        req.session.id = user.id;
+        // req.session.id = user.id;
         res.status(201).json(user);
     } catch (error) {
         next(error);
