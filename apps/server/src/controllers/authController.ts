@@ -2,13 +2,12 @@ import { RequestHandler } from "express";
 import createHttpError from "http-errors";
 import UserModel from "../models/user";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"; // Import jwt library
 
 export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
     try {
         const {id} = req.params
         const user = await UserModel.findById(id).select("+email").exec();
-        console.log(id);
-        console.log(req.params)
         res.status(200).json({message: `this is your params id ${id}`, userData: user});
     } catch (error) {
         next(error);
@@ -51,9 +50,10 @@ export const signUp: RequestHandler<unknown, unknown, SignUpBody, unknown> = asy
             password: passwordHashed,
         });
 
-        // req.session.id = newUser.id;
+        // Generate JWT Token
+        const token = jwt.sign({ userId: newUser._id }, "Badcoder@%repo", { expiresIn: "1h" });
 
-        res.status(201).json(newUser);
+        res.status(201).json({ user: newUser, token: token }); // Send token in response
     } catch (error) {
         next(error);
     }
