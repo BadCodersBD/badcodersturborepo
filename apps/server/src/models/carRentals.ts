@@ -1,41 +1,25 @@
-// import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Document, Model, Schema } from "mongoose";
 
-// // Define the interface for CarRental document
-// interface ICarRental extends Document {
-//   userId: string;
-//   carModel: string;
-//   startDate: Date;
-//   endDate: Date;
-// }
+export interface CarRentalDocument extends Document {
+  userId: mongoose.Types.ObjectId;
+  carModel: string;
+  startDate: Date;
+  endDate: Date;
+  location: any;
+}
 
-// // Define the schema for CarRental
-// const carRentalSchema = new Schema({
-//   userId: { type: String, required: true },
-//   carModel: { type: String, required: true },
-//   startDate: { type: Date, required: true },
-//   endDate: { type: Date, required: true }
-// });
-
-// // Create the CarRental model
-// const CarRentalModel = mongoose.model<ICarRental>('CarRental', carRentalSchema);
-
-// export default CarRentalModel;
-
-
-import mongoose from "mongoose";
-
-const carRentalSchema = new mongoose.Schema({
+const carRentalSchema = new Schema<CarRentalDocument>({
   userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'User' // This is a reference to the User model
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
   },
   carModel: String,
   startDate: Date,
-  endDate: Date
+  endDate: Date,
+  location: String
 });
 
-const CarRentalModel = mongoose.model('CarRental', carRentalSchema);
+const CarRentalModel: Model<CarRentalDocument> = mongoose.model('CarRental', carRentalSchema);
 
 export default CarRentalModel;
-

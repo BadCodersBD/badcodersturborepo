@@ -1,10 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import createHttpError from 'http-errors';
-// import dotenv from 'dotenv';
-
-// dotenv.config();
-
 
 const secretKey = "Badcoder@%repo";
 
