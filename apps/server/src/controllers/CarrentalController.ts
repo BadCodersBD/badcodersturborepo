@@ -3,6 +3,8 @@ import createHttpError from "http-errors";
 import mongoose from "mongoose";
 import CarRentalModel from "../models/carRentals"; // Import the CarRentalModel
 import { assertIsDefined } from "../util/assertIsDefined";
+import UserModel from "../models/user";
+
 
 export const getRentals: RequestHandler = async (req, res, next) => {
     const authenticatedUserId = req.session.id;
@@ -45,36 +47,38 @@ export const getRental: RequestHandler = async (req, res, next) => {
 };
 
 interface CreateRentalBody {
+    userId: string,
     carModel?: string,
+    location?: string,
     startDate?: Date,
     endDate?: Date,
 }
 
 export const createRental: RequestHandler<unknown, unknown, CreateRentalBody, unknown> = async (req, res, next) => {
-    const carModel = req.body.carModel;
-    const startDate = req.body.startDate;
-    const endDate = req.body.endDate;
-    const authenticatedUserId = req.session.id;
-
     try {
-        assertIsDefined(authenticatedUserId);
-
-        if (!carModel || !startDate || !endDate) {
-            throw createHttpError(400, "All fields are required");
+        const { userId, carModel, location, startDate, endDate } = req.body;
+    
+        // Check if the user with the provided userId exists
+        const user = await UserModel.findById(userId);
+        if (!user) {
+          return res.status(404).json({ message: "User not found" });
         }
-
-        const newRental = await CarRentalModel.create({
-            userId: authenticatedUserId,
-            carModel: carModel,
-            startDate: startDate,
-            endDate: endDate,
+    
+        // Create a new car rental record
+        const newCarRental = await CarRentalModel.create({
+          userId,
+          carModel,
+          location,
+          startDate,
+          endDate,
         });
-
-        res.status(201).json(newRental);
-    } catch (error) {
-        next(error);
-    }
-};
+    
+        res.status(201).json({ message: "Car rental record created", carRental: newCarRental });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+      }
+    };
 
 interface UpdateRentalParams {
     rentalId: string,
@@ -82,12 +86,14 @@ interface UpdateRentalParams {
 
 interface UpdateRentalBody {
     carModel?: string,
+    location?: string,
     startDate?: Date,
     endDate?: Date,
 }
 
 export const updateRental: RequestHandler<UpdateRentalParams, unknown, UpdateRentalBody, unknown> = async (req, res, next) => {
     const rentalId = req.params.rentalId;
+    const newlocation = req.body.location;
     const newCarModel = req.body.carModel;
     const newStartDate = req.body.startDate;
     const newEndDate = req.body.endDate;
@@ -115,6 +121,7 @@ export const updateRental: RequestHandler<UpdateRentalParams, unknown, UpdateRen
         }
 
         rental.carModel = newCarModel;
+        rental.location = newlocation;
         rental.startDate = newStartDate;
         rental.endDate = newEndDate;
 
