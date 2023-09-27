@@ -2,29 +2,12 @@ import { RequestHandler } from "express";
 import createHttpError from "http-errors";
 import mongoose from "mongoose";
 import CarRentalModel from "../models/carRentals"; // Import the CarRentalModel
-import { assertIsDefined } from "../util/assertIsDefined";
 import UserModel from "../models/user";
-
-
-export const getRentals: RequestHandler = async (req, res, next) => {
-    const authenticatedUserId = req.session.id;
-
-    try {
-        assertIsDefined(authenticatedUserId);
-
-        const rentals = await CarRentalModel.find({ userId: authenticatedUserId }).exec();
-        res.status(200).json(rentals);
-    } catch (error) {
-        next(error);
-    }
-};
 
 export const getRental: RequestHandler = async (req, res, next) => {
     const rentalId = req.params.rentalId;
-    const authenticatedUserId = req.session.id;
 
     try {
-        assertIsDefined(authenticatedUserId);
 
         if (!mongoose.isValidObjectId(rentalId)) {
             throw createHttpError(400, "Invalid rental id");
@@ -36,7 +19,7 @@ export const getRental: RequestHandler = async (req, res, next) => {
             throw createHttpError(404, "Rental not found");
         }
 
-        if (!rental.userId.equals(authenticatedUserId)) {
+        if (!rental.userId) {
             throw createHttpError(401, "You cannot access this rental");
         }
 
@@ -54,7 +37,7 @@ interface CreateRentalBody {
     endDate?: Date,
 }
 
-export const createRental: RequestHandler<unknown, unknown, CreateRentalBody, unknown> = async (req, res, next) => {
+export const createRental: RequestHandler<unknown, unknown, CreateRentalBody, unknown> = async (req, res) => {
     try {
         const { userId, carModel, location, startDate, endDate } = req.body;
     
@@ -80,44 +63,23 @@ export const createRental: RequestHandler<unknown, unknown, CreateRentalBody, un
       }
     };
 
-interface UpdateRentalParams {
-    rentalId: string,
-}
-
-interface UpdateRentalBody {
-    carModel?: string,
-    location?: string,
-    startDate?: Date,
-    endDate?: Date,
-}
-
-export const updateRental: RequestHandler<UpdateRentalParams, unknown, UpdateRentalBody, unknown> = async (req, res, next) => {
+    
+export const updateRental: RequestHandler = async (req, res, next) => {
     const rentalId = req.params.rentalId;
     const newlocation = req.body.location;
     const newCarModel = req.body.carModel;
     const newStartDate = req.body.startDate;
     const newEndDate = req.body.endDate;
-    const authenticatedUserId = req.session.id;
 
     try {
-        assertIsDefined(authenticatedUserId);
-
-        if (!mongoose.isValidObjectId(rentalId)) {
-            throw createHttpError(400, "Invalid rental id");
-        }
-
         if (!newCarModel || !newStartDate || !newEndDate) {
             throw createHttpError(400, "All fields are required");
         }
 
-        const rental = await CarRentalModel.findById(rentalId).exec();
+        const rental = await CarRentalModel.findById(rentalId);
 
         if (!rental) {
             throw createHttpError(404, "Rental not found");
-        }
-
-        if (!rental.userId.equals(authenticatedUserId)) {
-            throw createHttpError(401, "You cannot access this rental");
         }
 
         rental.carModel = newCarModel;
@@ -135,11 +97,8 @@ export const updateRental: RequestHandler<UpdateRentalParams, unknown, UpdateRen
 
 export const deleteRental: RequestHandler = async (req, res, next) => {
     const rentalId = req.params.rentalId;
-    const authenticatedUserId = req.session.id;
 
     try {
-        assertIsDefined(authenticatedUserId);
-
         if (!mongoose.isValidObjectId(rentalId)) {
             throw createHttpError(400, "Invalid rental id");
         }
@@ -150,13 +109,13 @@ export const deleteRental: RequestHandler = async (req, res, next) => {
             throw createHttpError(404, "Rental not found");
         }
 
-        if (!rental.userId.equals(authenticatedUserId)) {
+        if (!rental.userId) {
             throw createHttpError(401, "You cannot access this rental");
         }
 
-        await rental.replaceOne();
+        await CarRentalModel.deleteOne({ _id: rentalId });
 
-        res.sendStatus(204);
+        res.status(204).send({ message: "Rental deleted successfully" });
     } catch (error) {
         next(error);
     }

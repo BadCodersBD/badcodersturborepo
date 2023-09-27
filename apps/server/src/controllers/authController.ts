@@ -84,15 +84,14 @@ export const login: RequestHandler<unknown, unknown, LoginBody, unknown> = async
         if (!passwordMatch) {
             throw createHttpError(401, "Invalid credentials");
         }
-        const token = jwt.sign({ userId: user._id }, "Badcoder@%repo", { expiresIn: "1h" });
-        res.status(201).json({ user, token });
         
-        // req.session.id = user.id;
-        res.status(201).json(user);
+        const token = jwt.sign({ userId: user._id }, "Badcoder@%repo", { expiresIn: "1h" });
+        res.status(200).json({ user, token });
     } catch (error) {
         next(error);
     }
 };
+
 
 
 export const logout: RequestHandler = (req, res, next) => {

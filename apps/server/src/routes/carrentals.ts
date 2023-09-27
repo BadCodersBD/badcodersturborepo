@@ -7,7 +7,7 @@ const router = express.Router();
 // router.get("/", requiresAuth, CarRentalController.getRentals);
 router.get("/:rentalId", requiresAuth, CarRentalController.getRental);
 router.post("/createCarRental", requiresAuth, CarRentalController.createRental);
-router.put("/:rentalId",  CarRentalController.updateRental);
+router.put("/:rentalId", CarRentalController.updateRental);
 router.delete("/:rentalId", requiresAuth, CarRentalController.deleteRental);
 
 export default router;
