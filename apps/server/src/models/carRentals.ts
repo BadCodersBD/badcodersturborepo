@@ -5,7 +5,7 @@ export interface CarRentalDocument extends Document {
   carModel: string;
   startDate: Date;
   endDate: Date;
-  location: any;
+  location: unknown;
 }
 
 const carRentalSchema = new Schema<CarRentalDocument>({
