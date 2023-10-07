@@ -27,44 +27,6 @@ const LoginForm = () => {
     if (name === "password") setpasswordInput(value);
   };
 
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  
-  //   const jsonData = JSON.stringify({
-  //     email: data?.email,
-  //     password: data?.password,
-  //   });
-  
-  //   try {
-  //     const response = await fetch(
-  //       "https://carrentalserver.vercel.app/api/users/login",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: jsonData,
-  //       }
-  //     );
-  
-  //     if (response.ok) {
-  //       const responseData = await response.json();
-  //       // Assuming you want to do something with the response data
-  //       console.log(responseData);
-  
-  //       router.push("/");
-  //     } else {
-  //       console.error("Unexpected response:", response);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error submitting form:", error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);

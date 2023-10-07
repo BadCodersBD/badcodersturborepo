@@ -6,9 +6,12 @@ import morgan from "morgan";
 import createHttpError, { isHttpError } from "http-errors";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import cors from 'cors';
 // import { requiresAuth } from "./middleware/auth";
 
 const app = express();
+
+app.use(cors());
 
 app.use(morgan("dev"));
 
