@@ -4,11 +4,7 @@ import Cookies from 'universal-cookie'
 
 export const apiSetup = async () => {
   const api: AxiosInstance = axios.create({
-    baseURL: 'https://neos-server.vercel.app/api/v1',
-
-    // devServer url for testing
-    // baseURL: 'https://devserver.vercel.app/api/v1',
-    // You can add other default configurations like headers, timeout, etc.
+    baseURL: 'https://carrentalserver.vercel.app/api',
   })
   const cookie = new Cookies()
   const accessToken = cookie.get('token')

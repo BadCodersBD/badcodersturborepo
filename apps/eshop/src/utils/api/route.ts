@@ -1,7 +1,7 @@
 export const endPoints = {
   auth: {
-    register: '/auth/register',
-    login: '/auth/login',
+    register: '/users/signup',
+    login: '/users/login',
     sendOtp: '/auth/reset-pass/send-otp',
     otpValidation: '/auth/reset-pass/otp-validate',
     updatePassword: '/auth/reset-pass/update-password',

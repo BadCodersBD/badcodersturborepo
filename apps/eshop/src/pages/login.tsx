@@ -1,11 +1,4 @@
-import { useLogin } from "../utils/Registration/useLogin";
-import { Email } from "../components/elements/InputElements/Email";
-import { Password } from "../components/elements/InputElements/Password";
-import { SocialSignIn } from "../components/elements/InputElements/SocialSignIn";
-// import { AssociateCompanyLogo } from "ui/components/elements/AssociatedCompanyLogo/AssociatedCompanyLogo";
-import { Captcha } from "../components/elements/InputElements/Captcha";
-import { useRecoilState } from "recoil";
-// import { modalOpenState } from "ui/components/elements/LoginRegistrationModal/ModalOpen";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FormWrapper } from "../components/elements/InputElements/FormWrapper";
@@ -13,22 +6,101 @@ import Head from "next/head";
 import Header from "@/components/ui/features/Header/Header";
 import Footer from "@/components/ui/features/footer/Footer";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Input, Space } from "antd";
 import metaData from "../../public/meta.json";
+import { Input } from "antd";
 
 const LoginForm = () => {
-  const {
-    register,
-    handleSubmit,
-    errors,
-    submitting,
-    loginError,
-    captchaRef,
-    onSubmit,
-    loggedInData,
-  } = useLogin();
-  // const [, setModalOpen] = useRecoilState(modalOpenState);
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false); // Added loading state
+  const [emailInput, setemailInput] = useState("");
+  const [passwordInput, setpasswordInput] = useState("");
+
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleData = (e: any) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+    if (name === "email") setemailInput(value);
+    if (name === "password") setpasswordInput(value);
+  };
+
+  // const handleSubmit = async (e: any) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  
+  //   const jsonData = JSON.stringify({
+  //     email: data?.email,
+  //     password: data?.password,
+  //   });
+  
+  //   try {
+  //     const response = await fetch(
+  //       "https://carrentalserver.vercel.app/api/users/login",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: jsonData,
+  //       }
+  //     );
+  
+  //     if (response.ok) {
+  //       const responseData = await response.json();
+  //       // Assuming you want to do something with the response data
+  //       console.log(responseData);
+  
+  //       router.push("/");
+  //     } else {
+  //       console.error("Unexpected response:", response);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setIsLoading(true);
+  
+    const jsonData = JSON.stringify({
+      email: data?.email,
+      password: data?.password,
+    });
+  
+    try {
+      const response = await fetch(
+        "https://carrentalserver.vercel.app/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: jsonData,
+        }
+      );
+  
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData); // Add this line
+        router.push("/");
+      } else {
+        console.error("Unexpected response:", response);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
+  
 
   return (
     <div className="bg-white">
@@ -40,7 +112,10 @@ const LoginForm = () => {
         <meta property="og:url" content={metaData.url} />
         <meta property="og:type" content={metaData.type} />
         <meta property="og:image" content={metaData.image} />
-        <meta name="google-site-verification" content="uF7IpXKCuelQJy81bb-K1zcDj1VXO3l366zJzWjRki8" /> 
+        <meta
+          name="google-site-verification"
+          content="uF7IpXKCuelQJy81bb-K1zcDj1VXO3l366zJzWjRki8"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -54,40 +129,40 @@ const LoginForm = () => {
         <FormWrapper>
           <form
             action="# "
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit}
             className="flex flex-col space-y-2 px-2 md:space-y-2 lg:space-y-2"
           >
-            <Email register={register} errors={errors} />
-            <Password
-              register={register}
-              errors={errors}
-              label="Password"
-              placeholder="enter your password"
+            <Input
+              value={emailInput}
+              placeholder="enter your name"
+              className="w-full py-2 px-4 rounded-lg"
+              type="email"
+              title="email"
+              name="email"
+              required
+              onChange={handleData}
             />
-            {/* <Captcha captchaRef={captchaRef} /> */}
-            <div className="flex justify-start">
-              <div className="flex h-5 items-center pr-2">
-                <Input
-                  id="checked"
-                  type="checkbox"
-                  className="registerCheckbox"
-                />
-              </div>
-              <div className="h-5 text-sm text-white">Remember me</div>
-            </div>
-            {loginError && (
-              <span className="text-xs text-red-600">{loginError}</span>
-            )}
+            <Input
+              value={passwordInput}
+              type="password"
+              title="password"
+              name="password"
+              required
+              className="w-full py-2 px-4 rounded-lg"
+              placeholder="enter your password"
+              onChange={handleData}
+            />
+
             <button
               type="submit"
-              className="registerButton p-3 rounded-md hover:bg-lime-500 bg-emerald-600"
-              disabled={submitting}
+              className=" p-3 rounded-md hover:bg-lime-500 bg-emerald-600"
+              disabled={isLoading}
+              onClick={handleSubmit}
             >
-              {submitting ? "Logging..." : "Login"}
+              {isLoading ? "Logging..." : "Login"}
             </button>
           </form>
           <div className="px-2 text-sm">
-            <SocialSignIn />
             <p className="pt-5 text-center text-sm font-light text-white">
               Do not have an account?
               <Link
@@ -108,7 +183,6 @@ const LoginForm = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   router.push("/adminLogin");
-                  // setModalOpen({ open: false, modalName: "" });
                 }}
                 className="dark:text-primary-500 mx-1 font-medium text-green-500 hover:text-green-700 hover:underline"
               >
