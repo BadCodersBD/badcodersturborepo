@@ -44,7 +44,7 @@
     "recoil": "^0.7.7",
     "styled-components": "^6.0.0-rc.1",
     "swiper": "^10.2.0",
-    "universal-cookie": "^6.1.0"
+    "universal-cookie": "^6.1.1"
   },
   "config": {
     "commitizen": {

@@ -8,6 +8,8 @@ import Footer from "@/components/ui/features/footer/Footer";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import metaData from "../../public/meta.json";
 import { Input } from "antd";
+import Cookies from 'universal-cookie';
+
 
 const LoginForm = () => {
   const router = useRouter();
@@ -19,6 +21,7 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+  const cookies = new Cookies();
 
   const handleData = (e: any) => {
     const { name, value } = e.target;
@@ -51,6 +54,7 @@ const LoginForm = () => {
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData); // Add this line
+        cookies.set('userData', responseData);
         router.push("/");
       } else {
         console.error("Unexpected response:", response);
@@ -81,7 +85,7 @@ const LoginForm = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="py-20 px-10">
+      <div className="py-20 min-h-screen px-10">
         <Link href="/">
           <div className=" border text-black border-green-700 w-40 h-auto mt-5 p-3 hover:bg-lime-600 hover:text-white hover:transition rounded-md">
             <ArrowBackIcon />
@@ -101,10 +105,12 @@ const LoginForm = () => {
               type="email"
               title="email"
               name="email"
+              autoComplete=""
               required
               onChange={handleData}
             />
             <Input
+            autoComplete=""
               value={passwordInput}
               type="password"
               title="password"

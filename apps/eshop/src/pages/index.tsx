@@ -7,7 +7,6 @@ import Head from "next/head";
 import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot";
 import Footer from "@/components/ui/features/footer/Footer";
 import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
-// import TopBanner from "../components/ui/features/TopHeader/TopBanner";
 import metaData from "../../public/meta.json";
 
 export default function Home() {

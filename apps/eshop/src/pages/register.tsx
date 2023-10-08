@@ -9,6 +9,8 @@ import metaData from "../../public/meta.json";
 import { Input } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Cookies from 'universal-cookie';
+
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -22,6 +24,8 @@ const RegisterForm = () => {
     email: "",
     password: "",
   });
+
+  const cookies = new Cookies();
 
   const handleData = (e: any) => {
     const { name, value } = e.target;
@@ -56,6 +60,7 @@ const RegisterForm = () => {
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData); // Add this line
+        cookies.set('userData', responseData);
         router.push("/");
       } else {
         console.error("Unexpected response:", response);
