@@ -41,6 +41,7 @@
     "react-icons": "^4.10.1",
     "react-redux": "^8.1.2",
     "react-vertical-timeline-component": "^3.6.0",
+    "react-whatsapp-widget": "^2.2.0",
     "recoil": "^0.7.7",
     "styled-components": "^6.0.0-rc.1",
     "swiper": "^10.2.0",
