@@ -8,6 +8,7 @@ import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot"
 import Footer from "@/components/ui/features/footer/Footer";
 import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
 import metaData from "../../public/meta.json";
+import WhatsAppChatbot from "@/components/ui/features/WhatsAppChatbot/WhatsAppChatbot";
 
 export default function Home() {
   
@@ -28,6 +29,7 @@ export default function Home() {
       <Main />
       <GoToTopButton />
       <ChatBot />
+      <WhatsAppChatbot/>
       <Footer />
       <div className="inline md:hidden">
         <SimpleBottomNavigation />
