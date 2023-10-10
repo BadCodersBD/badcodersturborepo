@@ -1,16 +1,12 @@
 import React from "react";
-import { WhatsAppWidget } from 'react-whatsapp-widget';
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const WhatsAppChatbot = () => {
-    
   return (
     <div>
-      <WhatsAppWidget
-        phoneNumber="8801982544392"
-        message="Hello! How can we assist you today?"
-        position="right"
-        backgroundColor="#25d366"
-        size="medium"
+      <FloatingWhatsApp
+        accountName="Beach Limo Customer Support"
+        phoneNumber="16465174942"
       />
     </div>
   );
