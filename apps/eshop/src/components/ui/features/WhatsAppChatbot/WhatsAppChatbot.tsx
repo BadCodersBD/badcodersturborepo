@@ -6,7 +6,7 @@ const WhatsAppChatbot = () => {
     <div>
       <FloatingWhatsApp
         accountName="Beach Limo Customer Support"
-        phoneNumber="8801982544392"
+        phoneNumber="16465174942"
       />
     </div>
   );
