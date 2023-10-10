@@ -8,11 +8,27 @@ import WcIcon from "@mui/icons-material/Wc";
 import WifiIcon from "@mui/icons-material/Wifi";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from 'next/router';
+import Cookies from "universal-cookie";
 
 const Collections = () => {
   const [Services, setServices] = useState<servicesProptype[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [displayServices, setDisplayServices] = useState(getInitialDisplay());
+  const cookies = new Cookies();
+  const router = useRouter();
+
+  const isLoggedIn = cookies.get('userData'); 
+
+  const handleBookNowClick = () => {
+    if (isLoggedIn) {
+      router.push("/reservation");
+    } else {
+      // toast.error("Please log in to book.");
+      router.push("/login");
+
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -108,7 +124,7 @@ const Collections = () => {
               <Link href={`/${data ? data.slug.current : null}`}>
                 <Styled.Viewdetails>View Details</Styled.Viewdetails>
               </Link>{" "}
-              <Styled.BookNow>Book Now</Styled.BookNow>
+              <Styled.BookNow onClick={handleBookNowClick}>Book Now</Styled.BookNow>
             </div>
           </Styled.Card>
         ))}
