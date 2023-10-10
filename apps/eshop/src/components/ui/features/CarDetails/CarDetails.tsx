@@ -9,9 +9,25 @@ import type { ProductDetailsType } from "@/types/type";
 import Grid from "@mui/material/Grid";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import WcIcon from '@mui/icons-material/Wc';
+import { useRouter } from 'next/router';
+import Cookies from "universal-cookie";
 
 const Cardetails = ({ product }: any) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const cookies = new Cookies();
+  const router = useRouter();
+
+  const isLoggedIn = cookies.get('userData'); 
+
+  const handleBookNowClick = () => {
+    if (isLoggedIn) {
+      router.push("/reservation");
+    } else {
+      // toast.error("Please log in to book.");
+      router.push("/login");
+
+    }
+  };
 
   if (loading) {
     return (
@@ -21,7 +37,6 @@ const Cardetails = ({ product }: any) => {
     );
   }
 
-  // console.log(product);
 
   return (
     <Styled.Main id="gallery">
@@ -64,11 +79,10 @@ const Cardetails = ({ product }: any) => {
             </Styled.Subspan>
           </div>
           <div className="flex justify-start mt-5">
-            <Styled.BookNow>Book Now</Styled.BookNow>
+          <Styled.BookNow onClick={handleBookNowClick}>Book Now</Styled.BookNow>
           </div>
         </Grid>
       </Grid>
-      {/* <Styled.Card></Styled.Card> */}
     </Styled.Main>
   );
 };
