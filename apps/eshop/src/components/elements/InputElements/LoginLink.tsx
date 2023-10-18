@@ -5,14 +5,14 @@ export const LoginLink = ({ title }: { title: string }) => {
   const router = useRouter();
 
   return (
-    <p className="pt-1 text-sm font-light text-black">
+    <p className="pt-1 text-sm font-light text-white">
       {title}
       <Link
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/login");
-        }}
+        href="/login"
+        // onClick={(e) => {
+        //   e.preventDefault();
+        //   router.push("");
+        // }}
         className="ml-1 font-medium text-green-500 hover:text-green-700 hover:underline"
       >
         Login here

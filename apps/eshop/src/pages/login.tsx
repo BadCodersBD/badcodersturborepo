@@ -8,14 +8,15 @@ import Footer from "@/components/ui/features/footer/Footer";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import metaData from "../../public/meta.json";
 import { Input } from "antd";
-import Cookies from 'universal-cookie';
-
+import Cookies from "universal-cookie";
 
 const LoginForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false); // Added loading state
   const [emailInput, setemailInput] = useState("");
   const [passwordInput, setpasswordInput] = useState("");
+  const [emailError, setEmailError] = useState(""); // Add state for email error
+  const [passwordError, setPasswordError] = useState(""); // Add state for password error
 
   const [data, setData] = useState({
     email: "",
@@ -28,17 +29,31 @@ const LoginForm = () => {
     setData({ ...data, [name]: value });
     if (name === "email") setemailInput(value);
     if (name === "password") setpasswordInput(value);
+    setEmailError("");
+    setPasswordError("");
   };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    let valid = true;
+
+    if (!data.email) {
+      setEmailError("Email is required"); // Set email error if empty
+      valid = false;
+    }
+
+    if (!data.password) {
+      setPasswordError("Password is required"); // Set password error if empty
+      valid = false;
+    }
     setIsLoading(true);
-  
+
     const jsonData = JSON.stringify({
       email: data?.email,
       password: data?.password,
     });
-  
+
     try {
       const response = await fetch(
         "https://carrentalserver.vercel.app/api/users/login",
@@ -50,11 +65,11 @@ const LoginForm = () => {
           body: jsonData,
         }
       );
-  
+
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData); // Add this line
-        cookies.set('userData', responseData);
+        cookies.set("userData", responseData);
         router.push("/");
       } else {
         console.error("Unexpected response:", response);
@@ -65,8 +80,6 @@ const LoginForm = () => {
       setIsLoading(false);
     }
   };
-  
-  
 
   return (
     <div className="bg-white">
@@ -78,16 +91,21 @@ const LoginForm = () => {
         <meta property="og:url" content={metaData.url} />
         <meta property="og:type" content={metaData.type} />
         <meta property="og:image" content={metaData.image} />
-        <meta name="google-site-verification" content="K81iN0RCpi5NOoiQmvPbDGfFInM19PeDj0yrYEM3P-8" />
-        <script dangerouslySetInnerHTML={{
-        __html: `
+        <meta
+          name="google-site-verification"
+          content="K81iN0RCpi5NOoiQmvPbDGfFInM19PeDj0yrYEM3P-8"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WL5ZCCVS');
         `,
-      }} />
+          }}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -99,34 +117,46 @@ const LoginForm = () => {
           </div>
         </Link>
         <FormWrapper>
+        <h1 className="text-center text-2xl font-semibold">Log In</h1>
           <form
             action="# "
             onSubmit={handleSubmit}
             className="flex flex-col space-y-2 px-2 md:space-y-2 lg:space-y-2"
           >
-            <Input
-              value={emailInput}
-              placeholder="enter your name"
-              className="w-full py-2 px-4 rounded-lg"
-              type="email"
-              title="email"
-              name="email"
-              autoComplete=""
-              required
-              onChange={handleData}
-            />
-            <Input
-            autoComplete=""
-              value={passwordInput}
-              type="password"
-              title="password"
-              name="password"
-              required
-              className="w-full py-2 px-4 rounded-lg"
-              placeholder="enter your password"
-              onChange={handleData}
-            />
-
+            <div className="pb-2">
+              <label>Email:</label>
+              <Input
+                value={emailInput}
+                placeholder="enter your email"
+                className="w-full py-2 px-4 rounded-lg"
+                type="email"
+                title="email"
+                name="email"
+                autoComplete=""
+                required
+                onChange={handleData}
+              />
+              {emailError && (
+                <span className="text-red-600 text-sm">{emailError}</span> // Render email error conditionally
+              )}
+            </div>
+            <div className="pb-2">
+              <label>Password:</label>
+              <Input
+                autoComplete=""
+                value={passwordInput}
+                type="password"
+                title="password"
+                name="password"
+                required
+                className="w-full py-2 px-4 rounded-lg"
+                placeholder="enter your password"
+                onChange={handleData}
+              />
+              {passwordError && (
+                <span className="text-red-600 text-sm">{passwordError}</span> // Render password error conditionally
+              )}
+            </div>
             <button
               type="submit"
               className=" p-3 rounded-md hover:bg-lime-500 bg-emerald-600"
@@ -140,11 +170,11 @@ const LoginForm = () => {
             <p className="pt-5 text-center text-sm font-light text-white">
               Do not have an account?
               <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push("/register");
-                }}
+                href="/register"
+                // onClick={(e) => {
+                //   e.preventDefault();
+                //   router.push("");
+                // }}
                 className="dark:text-primary-500 ml-1 font-medium text-green-500 hover:text-green-700 hover:underline"
               >
                 SignUp here
@@ -153,11 +183,11 @@ const LoginForm = () => {
             <p className="pt-5 text-center text-sm font-light text-white">
               Are you a
               <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push("/adminLogin");
-                }}
+                href="/adminLogin"
+                // onClick={(e) => {
+                //   e.preventDefault();
+                //   router.push("");
+                // }}
                 className="dark:text-primary-500 mx-1 font-medium text-green-500 hover:text-green-700 hover:underline"
               >
                 admin
