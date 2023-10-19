@@ -2,13 +2,41 @@ import React, { useState, useEffect } from "react";
 import { Styled } from "./BookingReservation.styled";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { DatePicker, DatePickerProps, Select, Space, Button } from "antd";
+import {
+  Input,
+  InputNumber,
+  DatePicker,
+  DatePickerProps,
+  Select,
+  Space,
+  Button,
+} from "antd";
+import { fetchservice } from "../../../../utils/fetchServices";
+import type { servicesProptype } from "../../../../types/type";
 
 const BookingReservation = () => {
+  const [Services, setServices] = useState<servicesProptype[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const [visitingDate, setVisitingDate] = useState("");
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     setVisitingDate(dateString);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const services = await fetchservice();
+        setServices(services);
+        setLoading(false);
+      } catch (e) {
+        console.log("Error", e);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <Styled.Main>
@@ -29,60 +57,27 @@ const BookingReservation = () => {
                 allowClear
                 placeholder="Select Car"
               >
-                <Select.Option value="CHRYSLER">
-                  CHRYSLER 300 WHITE
-                </Select.Option>
-                <Select.Option value="FORD">FORD TRANSIT</Select.Option>
-                <Select.Option value="Cadillac">
-                  Cadillac Escalade
-                </Select.Option>
-                <Select.Option value="CHEVROLET">
-                  CHEVROLET SUBURBAN
-                </Select.Option>
+                {Services.map((data, index) => (
+                  <Select.Option key={index} value={data.title}>
+                    {data.title}
+                  </Select.Option>
+                ))}
               </Select>
             </Space>
             <Space className="w-full" direction="vertical">
               <label>Select Pick Up Location</label>
-              <Select
-                style={{ width: "100%" }}
-                allowClear
-                placeholder="Select Pick Up Location"
-              >
-                <Select.Option value="Miami">Miami</Select.Option>
-                <Select.Option value="FortLauderdale">
-                  Fort Lauderdale
-                </Select.Option>
-                <Select.Option value="PalmBeach">Palm Beach</Select.Option>
-                <Select.Option value="Tampa">Tampa</Select.Option>
-                <Select.Option value="FortMyers">Fort Myers</Select.Option>
-                <Select.Option value="Naples">Naples</Select.Option>
-                <Select.Option value="KeyWest">Key West</Select.Option>
-                <Select.Option value="Orlando">Orlando</Select.Option>
-              </Select>
+              <Input placeholder="type your location" />
             </Space>
             <Space className="w-full" direction="vertical">
               <label>Select Drop Off Location</label>
-              <Select
-                style={{ width: "100%" }}
-                allowClear
-                placeholder="Select Drop Off Location"
-              >
-                <Select.Option value="Miami">Miami</Select.Option>
-                <Select.Option value="FortLauderdale">
-                  Fort Lauderdale
-                </Select.Option>
-                <Select.Option value="PalmBeach">Palm Beach</Select.Option>
-                <Select.Option value="Tampa">Tampa</Select.Option>
-                <Select.Option value="FortMyers">Fort Myers</Select.Option>
-                <Select.Option value="Naples">Naples</Select.Option>
-                <Select.Option value="KeyWest">Key West</Select.Option>
-                <Select.Option value="Orlando">Orlando</Select.Option>
-              </Select>
+              <Input placeholder="type your location" />
             </Space>
-          </div>
-          <div className="grid p-5  gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:p-10 ">
             <Space className="w-full" direction="vertical">
-              <label>Pick Up Date</label>
+              <label>Your Mobile Number</label>
+              <InputNumber className="w-full" placeholder="Mobile Number" />
+            </Space>
+            <Space className="w-full" direction="vertical">
+              <label>Start Date</label>
               <DatePicker
                 className="w-full"
                 name="Pickupdate"
@@ -90,8 +85,9 @@ const BookingReservation = () => {
                 picker="date"
               />
             </Space>
+
             <Space className="w-full" direction="vertical">
-              <label>Drop Off Date</label>
+              <label>End Date</label>
               <DatePicker
                 className="w-full"
                 name="dropoffdate"
@@ -99,13 +95,13 @@ const BookingReservation = () => {
                 picker="date"
               />
             </Space>
-            <Space className="w-full" direction="vertical">
-              <label>Book Your Car</label>
-              <Button className="w-full bg-sky-700" type="primary">
-                Book Now
-              </Button>
-            </Space>
           </div>
+          <button
+            className="w-1/2 flex justify-center items-center mx-auto py-2 px-3 bg-sky-700 hover:bg-sky-900 rounded-lg text-white"
+            type="button"
+          >
+            Book Now
+          </button>
         </Styled.Card>
       </div>
     </Styled.Main>

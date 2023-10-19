@@ -32,14 +32,16 @@ export const getRental: RequestHandler = async (req, res, next) => {
 interface CreateRentalBody {
     userId: string,
     carModel?: string,
-    location?: string,
+    pickuplocation?: string,
+    dropofflocation?: string,
+    mobilenumber?: string,
     startDate?: Date,
     endDate?: Date,
 }
 
 export const createRental: RequestHandler<unknown, unknown, CreateRentalBody, unknown> = async (req, res) => {
     try {
-        const { userId, carModel, location, startDate, endDate } = req.body;
+        const { userId, carModel, pickuplocation, dropofflocation, mobilenumber, startDate, endDate } = req.body;
     
         // Check if the user with the provided userId exists
         const user = await UserModel.findById(userId);
@@ -51,7 +53,9 @@ export const createRental: RequestHandler<unknown, unknown, CreateRentalBody, un
         const newCarRental = await CarRentalModel.create({
           userId,
           carModel,
-          location,
+          pickuplocation,
+          dropofflocation,
+          mobilenumber,
           startDate,
           endDate,
         });
@@ -66,7 +70,9 @@ export const createRental: RequestHandler<unknown, unknown, CreateRentalBody, un
     
 export const updateRental: RequestHandler = async (req, res, next) => {
     const rentalId = req.params.rentalId;
-    const newlocation = req.body.location;
+    const newpickuplocation = req.body.pickuplocation;
+    const newdropofflocation = req.body.dropofflocation;
+    const newmobilenumber = req.body.mobilenumber;
     const newCarModel = req.body.carModel;
     const newStartDate = req.body.startDate;
     const newEndDate = req.body.endDate;
@@ -83,7 +89,9 @@ export const updateRental: RequestHandler = async (req, res, next) => {
         }
 
         rental.carModel = newCarModel;
-        rental.location = newlocation;
+        rental.pickuplocation = newpickuplocation;
+        rental.dropofflocation = newdropofflocation;
+        rental.mobilenumber = newmobilenumber;
         rental.startDate = newStartDate;
         rental.endDate = newEndDate;
 
