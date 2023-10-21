@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 const Main = styled.div`
-  padding: 5rem 2rem 0rem 2rem;
+  padding: 5rem 0.2rem 0rem 0.2rem;
   width: 100%;
   height: auto;
   background-color: #ffffff;
   color: #000000;
+  @media (min-width: 769px) {
+    padding: 5rem 2rem 0rem 2rem;
+  }
 `;
 
 const Card = styled.div`

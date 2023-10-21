@@ -38,7 +38,7 @@ export default function Home() {
       <Header />
       <Main />
       <GoToTopButton />
-      <ChatBot />
+      {/* <ChatBot /> */}
       <WhatsAppChatbot/>
       <Footer />
       <div className="inline md:hidden">
