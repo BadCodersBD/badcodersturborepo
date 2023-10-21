@@ -58,11 +58,6 @@ const Header = () => {
         ))}
       </div>
       <NavigationMenu />
-      {/* <div className=" flex justify-center items-center text-black">
-        <CallIcon color="success" fontSize="large" />
-        <span className="text-blue-800">12018577757</span>
-        <Styled.Glowtext>Call Us</Styled.Glowtext>
-      </div> */}
       <div className="flex max-lg:hidden">
         <UserWidget />
       </div>
@@ -72,9 +67,9 @@ const Header = () => {
         onClick={() => setOpen(!open)}
         className="inline lg:hidden"
       >
-        <div className="mr-4 text-black text-sm lg:text-lg">
+        <span className="mr-4 text-black text-sm lg:text-lg">
           <MenuIcon className="h-10 w-10" />
-        </div>
+        </span>
         <NavigationDrawer open={open} />
       </button>
     </Styled.Header>

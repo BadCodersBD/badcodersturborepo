@@ -7,7 +7,9 @@ export interface CarRentalDocument extends Document {
   endDate: Date;
   mobilenumber: number;
   pickuplocation: unknown;
+  pickuptime: unknown;
   dropofflocation: unknown;
+  rentalprice: number;
 
 }
 
@@ -22,7 +24,9 @@ const carRentalSchema = new Schema<CarRentalDocument>({
   endDate: Date,
   mobilenumber: Number,
   pickuplocation: String,
-  dropofflocation: String
+  pickuptime: String,
+  dropofflocation: String,
+  rentalprice: String
 });
 
 const CarRentalModel: Model<CarRentalDocument> = mongoose.model('CarRental', carRentalSchema);
