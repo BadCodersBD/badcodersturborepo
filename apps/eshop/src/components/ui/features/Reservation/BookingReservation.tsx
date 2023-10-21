@@ -23,7 +23,7 @@ const BookingReservation = () => {
   const [isLoading, setIsLoading] = useState(false); // Added loading state
   // const [startDate, setStartDate] = useState("");
   // const [endDate, setEndDate] = useState("");
-  const [airport, setAirport] = useState("");
+  const [triptype, setTriptype] = useState("");
   // const [dropofflocation, setDropofflocation] = useState("");
   const [formIncomplete, setFormIncomplete] = useState(false);
   const cookies = new Cookies();
@@ -32,10 +32,10 @@ const BookingReservation = () => {
   const userId = userData?.user._id;
 
   const handleairport = (value: any) => {
-    setAirport(value);
+    setTriptype(value);
   };
 
-  // console.log(token);
+  console.log(token);
   // console.log(userId);
 
   // const handlestartdate: DatePickerProps["onChange"] = (date, dateString) => {
@@ -50,15 +50,15 @@ const BookingReservation = () => {
     airportname: "",
     flightno: "",
     carModel: "",
-    pickUpLocation: "",
-    dropOffLocation: "",
-    pickUpTime: "",
-    mobileNumber: "",
+    pickuplocation: "",
+    dropoffLocation: "",
+    pickuptime: "",
+    mobilenumber: "",
     startDate: "",
     endDate: "",
     passenger: "",
     luggage: "",
-    childseat: ""
+    childseat: "",
   });
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -70,12 +70,11 @@ const BookingReservation = () => {
       );
       setFormData({
         ...formData,
-        airport,
         [key]: value,
         rentalprice: selectedService ? selectedService.hourlyprice : null,
       });
     } else {
-      setFormData({ ...formData, [key]: value });
+      setFormData({ ...formData,[key]: value });
     }
     setFormIncomplete(false); // Reset formIncomplete flag on input change
   };
@@ -152,7 +151,7 @@ const BookingReservation = () => {
     );
   }
 
-  console.log(airport)
+  console.log(triptype)
   console.log(formData)
 
 
@@ -181,7 +180,7 @@ const BookingReservation = () => {
                 <Select.Option value="fromairport">From Airport</Select.Option>
                 <Select.Option value="toairport">To Airport</Select.Option>
               </Select>
-              {airport === "fromairport" && (
+              {triptype === "fromairport" && (
                 <div className="w-full">
                   <Space className="w-full" direction="vertical">
                     <label>Airport Name</label>
@@ -205,7 +204,7 @@ const BookingReservation = () => {
                   </Space>
                 </div>
               )}
-              {airport === "toairport" && (
+              {triptype === "toairport" && (
                 <Space className="w-full" direction="vertical">
                 <label>Airport Name</label>
                 <Input
@@ -244,9 +243,9 @@ const BookingReservation = () => {
             <Space className="w-full" direction="vertical">
               <label>Give Pick Up Location</label>
               <Input
-                name="pickup"
+                name="pickuplocation"
                 onChange={(e) =>
-                  handleInputChange("pickUpLocation", e.target.value)
+                  handleInputChange("pickuplocation", e.target.value)
                 }
                 placeholder="type your location"
               />
@@ -256,7 +255,7 @@ const BookingReservation = () => {
               <Input
                 name="dropoff"
                 onChange={(e) =>
-                  handleInputChange("dropOffLocation", e.target.value)
+                  handleInputChange("dropoffLocation", e.target.value)
                 }
                 placeholder="type your location"
               />
@@ -266,7 +265,7 @@ const BookingReservation = () => {
               <TimePicker
                 name="pickuptime"
                 onChange={(time, timeString) =>
-                  handleInputChange("pickUpTime", timeString)
+                  handleInputChange("pickuptime", timeString)
                 }
                 className="w-full"
                 placeholder="Select your Time"
@@ -276,8 +275,8 @@ const BookingReservation = () => {
               <label>Your Mobile Number</label>
               <InputNumber
                 type="number"
-                onChange={(value) => handleInputChange("mobileNumber", value)}
-                name="mobileNumber"
+                onChange={(value) => handleInputChange("mobilenumber", value)}
+                name="mobilenumber"
                 className="w-full"
                 placeholder="Mobile Number"
               />
@@ -370,19 +369,19 @@ const BookingReservation = () => {
           </p>
           <p className="border border-gray-600 p-2 mt-2 rounded-lg">
             <span className="text-lg font-semibold">Pick Up Location: </span>
-            {formData.pickUpLocation}
+            {formData.pickuplocation}
           </p>
           <p className="border border-gray-600 p-2 mt-2 rounded-lg">
             <span className="text-lg font-semibold">Drop Off Location: </span>
-            {formData.dropOffLocation}
+            {formData.dropoffLocation}
           </p>
           <p className="border border-gray-600 p-2 mt-2 rounded-lg">
             <span className="text-lg font-semibold">Pick Up Time: </span>
-            {formData.pickUpTime}
+            {formData.pickuptime}
           </p>
           <p className="border border-gray-600 p-2 mt-2 rounded-lg">
             <span className="text-lg font-semibold"> Mobile Number: </span>
-            {formData.mobileNumber}
+            {formData.mobilenumber}
           </p>
           <p className="border border-gray-600 p-2 mt-2 rounded-lg">
             <span className="text-lg font-semibold">Start Date: </span>
