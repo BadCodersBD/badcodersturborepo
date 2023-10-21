@@ -79,7 +79,7 @@ const Collections = () => {
 
   return (
     <Styled.Main id="gallery">
-      <h1 className="text-2xl flex justify-center items-center font-bold my-5">
+      <h1 className="text-xl lg:text-2xl flex justify-center items-center font-bold my-5">
         We Have Everything You Need
       </h1>
       <div
@@ -97,14 +97,14 @@ const Collections = () => {
                 src={urlForThumbnail(data.companyImage)}
               />
             </div>
-            <div className="flex justify-around">
+            <div className="flex justify-between">
               <h1 className="text-xl font-semibold">
-                ${data.hourlyprice}/Hourly
+                ${data.hourlyprice}/ Trip
               </h1>
-              <h1 className="text-xl font-semibold">{data.speed}/Kmh</h1>
-              <h1 className="text-xl font-semibold">
+              <h1 className="text-xl font-semibold">Speed: {data.speed}/Kmh</h1>
+              {/* <h1 className="text-xl font-semibold">
                 ${data.dailyprice}/Daily
-              </h1>
+              </h1> */}
             </div>
             <div className="flex justify-center items-center">
               <Styled.Subspan>

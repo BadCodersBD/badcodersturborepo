@@ -9,7 +9,9 @@ const MapMain = () => {
     <div className=" text-black bg-white">
       <Grid container spacing={4}>
         <Grid item xs={12} lg={6}>
+          <div className="hidden lg:inline">
           <MapBox />
+          </div>
         </Grid>
         <Grid item xs={12} lg={6}>
           <div className="flex justify-center items-center">

@@ -39,11 +39,10 @@ export default defineType({
       name: 'dailyprice',
       title: 'Daily Price',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'hourlyprice',
-      title: 'Hourly Price',
+      title: 'Trip Price',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),

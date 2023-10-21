@@ -150,10 +150,10 @@ const BookingReservation = () => {
           Back to Home
         </div>
       </Link>
-      <div className="p-10">
+      <div className="p-2 lg:p-10">
         <h1 className="text-center text-2xl font-semibold">Book Your Car</h1>
         <Styled.Card>
-          <div className="grid  gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 ">
+          <div className="grid  gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2 lg:p-10 ">
             <Space className="w-full" direction="vertical">
               <label>Select Car Model</label>
               <Select
@@ -252,32 +252,45 @@ const BookingReservation = () => {
           </button>
         </Styled.Card>
       </div>
-      <Modal
-        open={modalVisible}
-        footer={null}
-        onCancel={handleCancel}
-      >
+      <Modal open={modalVisible} footer={null} onCancel={handleCancel}>
         <div>
           <h1 className="text-center text-2xl font-semibold">
             Confirm Booking
           </h1>
-          <p className="border border-gray-600 p-2 rounded-lg"><span className="text-lg font-semibold"> Car Model: </span>{formData.carModel}</p>
-          <p className="border border-gray-600 p-2 mt-2 rounded-lg"><span className="text-lg font-semibold">Rental Price: </span>{formData.rentalprice} $</p>
-          <p className="border border-gray-600 p-2 mt-2 rounded-lg"><span className="text-lg font-semibold">Pick Up Location: </span>{formData.pickUpLocation}</p>
-          <p className="border border-gray-600 p-2 mt-2 rounded-lg"><span className="text-lg font-semibold">Drop Off Location: </span>{formData.dropOffLocation}</p>
-          <p className="border border-gray-600 p-2 mt-2 rounded-lg"><span className="text-lg font-semibold">Pick Up Time: </span>{formData.pickUpTime}</p>
-          <p className="border border-gray-600 p-2 mt-2 rounded-lg"><span className="text-lg font-semibold"> Mobile Number: </span>{formData.mobileNumber}</p>
-          <p className="border border-gray-600 p-2 mt-2 rounded-lg"><span className="text-lg font-semibold">Start Date: </span>{formData.startDate}</p>
-          <p className="border border-gray-600 p-2 mt-2 rounded-lg"><span className="text-lg font-semibold"> End Date: </span>{formData.endDate}</p>
+          <p className="border border-gray-600 p-2 rounded-lg">
+            <span className="text-lg font-semibold"> Car Model: </span>
+            {formData.carModel}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold">Rental Price: </span>
+            {formData.rentalprice} $/ Per Trip
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold">Pick Up Location: </span>
+            {formData.pickUpLocation}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold">Drop Off Location: </span>
+            {formData.dropOffLocation}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold">Pick Up Time: </span>
+            {formData.pickUpTime}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold"> Mobile Number: </span>
+            {formData.mobileNumber}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold">Start Date: </span>
+            {formData.startDate}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold"> End Date: </span>
+            {formData.endDate}
+          </p>
         </div>
         <div className="flex justify-center gap-4 items-center">
-          <button
-            onClick={handleCancel}
-            type="button"
-            className="text-[#7EC242] w-[40%] px-5 py-3 rounded-full bg-white border border-[#7EC242] hover:bg-[#7EC242] hover:text-white mt-5"
-          >
-            Go Back
-          </button>
           <button
             disabled={isLoading}
             onClick={handleConfirm}
@@ -285,6 +298,13 @@ const BookingReservation = () => {
             className=" text-white w-[40%] py-3 px-5 rounded-full bg-[#7EC242] hover:bg-green-500 mt-5"
           >
             {isLoading ? "Submiting..." : "Submit"}
+          </button>
+          <button
+            onClick={handleCancel}
+            type="button"
+            className="text-[#7EC242] w-[40%] px-5 py-3 rounded-full bg-white border border-[#7EC242] hover:bg-[#7EC242] hover:text-white mt-5"
+          >
+            Go Back
           </button>
         </div>
       </Modal>
