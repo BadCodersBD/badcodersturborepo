@@ -23,13 +23,17 @@ const BookingReservation = () => {
   const [isLoading, setIsLoading] = useState(false); // Added loading state
   // const [startDate, setStartDate] = useState("");
   // const [endDate, setEndDate] = useState("");
-  // const [pickuplocation, setPickuplocation] = useState("");
+  const [airport, setAirport] = useState("");
   // const [dropofflocation, setDropofflocation] = useState("");
   const [formIncomplete, setFormIncomplete] = useState(false);
   const cookies = new Cookies();
   const userData = cookies.get("userData");
   const token = userData?.token;
   const userId = userData?.user._id;
+
+  const handleairport = (value: any) => {
+    setAirport(value);
+  };
 
   // console.log(token);
   // console.log(userId);
@@ -43,6 +47,8 @@ const BookingReservation = () => {
   // };
 
   const [formData, setFormData] = useState({
+    airportname: "",
+    flightno: "",
     carModel: "",
     pickUpLocation: "",
     dropOffLocation: "",
@@ -50,6 +56,9 @@ const BookingReservation = () => {
     mobileNumber: "",
     startDate: "",
     endDate: "",
+    passenger: "",
+    luggage: "",
+    childseat: ""
   });
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -61,6 +70,7 @@ const BookingReservation = () => {
       );
       setFormData({
         ...formData,
+        airport,
         [key]: value,
         rentalprice: selectedService ? selectedService.hourlyprice : null,
       });
@@ -142,6 +152,10 @@ const BookingReservation = () => {
     );
   }
 
+  console.log(airport)
+  console.log(formData)
+
+
   return (
     <Styled.Main>
       <Link href="/">
@@ -154,6 +168,56 @@ const BookingReservation = () => {
         <h1 className="text-center text-2xl font-semibold">Book Your Car</h1>
         <Styled.Card>
           <div className="grid  gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2 lg:p-10 ">
+            <Space className="w-full" direction="vertical">
+              <label>Select Your Trip</label>
+              <Select
+                style={{ width: "100%" }}
+                allowClear
+                placeholder="Select Trip"
+                onChange={handleairport}
+              >
+                <Select.Option value="oneway">One Way</Select.Option>
+                <Select.Option value="roundtrip">Round Trip</Select.Option>
+                <Select.Option value="fromairport">From Airport</Select.Option>
+                <Select.Option value="toairport">To Airport</Select.Option>
+              </Select>
+              {airport === "fromairport" && (
+                <div className="w-full">
+                  <Space className="w-full" direction="vertical">
+                    <label>Airport Name</label>
+                    <Input
+                      name="airportname"
+                      onChange={(e) =>
+                        handleInputChange("airportname", e.target.value)
+                      }
+                      placeholder="type Airport Name"
+                    />
+                  </Space>
+                  <Space className="w-full" direction="vertical">
+                    <label>Flight No</label>
+                    <Input
+                      name="flightno"
+                      onChange={(e) =>
+                        handleInputChange("flightno", e.target.value)
+                      }
+                      placeholder="type Your Flight No"
+                    />
+                  </Space>
+                </div>
+              )}
+              {airport === "toairport" && (
+                <Space className="w-full" direction="vertical">
+                <label>Airport Name</label>
+                <Input
+                  name="airportname"
+                  onChange={(e) =>
+                    handleInputChange("airportname", e.target.value)
+                  }
+                  placeholder="type Airport Name"
+                />
+              </Space>
+              )}
+            </Space>
             <Space className="w-full" direction="vertical">
               <label>Select Car Model</label>
               <Select
@@ -178,7 +242,7 @@ const BookingReservation = () => {
               </div>
             </Space>
             <Space className="w-full" direction="vertical">
-              <label>Select Pick Up Location</label>
+              <label>Give Pick Up Location</label>
               <Input
                 name="pickup"
                 onChange={(e) =>
@@ -188,7 +252,7 @@ const BookingReservation = () => {
               />
             </Space>
             <Space className="w-full" direction="vertical">
-              <label>Select Drop Off Location</label>
+              <label>Give Drop Off Location</label>
               <Input
                 name="dropoff"
                 onChange={(e) =>
@@ -239,6 +303,36 @@ const BookingReservation = () => {
                   handleInputChange("endDate", dateString)
                 }
                 picker="date"
+              />
+            </Space>
+            <Space className="w-full" direction="vertical">
+              <label>Passenger Quantity</label>
+              <InputNumber
+                type="number"
+                onChange={(value) => handleInputChange("passenger", value)}
+                name="passenger"
+                className="w-full"
+                placeholder="Passenger Quantity"
+              />
+            </Space>
+            <Space className="w-full" direction="vertical">
+              <label>Luggage Quantity</label>
+              <InputNumber
+                type="number"
+                onChange={(value) => handleInputChange("luggage", value)}
+                name="luggage"
+                className="w-full"
+                placeholder="luggage Quantity"
+              />
+            </Space>
+            <Space className="w-full" direction="vertical">
+              <label>{`Child Seat (If Any)`}</label>
+              <InputNumber
+                type="number"
+                onChange={(value) => handleInputChange("childseat", value)}
+                name="childseat"
+                className="w-full"
+                placeholder="Child Seat Quantity"
               />
             </Space>
           </div>

@@ -73,22 +73,22 @@ const Allcars = ({ product }: ProductDetailsType) => {
               />
             </div>
             <div className="flex justify-around">
-              <h1 className="text-xl font-semibold">${data.hourlyprice}/Hourly</h1>
+              {/* <h1 className="text-xl font-semibold">${data.hourlyprice}/Hourly</h1> */}
               <h1 className="text-xl font-semibold">{data.speed}/Kmh</h1>
-              <h1 className="text-xl font-semibold">${data.dailyprice}/Daily</h1>
+              {/* <h1 className="text-xl font-semibold">${data.dailyprice}/Daily</h1> */}
             </div>
             <div className="flex justify-center items-center">
               <Styled.Subspan>
                 <AccessibleIcon color="success" fontSize="medium" />
-                Passenger: {data.passenger}
+                <span className="hidden md:inline">Passenger:</span> {data.passenger}
               </Styled.Subspan>
               <Styled.Subspan>
                 <BusinessCenterIcon color="primary" fontSize="medium" />
-                Luggages: {data.luggage}
+                <span className="hidden md:inline">Luggages:</span> {data.luggage}
               </Styled.Subspan>
               <Styled.Subspan>
                 <WifiIcon color="error" fontSize="medium" />
-                Wifi: {data.wifi}
+                <span className="hidden md:inline">Wifi:</span> {data.wifi}
               </Styled.Subspan>
             </div>
             <div className="flex justify-around my-2">
