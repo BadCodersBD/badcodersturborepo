@@ -351,7 +351,16 @@ const BookingReservation = () => {
           <h1 className="text-center text-2xl font-semibold">
             Confirm Booking
           </h1>
+          <div>
           <p className="border border-gray-600 p-2 rounded-lg">
+            <span className="text-lg font-semibold"> Airport Name: </span>
+            {formData.airportname}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold"> Flight No: </span>
+            {formData.flightno}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
             <span className="text-lg font-semibold"> Car Model: </span>
             {formData.carModel}
           </p>
@@ -383,6 +392,19 @@ const BookingReservation = () => {
             <span className="text-lg font-semibold"> End Date: </span>
             {formData.endDate}
           </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold"> Passanger Quantity: </span>
+            {formData.passenger}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold"> Luggage Quantity: </span>
+            {formData.luggage}
+          </p>
+          <p className="border border-gray-600 p-2 mt-2 rounded-lg">
+            <span className="text-lg font-semibold"> Childseat: </span>
+            {formData.childseat}
+          </p>
+          </div>
         </div>
         <div className="flex justify-center gap-4 items-center">
           <button

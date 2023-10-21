@@ -1,6 +1,12 @@
 import mongoose, { Document, Model, Schema } from "mongoose";
 
 export interface CarRentalDocument extends Document {
+  airport: string;
+  airportname: string;
+  childseat: number;
+  flightno: number;
+  luggage: number;
+  passenger: number;
   userId: mongoose.Types.ObjectId;
   carModel: string;
   startDate: Date;
@@ -19,6 +25,12 @@ const carRentalSchema = new Schema<CarRentalDocument>({
     required: true,
     ref: 'User'
   },
+  airport: String,
+  airportname: String,
+  childseat: Number,
+  flightno: Number,
+  luggage: Number,
+  passenger: Number,
   carModel: String,
   startDate: Date,
   endDate: Date,
