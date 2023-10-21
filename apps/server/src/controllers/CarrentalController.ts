@@ -30,7 +30,7 @@ export const getRental: RequestHandler = async (req, res, next) => {
 
 interface CreateRentalBody {
   userId: string;
-  airport?: string;
+  triptype?: string;
   airportname?: string;
   childseat?: number;
   flightno?: number;
@@ -55,7 +55,6 @@ export const createRental: RequestHandler<
   try {
     const {
       userId,
-      airport,
       airportname,
       childseat,
       flightno,
@@ -80,7 +79,6 @@ export const createRental: RequestHandler<
     // Create a new car rental record
     const newCarRental = await CarRentalModel.create({
       userId,
-      airport,
       airportname,
       childseat,
       flightno,
