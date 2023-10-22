@@ -55,6 +55,7 @@ export const createRental: RequestHandler<
   try {
     const {
       userId,
+      triptype,
       airportname,
       childseat,
       flightno,
@@ -79,6 +80,7 @@ export const createRental: RequestHandler<
     // Create a new car rental record
     const newCarRental = await CarRentalModel.create({
       userId,
+      triptype,
       airportname,
       childseat,
       flightno,

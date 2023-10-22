@@ -100,6 +100,7 @@ const BookingReservation = () => {
           },
           body: JSON.stringify({
             userId,
+            triptype,
             ...formData,
           }),
         }
