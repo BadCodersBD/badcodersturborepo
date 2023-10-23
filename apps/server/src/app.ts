@@ -8,8 +8,18 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import cors from 'cors';
 // import { requiresAuth } from "./middleware/auth";
+import { rateLimit } from 'express-rate-limit'
+
 
 const app = express();
+
+// Set up rate limiter
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per windowMs
+  });
+  
+  app.use(limiter);
 
 app.use(cors());
 
