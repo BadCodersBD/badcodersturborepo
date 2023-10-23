@@ -20,7 +20,7 @@ const UserWidget = () => {
               router.push("/profile");
             }}
           >
-            My Profile
+            My Account
           </Styled.LoginButton>
           <Styled.LoginButton
             onClick={(e) => {
