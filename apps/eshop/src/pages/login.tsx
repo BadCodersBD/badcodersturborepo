@@ -68,7 +68,7 @@ const LoginForm = () => {
 
       if (response.ok) {
         const responseData = await response.json();
-        console.log(responseData); // Add this line
+        // console.log(responseData); // Add this line
         cookies.set("userData", responseData);
         router.push("/");
       } else {

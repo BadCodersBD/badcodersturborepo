@@ -4,7 +4,23 @@ import mongoose from "mongoose";
 import CarRentalModel from "../models/carRentals"; // Import the CarRentalModel
 import UserModel from "../models/user";
 
-export const getRental: RequestHandler = async (req, res, next) => {
+export const getRentalsByUserId: RequestHandler = async (req, res, next) => {
+  const userId = req.params.userId; // Assuming you're passing the userId as a URL parameter
+console.log(userId)
+  try {
+    const rentals = await CarRentalModel.find({ userId }).exec();
+
+    if (!rentals) {
+      throw createHttpError(404, "No rentals found for this user");
+    }
+
+    res.status(200).json(rentals);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getRentalByrentalid: RequestHandler = async (req, res, next) => {
   const rentalId = req.params.rentalId;
 
   try {
@@ -171,7 +187,7 @@ export const deleteRental: RequestHandler = async (req, res, next) => {
       throw createHttpError(401, "You cannot access this rental");
     }
 
-    await CarRentalModel.deleteOne({ _id: rentalId });
+    await CarRentalModel.findByIdAndUpdate({ _id: rentalId });
 
     res.status(204).send({ message: "Rental deleted successfully" });
   } catch (error) {
