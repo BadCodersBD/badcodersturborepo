@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Styled } from './UserHeader.styled'
-import Avatar from '@mui/material/Avatar'
-import { Dropdown } from '@mui/base'
-import { Menu } from '@mui/base'
-import { StyledMui } from './MuiCustom.Styled'
-import UserHeaderUtils from './UserHeader.utils'
-import MenuOpenIcon from '@mui/icons-material/MenuOpen'
-import Grid from '@mui/material/Grid'
-import Link from 'next/link'
+import { Styled } from "./UserHeader.styled";
+import Avatar from "@mui/material/Avatar";
+import { Dropdown } from "@mui/base";
+import { Menu } from "@mui/base";
+import { StyledMui } from "./MuiCustom.Styled";
+import UserHeaderUtils from "./UserHeader.utils";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import Grid from "@mui/material/Grid";
+import Link from "next/link";
 import Cookies from "universal-cookie";
+import { useRouter } from "next/router";
 
 export type UserData = {
   user: {
@@ -16,12 +17,13 @@ export type UserData = {
     email: string;
     image: string;
   };
-}
+};
 
 const ManageAccountHeader = () => {
-  const { handleSignUp, setAdminSidebarToggle } = UserHeaderUtils()
+  const { handleSignUp, setAdminSidebarToggle } = UserHeaderUtils();
   const cookies = useMemo(() => new Cookies(), []); // Create cookies object
   const [userData, setUserData] = useState<UserData | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const userDataFromCookie = cookies.get("userData");
@@ -40,7 +42,7 @@ const ManageAccountHeader = () => {
               type="button"
               title="button"
               onClick={() => {
-                setAdminSidebarToggle(true)
+                setAdminSidebarToggle(true);
               }}
             >
               <MenuOpenIcon />
@@ -49,7 +51,10 @@ const ManageAccountHeader = () => {
         </Grid>
         <Grid item sm={4}>
           <div className=" text-white lg:flex justify-center items-center gap-10">
-            <Link href="/" className="hidden lg:inline hover:text-lime-500 hover:underline">
+            <Link
+              href="/"
+              className="hidden lg:inline hover:text-lime-500 hover:underline"
+            >
               Home
             </Link>
           </div>
@@ -60,11 +65,16 @@ const ManageAccountHeader = () => {
               <StyledMui.TriggerButton>
                 {userData?.user ? (
                   <>
-                    {userData?.user.image && userData.user.image !== 'null' ? (
-                      <Avatar className="bg-orange-500" alt="Profile Picture" src={userData?.user.image} />
+                    {userData?.user.image && userData.user.image !== "null" ? (
+                      <Avatar
+                        className="bg-orange-500"
+                        alt="Profile Picture"
+                        src={userData?.user.image}
+                      />
                     ) : (
                       <Avatar className="bg-orange-500">
-                        {userData?.user?.username?.slice(0, 1) || userData?.user?.email?.slice(0, 1)}
+                        {userData?.user?.username?.slice(0, 1) ||
+                          userData?.user?.email?.slice(0, 1)}
                       </Avatar>
                     )}
                   </>
@@ -76,8 +86,14 @@ const ManageAccountHeader = () => {
               </StyledMui.TriggerButton>
               <Menu slots={{ listbox: StyledMui.StyledListbox }}>
                 <StyledMui.StyledMenuItem>Profile</StyledMui.StyledMenuItem>
-                <StyledMui.StyledMenuItem onClick={handleSignUp}>
-                  {userData?.user ? 'Sign Out' : 'Sign In'}
+                <StyledMui.StyledMenuItem
+                  onClick={(e) => {
+                    e.preventDefault();
+                    cookies.set("userData", null);
+                    router.push("/login");
+                  }}
+                >
+                  {userData?.user ? "Sign Out" : "Sign In"}
                 </StyledMui.StyledMenuItem>
               </Menu>
             </Dropdown>
@@ -85,7 +101,7 @@ const ManageAccountHeader = () => {
         </Grid>
       </Grid>
     </Styled.HeaderWrapper>
-  )
-}
+  );
+};
 
-export default ManageAccountHeader
+export default ManageAccountHeader;
