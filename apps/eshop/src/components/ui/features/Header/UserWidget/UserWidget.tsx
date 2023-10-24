@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Styled } from "./UserWidget.styled";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 
+export type UserData = {
+  user: {
+    username: string;
+    email: string;
+  };
+}
+
 const UserWidget = () => {
   const router = useRouter();
-  const cookies = new Cookies();
+  const cookies = useMemo(() => new Cookies(), []); // Create cookies object
+  const [userData, setUserData] = useState<UserData | null>(null);
 
-  // console.log("cookies user data", cookies.get("userData"));
+  useEffect(() => {
+    const userDataFromCookie = cookies.get("userData");
+    if (userDataFromCookie) {
+      setUserData(userDataFromCookie);
+    }
+  }, [cookies]);
 
   return (
     <div className="flex gap-4 py-5 font-semibold">
-      {cookies.get("userData") ? (
+      {userData ? (
         <>
           <Styled.LoginButton
             onClick={(e) => {
@@ -20,7 +33,7 @@ const UserWidget = () => {
               router.push("/profile");
             }}
           >
-            My Account
+            My Profile
           </Styled.LoginButton>
           <Styled.LoginButton
             onClick={(e) => {

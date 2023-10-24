@@ -2,7 +2,11 @@ import react from "react";
 import Head from "next/head";
 import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot";
 import metaData from "../../public/meta.json";
-import ProfileLayout from "@/components/layouts/ProfileLayout";
+import Footer from "@/components/ui/features/footer/Footer";
+import UserNewDashboardLayout from "@/components/layouts/UserNewdashboardlayout";
+import ManageAccountHeader from "@/components/ui/features/UserDashboard/Header/UserHeader";
+import UserSidebar from "@/components/ui/features/UserDashboard/Sidebar/UserSidebar";
+import UserMain from "@/components/ui/features/UserDashboard/Main/UserMain";
 
 const Profile = () => {
   return (
@@ -18,7 +22,17 @@ const Profile = () => {
         <meta name="google-site-verification" content="K81iN0RCpi5NOoiQmvPbDGfFInM19PeDj0yrYEM3P-8" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ProfileLayout/>
+      <div>
+      <UserNewDashboardLayout
+        sidebar={<UserSidebar />}
+        header={<ManageAccountHeader />}
+        footer={<Footer />}
+      >
+        <div className='p-10'>
+        <UserMain />
+        </div>
+      </UserNewDashboardLayout>
+    </div>
       <ChatBot />
     </>
   );
