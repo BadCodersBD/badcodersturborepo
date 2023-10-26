@@ -28,9 +28,7 @@ const Profile = () => {
         header={<ManageAccountHeader />}
         footer={<Footer />}
       >
-        <div className='p-10'>
         <UserMain />
-        </div>
       </UserNewDashboardLayout>
     </div>
       <ChatBot />

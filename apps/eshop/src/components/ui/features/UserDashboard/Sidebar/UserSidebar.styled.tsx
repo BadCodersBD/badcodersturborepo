@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 const SideBarWrapper = styled.div`
-  background-color: #000000;
+  background-color: #424246;
   color: #ffffff;
   font-weight: 500;
 `
@@ -35,7 +35,7 @@ const CloseButton = styled.button`
     -webkit-appearance: none;
     border: 1px solid #383838;
     border-radius: 50%;
-    background: #000000;
+    background: #063aca;
     position: absolute;
     top: 0;
     right: 0;

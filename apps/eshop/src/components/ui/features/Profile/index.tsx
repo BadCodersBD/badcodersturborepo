@@ -20,7 +20,7 @@ const UserProfile = () => {
   }, [cookies]);
 
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen text-black bg-white w-full">
       <h1 className="pt-10">User Profile</h1>
       {userData && (
         <>

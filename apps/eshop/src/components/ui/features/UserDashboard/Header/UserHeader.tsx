@@ -35,7 +35,7 @@ const ManageAccountHeader = () => {
   return (
     <Styled.HeaderWrapper>
       <Grid container spacing={2}>
-        <Grid item sm={4}>
+        <Grid item xs={4}>
           <div className=" flex justify-start items-center md:hidden text-white">
             <button
               className=" bg-zinc-600 p-2 ml-4"
@@ -49,7 +49,7 @@ const ManageAccountHeader = () => {
             </button>
           </div>
         </Grid>
-        <Grid item sm={4}>
+        <Grid item xs={4}>
           <div className=" text-white lg:flex justify-center items-center gap-10">
             <Link
               href="/"
@@ -59,7 +59,7 @@ const ManageAccountHeader = () => {
             </Link>
           </div>
         </Grid>
-        <Grid item sm={4}>
+        <Grid item xs={4}>
           <div className="flex justify-end items-center">
             <Dropdown>
               <StyledMui.TriggerButton>
