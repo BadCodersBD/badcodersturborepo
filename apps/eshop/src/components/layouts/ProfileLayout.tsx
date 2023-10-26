@@ -13,9 +13,6 @@ const ProfileLayout = () => {
       <UserProfile/>
       <GoToTopButton/>
       <Footer/>
-      <div className="inline md:hidden">
-        <SimpleBottomNavigation />
-      </div>
     </div>
   )
 }

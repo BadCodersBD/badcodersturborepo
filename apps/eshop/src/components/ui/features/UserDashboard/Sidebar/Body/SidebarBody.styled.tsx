@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { size } from "ui/components/foundations/breakpoints/device";
 import Link from "next/link";
 
 type SideBarLinkProps = {
@@ -15,7 +14,7 @@ const ListItem = styled.div`
   }
 `;
 const SidebarLink = styled(Link)<SideBarLinkProps>`
-  background-color: #ffffff;
+  background-color: #000000;
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 6px;
@@ -23,8 +22,8 @@ const SidebarLink = styled(Link)<SideBarLinkProps>`
   color: #ffffff;
   font-weight: 600;
   &:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #10e2f1;
+    color: #000000;
   }
 `;
 

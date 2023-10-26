@@ -1,37 +1,37 @@
-import React from 'react'
-import Grid from '@mui/material/Grid'
-import SimpleBottomNavigation from '../ui/features/BottomNavigation/BottomNavigation'
-import { Toaster } from 'react-hot-toast'
+import React from "react";
+import SimpleBottomNavigation from "../ui/features/BottomNavigation/BottomNavigation";
+import { Toaster } from "react-hot-toast";
 
 type Props = {
-  children: React.ReactNode
-  topheader?: React.ReactNode
-  header?: React.ReactNode
-  footer?: React.ReactNode
-  sidebar?: React.ReactNode
-}
+  children: React.ReactNode;
+  topheader?: React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
+  sidebar?: React.ReactNode;
+};
 
-const UserNewDashboardLayout = ({ children, header, footer, sidebar }: Props) => {
+const UserNewDashboardLayout = ({
+  children,
+  header,
+  footer,
+  sidebar,
+}: Props) => {
   return (
-    <div>
-      <div className=" flex-grow md:flex-[4]  min-h-screen">
-        {header}
-        <Grid container spacing={2}>
-          <Grid item lg={3}>
-            {sidebar}
-          </Grid>
-          <Grid item lg={9}>
-            {children}
-          </Grid>
-        </Grid>
+    <div className="w-full">
+      <div className="flex w-full">
+        {sidebar}
+        <div className=" min-h-screen flex-grow  md:flex-[4]">
+          {header}
+          <main>{children}</main>
+          <footer className="w-full">{footer}</footer>
+        </div>
       </div>
       <div className=" sm:hidden ">
         <SimpleBottomNavigation />
       </div>
-      <footer>{footer}</footer>
-      <Toaster />
+      <Toaster/>
     </div>
-  )
-}
+  );
+};
 
-export default UserNewDashboardLayout
+export default UserNewDashboardLayout;
