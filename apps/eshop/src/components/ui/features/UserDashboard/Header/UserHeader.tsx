@@ -80,7 +80,7 @@ const ManageAccountHeader = () => {
                   </>
                 ) : (
                   <div className="pt-1">
-                    <Avatar src="/broken-image.jpg" />
+                    <Avatar src="/broken-image.png" />
                   </div>
                 )}
               </StyledMui.TriggerButton>
