@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { adminSidebarToggleState } from '../../../../../utils/sidebar/adminSidebarToggle'
 import { useRecoilState } from 'recoil'
-import { useViewportSize } from 'ui/components/hooks/useViewportSize'
 
 const UserSidebarUtils = () => {
   const [sidebarToggle, setSidebarToggle] = useState(false)

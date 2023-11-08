@@ -6,28 +6,22 @@ import PaymentIcon from '@mui/icons-material/Payment'
 export const listOfMenu = [
   {
     id: 1,
-    type: 'User Profile',
+    type: 'User Settings',
     listOfItems: [
       {
         id: 1,
         name: 'Account Settings',
         icon: <ManageAccountsIcon />,
-        url: '/manageAccount',
+        url: '/profile',
       },
       {
         id: 2,
-        name: 'Order History',
+        name: 'Rent History',
         icon: <ViewListIcon />,
-        url: '/orderHistory',
+        url: '/renthistory',
       },
       {
         id: 3,
-        name: 'Wish List',
-        icon: <FavoriteIcon />,
-        url: '/userWishList',
-      },
-      {
-        id: 4,
         name: 'Payment Setting',
         icon: <PaymentIcon />,
         url: '/userPaymentSettings',

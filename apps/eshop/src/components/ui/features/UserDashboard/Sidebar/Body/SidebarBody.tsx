@@ -7,6 +7,9 @@ const SidebarBody = () => {
 
   return (
     <div className="flex flex-col p-4">
+      <div className="flex justify-center items-center">
+      <Image src="/BeachLimo.png" alt="logo" width={200} height={200} sizes="100vw"/>
+      </div>
       <div className="mt-5">
         {listOfMenu.map((menu, index) => (
           <Styled.ListItem key={index} className="mt-4 ">
