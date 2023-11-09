@@ -23,8 +23,8 @@ export type RentalDataType = {
   pickuplocation: string;
   pickuptime: string;
   rentalprice: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   triptype: string;
 };
 
@@ -92,10 +92,19 @@ const RentHistory = () => {
   return (
     <div>
       <h1>Rent history</h1>
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 p-5">
         {rentalHistory.map((rental, index) => (
-          <div key={index}>
+          <div key={index} className="border border-gray-300 p-5">
             <h1>Airport Name: {rental.airportname}</h1>
+            <h1>Car Model: {rental.carModel}</h1>
+            <h1>Child Seat: {rental.childseat}</h1>
+            <h1>End Date: {rental.endDate}</h1>
+            <h1>Start Date: {rental.startDate}</h1>
+            <h1>Flight No: {rental.flightno}</h1>
+            <h1>Luggage quantity: {rental.luggage}</h1>
+            <h1>Mobile Number: {rental.mobilenumber}</h1>
+            <h1>Passeneger: {rental.passenger}</h1>
+            <h1>Rental Price: {rental.rentalprice}</h1>
           </div>
         ))}
       </div>

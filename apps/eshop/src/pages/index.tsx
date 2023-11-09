@@ -4,11 +4,11 @@ import Header from "@/components/ui/features/Header/Header";
 import Main from "@/components/ui/element/Main/Main";
 import GoToTopButton from "../components/ui/element/GoToTopButton/GoToTopButton";
 import Head from "next/head";
-import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot";
 import Footer from "@/components/ui/features/footer/Footer";
 import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
 import metaData from "../../public/meta.json";
 import WhatsAppChatbot from "@/components/ui/features/WhatsAppChatbot/WhatsAppChatbot";
+import FacebookChatPlugin from "@/components/ui/features/FacebookChatPlugin";
 
 export default function Home() {
   
@@ -38,7 +38,7 @@ export default function Home() {
       <Header />
       <Main />
       <GoToTopButton />
-      {/* <ChatBot /> */}
+      <FacebookChatPlugin/>
       <WhatsAppChatbot/>
       <Footer />
       <div className="inline md:hidden">
