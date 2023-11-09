@@ -38,7 +38,7 @@ export default function Home() {
       <Header />
       <Main />
       <GoToTopButton />
-      <FacebookChatPlugin/>
+      <FacebookChatPlugin pageID="327115761172039"/>
       <WhatsAppChatbot/>
       <Footer />
       <div className="inline md:hidden">
