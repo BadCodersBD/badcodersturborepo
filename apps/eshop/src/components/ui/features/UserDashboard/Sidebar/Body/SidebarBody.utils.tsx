@@ -20,12 +20,12 @@ export const listOfMenu = [
         icon: <ViewListIcon />,
         url: '/renthistory',
       },
-      {
-        id: 3,
-        name: 'Payment Setting',
-        icon: <PaymentIcon />,
-        url: '/userPaymentSettings',
-      },
+      // {
+      //   id: 3,
+      //   name: 'Payment Setting',
+      //   icon: <PaymentIcon />,
+      //   url: '/userPaymentSettings',
+      // },
     ],
   },
 ]
