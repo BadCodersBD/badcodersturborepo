@@ -2,6 +2,16 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import createHttpError from 'http-errors';
 
+// Define a custom type for the decoded user object
+interface DecodedUser {
+  userId: string; // Adjust based on your actual user object structure
+}
+
+// Define a custom type for the request object with 'user' property
+interface RequestWithUser extends Request {
+  user?: DecodedUser;
+}
+
 const secretKey = "Badcoder@%repo";
 
 export const requiresAuth = (req: RequestWithUser, res: Response, next: NextFunction) => {
@@ -17,13 +27,8 @@ export const requiresAuth = (req: RequestWithUser, res: Response, next: NextFunc
     }
 
     // Attach user information to the request object
-    req.user = decoded;
+    req.user = decoded as DecodedUser; // Assume DecodedUser is your decoded user type
 
     next();
   });
 };
-
-// Define a custom type for the request object with 'user' property
-interface RequestWithUser extends Request {
-  user?: unknown; // Adjust the type based on your token structure
-}

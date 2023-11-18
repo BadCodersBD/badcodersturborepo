@@ -1,12 +1,11 @@
 import { RequestHandler } from "express";
 import createHttpError from "http-errors";
 import mongoose from "mongoose";
-import CarRentalModel from "../models/carRentals"; // Import the CarRentalModel
+import CarRentalModel from "../models/carRentals";
 import UserModel from "../models/user";
 
 export const getRentalsByUserId: RequestHandler = async (req, res, next) => {
-  const userId = req.params.userId; // Assuming you're passing the userId as a URL parameter
-console.log(userId)
+  const userId = req.params.userId;
   try {
     const rentals = await CarRentalModel.find({ userId }).exec();
 

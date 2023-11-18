@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import carrents from "./routes/carrentals";
+import adminroutes from "./routes/adminroutes"
 import userRoutes from "./routes/users";
 import morgan from "morgan";
 import createHttpError, { isHttpError } from "http-errors";
@@ -42,6 +43,7 @@ app.use(session({
 
 app.use("/api/users", userRoutes);
 app.use("/api/carrents", carrents);
+app.use("/api/admin", adminroutes)
 
 
 app.use((req, res, next) => {
