@@ -5,7 +5,12 @@ import * as adminController from "../controllers/adminController";
 
 const router = express.Router();
 
-router.get("/alldata", requiresAuth, isAdmin, adminController.getAllData);
+router.get("/allusersdata", requiresAuth, isAdmin, adminController.getAllUserData);
+router.get("/allrentaldata", requiresAuth, isAdmin, adminController.getAllRentData);
+router.get("/allrentaldatawithusers", requiresAuth, isAdmin, adminController.getAllRentDataWithUsers);
+router.get("/pendingrentadata", requiresAuth, isAdmin, adminController.PendingRentalData);
+
+
 
 
 export default router;

@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { Request as ExpressRequest, Response, NextFunction } from 'express';
 import createHttpError from "http-errors";
 import UserModel, { UserDocument } from "../models/user";
 
@@ -8,11 +8,11 @@ interface DecodedUser {
 }
 
 // Define a custom type for the request object with 'user' property
-interface RequestWithUser extends Request {
+interface RequestWithUser extends ExpressRequest {
   user?: DecodedUser;
 }
 
-// Middleware to check if the user is an admin
+
 export const isAdmin = async (
   req: RequestWithUser,
   res: Response,
