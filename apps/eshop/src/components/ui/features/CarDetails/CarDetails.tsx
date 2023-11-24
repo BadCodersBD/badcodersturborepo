@@ -57,7 +57,7 @@ const Cardetails = ({ product }: any) => {
               height={0}
               width={0}
               sizes="100vw"
-              src={urlForThumbnail(product.companyImage)}
+              src={urlForThumbnail(product?.companyImage)}
             />
           </div>
         </Grid>

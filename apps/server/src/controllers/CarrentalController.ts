@@ -1,12 +1,11 @@
 import { RequestHandler } from "express";
 import createHttpError from "http-errors";
 import mongoose from "mongoose";
-import CarRentalModel from "../models/carRentals"; // Import the CarRentalModel
+import CarRentalModel from "../models/carRentals";
 import UserModel from "../models/user";
 
 export const getRentalsByUserId: RequestHandler = async (req, res, next) => {
-  const userId = req.params.userId; // Assuming you're passing the userId as a URL parameter
-console.log(userId)
+  const userId = req.params.userId;
   try {
     const rentals = await CarRentalModel.find({ userId }).exec();
 
@@ -60,6 +59,7 @@ interface CreateRentalBody {
   startDate?: Date;
   endDate?: Date;
   rentalprice?: number;
+  createdDate?: Date;
 }
 
 export const createRental: RequestHandler<
@@ -93,7 +93,8 @@ export const createRental: RequestHandler<
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Create a new car rental record
+    // Create a new car rental record with a default status of "pending" and created date
+    const currentDate = new Date();
     const newCarRental = await CarRentalModel.create({
       userId,
       triptype,
@@ -110,6 +111,8 @@ export const createRental: RequestHandler<
       startDate,
       endDate,
       rentalprice,
+      status: "pending", // Set the default status here
+      createdDate: currentDate, // Set the created date
     });
 
     res
@@ -120,6 +123,7 @@ export const createRental: RequestHandler<
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 export const updateRental: RequestHandler = async (req, res, next) => {
   const rentalId = req.params.rentalId;

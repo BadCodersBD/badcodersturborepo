@@ -9,6 +9,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import metaData from "../../public/meta.json";
 import { Input } from "antd";
 import Cookies from "universal-cookie";
+import { UserData } from "../components/ui/features/Header/UserWidget/UserWidget";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -65,12 +66,16 @@ const LoginForm = () => {
           body: jsonData,
         }
       );
-
       if (response.ok) {
         const responseData = await response.json();
-        // console.log(responseData); // Add this line
-        cookies.set("userData", responseData);
-        router.push("/");
+        console.log(responseData.user.email);
+
+        if (responseData.user.email === "admin1@gmail.com") {
+          router.push("/admindashboard"); // Redirect to admindashboard route
+        } else {
+          cookies.set("userData", responseData);
+          router.push("/");
+        }
       } else {
         console.error("Unexpected response:", response);
       }
@@ -117,7 +122,7 @@ const LoginForm = () => {
           </div>
         </Link>
         <FormWrapper>
-        <h1 className="text-center text-2xl font-semibold">Log In</h1>
+          <h1 className="text-center text-2xl font-semibold">Log In</h1>
           <form
             action="# "
             onSubmit={handleSubmit}
