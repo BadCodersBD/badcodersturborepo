@@ -9,7 +9,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import cors from 'cors';
 // import { requiresAuth } from "./middleware/auth";
-import { rateLimit } from 'express-rate-limit'
+import { rateLimit } from 'express-rate-limit';
 
 
 const app = express();

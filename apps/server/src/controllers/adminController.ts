@@ -52,7 +52,38 @@ export const getAllRentDataWithUsers: RequestHandler = async (req, res, next) =>
   }
 };
 
+// API endpoint to get all pending rental data with user information, sorted by created date
+export const getLatestRentDataWithUsers: RequestHandler = async (req, res, next) => {
+  try {
+    // Aggregate pipeline to filter, group rentals by userId, and populate user information
+    const LastCreateRentalDataWithUsers = await CarRentalModel.aggregate([
+      {
+        $sort: { createdDate: -1 }, // Sort by created date in descending order
+      },
+      {
+        $group: {
+          _id: "$userId",
+          rentals: { $push: "$$ROOT" }, // Group rentals for each user
+        },
+      },
+      {
+        $lookup: {
+          from: "users", // Collection name for UserModel
+          localField: "_id",
+          foreignField: "_id",
+          as: "user",
+        },
+      },
+      {
+        $unwind: "$user",
+      },
+    ]).exec();
 
+    res.status(200).json(LastCreateRentalDataWithUsers);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const PendingRentalData: RequestHandler = async (req, res, next) => {
   try {

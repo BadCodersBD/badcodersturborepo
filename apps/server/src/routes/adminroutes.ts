@@ -9,8 +9,6 @@ router.get("/allusersdata", requiresAuth, isAdmin, adminController.getAllUserDat
 router.get("/allrentaldata", requiresAuth, isAdmin, adminController.getAllRentData);
 router.get("/allrentaldatawithusers", requiresAuth, isAdmin, adminController.getAllRentDataWithUsers);
 router.get("/pendingrentadata", requiresAuth, isAdmin, adminController.PendingRentalData);
-
-
-
+router.get("/latestrentadata", requiresAuth, isAdmin, adminController.getLatestRentDataWithUsers);
 
 export default router;
