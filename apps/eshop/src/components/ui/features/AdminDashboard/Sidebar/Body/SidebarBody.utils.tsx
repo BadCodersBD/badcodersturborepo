@@ -1,7 +1,5 @@
 import ViewListIcon from '@mui/icons-material/ViewList'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
-import PaymentIcon from '@mui/icons-material/Payment'
 
 export const listOfMenu = [
   {
@@ -10,22 +8,16 @@ export const listOfMenu = [
     listOfItems: [
       {
         id: 1,
-        name: 'Account Settings',
+        name: 'OverView',
         icon: <ManageAccountsIcon />,
-        url: '/profile',
+        url: '/adminProfile',
       },
       {
         id: 2,
         name: 'Rent History',
         icon: <ViewListIcon />,
-        url: '/renthistory',
+        url: '/adminrenthistory',
       },
-      // {
-      //   id: 3,
-      //   name: 'Payment Setting',
-      //   icon: <PaymentIcon />,
-      //   url: '/userPaymentSettings',
-      // },
     ],
   },
 ]
