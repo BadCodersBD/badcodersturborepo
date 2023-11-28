@@ -1,15 +1,17 @@
-import AdminDashboardLayout from "@/components/layouts/AdminDashboardLayout";
+import { ReactReduxContext } from "react-redux";
+import { ReactReduxContextValue } from "react-redux";
 import React from "react";
+import AdminProfileLayout from "@/components/layouts/AdminProfileLayout";
 import Head from "next/head";
 import metaData from "../../public/meta.json";
 import Footer from "@/components/ui/features/footer/Footer";
-import AdminSidebar from "@/components/ui/features/AdminDashboard/Sidebar/AdminSidebar";
-import AdminMain from "@/components/ui/features/AdminDashboard/Main/AdminMain";
 import AdminAccountHeader from "@/components/ui/features/AdminDashboard/Header/AdminHeader";
+import AdminSidebar from "@/components/ui/features/AdminDashboard/Sidebar/AdminSidebar";
+import AdminProfileOverview from "@/components/ui/features/AdminProfileOverview";
 
-const AdminDashboard = () => {
+const AdminProfile = () => {
   return (
-    <div className="bg-white text-black">
+    <div>
       <Head>
         <title>Beach Limo: Admin profile</title>
         <meta name="description" content={metaData.description} />
@@ -24,17 +26,17 @@ const AdminDashboard = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AdminDashboardLayout
+      <AdminProfileLayout
         sidebar={<AdminSidebar />}
         header={<AdminAccountHeader />}
         footer={<Footer />}
       >
-        <div className="min-h-screen flex justify-center items-center">
-        <AdminMain />
+        <div className="min-h-screen flex justify-center items-center bg-white text-black">
+          <AdminProfileOverview />
         </div>
-      </AdminDashboardLayout>
+      </AdminProfileLayout>
     </div>
   );
 };
 
-export default AdminDashboard;
+export default AdminProfile;
