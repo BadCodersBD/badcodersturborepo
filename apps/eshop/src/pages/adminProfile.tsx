@@ -1,5 +1,3 @@
-import { ReactReduxContext } from "react-redux";
-import { ReactReduxContextValue } from "react-redux";
 import React from "react";
 import AdminProfileLayout from "@/components/layouts/AdminProfileLayout";
 import Head from "next/head";
@@ -11,7 +9,7 @@ import AdminProfileOverview from "@/components/ui/features/AdminProfileOverview"
 
 const AdminProfile = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Beach Limo: Admin profile</title>
         <meta name="description" content={metaData.description} />
@@ -35,7 +33,7 @@ const AdminProfile = () => {
           <AdminProfileOverview />
         </div>
       </AdminProfileLayout>
-    </div>
+    </>
   );
 };
 

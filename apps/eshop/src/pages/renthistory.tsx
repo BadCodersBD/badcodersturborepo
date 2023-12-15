@@ -1,7 +1,6 @@
 import RentHistoryLayout from "@/components/layouts/RentHistoryLayout";
 import React from "react";
 import Head from "next/head";
-import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot";
 import metaData from "../../public/meta.json";
 import Footer from "@/components/ui/features/footer/Footer";
 import ManageAccountHeader from "@/components/ui/features/UserDashboard/Header/UserHeader";

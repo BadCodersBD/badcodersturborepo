@@ -1,0 +1,43 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Block all crawlers for /accounts
+User-agent: *
+Disallow: /accounts
+
+User-agent: BadBot
+Disallow: /private/
+
+User-agent: *
+Disallow: /*.pdf$
+Disallow: /*.zip$
+
+User-agent: *
+Disallow: /restricted-page/
+Disallow: /temporary/
+
+User-agent: Googlebot
+Allow: /google-friendly-content/
+
+User-agent: Bingbot
+Allow: /bing-friendly-content/
+
+User-agent: *
+Crawl-delay: 5
+
+# Public Section
+User-agent: *
+Allow: /public/
+
+# Private Section
+User-agent: *
+Disallow: /private/
+
+User-agent: Googlebot
+Allow: /*.css$
+
+user-agent: magicsearchbot
+disallow: /uploads/
+
+Sitemap: https://www.beachlimofl.com/api/sitemap.xml

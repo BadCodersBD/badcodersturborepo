@@ -8,10 +8,11 @@ import AdminMain from "@/components/ui/features/AdminDashboard/Main/AdminMain";
 import AdminAccountHeader from "@/components/ui/features/AdminDashboard/Header/AdminHeader";
 
 const AdminDashboard = () => {
+
   return (
-    <div className="bg-white text-black">
+    <>
       <Head>
-        <title>Beach Limo: Admin profile</title>
+        <title>Beach Limo: Admin Dashboard</title>
         <meta name="description" content={metaData.description} />
         <meta name="keywords" content={metaData.keywords} />
         <meta property="og:description" content={metaData.description} />
@@ -24,6 +25,7 @@ const AdminDashboard = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="bg-white text-black">
       <AdminDashboardLayout
         sidebar={<AdminSidebar />}
         header={<AdminAccountHeader />}
@@ -33,7 +35,8 @@ const AdminDashboard = () => {
         <AdminMain />
         </div>
       </AdminDashboardLayout>
-    </div>
+      </div>
+    </>
   );
 };
 
