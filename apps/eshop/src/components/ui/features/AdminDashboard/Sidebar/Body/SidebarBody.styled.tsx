@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-type SideBarLinkProps = {
-  active: boolean;
-};
+// type SideBarLinkProps = {
+//   active: boolean;
+// };
 
 const ListItem = styled.div`
   color: #ffffff;
@@ -13,7 +13,7 @@ const ListItem = styled.div`
     color: #ffffff;
   }
 `;
-const SidebarLink = styled(Link)<SideBarLinkProps>`
+const SidebarLink = styled(Link)`
   background-color: #000000;
   margin: 0.5rem;
   padding: 0.5rem;

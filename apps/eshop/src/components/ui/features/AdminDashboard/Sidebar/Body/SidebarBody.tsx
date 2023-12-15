@@ -3,7 +3,7 @@ import Image from "next/image";
 import { listOfMenu } from "./SidebarBody.utils";
 
 const SidebarBody = () => {
-  const route = window.location.pathname;
+  // const route = window.location.pathname;
 
   return (
     <div className="flex flex-col p-4">
@@ -19,7 +19,7 @@ const SidebarBody = () => {
                 <Styled.SidebarLink
                   key={index}
                   href={item.url}
-                  active={item.url === route ? true : false}
+                  // active={item.url === route ? true : false}
                   className="flex items-center"
                 >
                   <div className="mr-2">{item.icon}</div>

@@ -35,7 +35,7 @@ const BookingReservation = () => {
     setTriptype(value);
   };
 
-  console.log(token);
+  // console.log(token);
   // console.log(userId);
 
   // const handlestartdate: DatePickerProps["onChange"] = (date, dateString) => {
