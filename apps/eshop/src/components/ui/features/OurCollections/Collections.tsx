@@ -8,7 +8,7 @@ import WcIcon from "@mui/icons-material/Wc";
 import WifiIcon from "@mui/icons-material/Wifi";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 
 const Collections = () => {
@@ -18,7 +18,7 @@ const Collections = () => {
   const cookies = new Cookies();
   const router = useRouter();
 
-  const isLoggedIn = cookies.get('userData'); 
+  const isLoggedIn = cookies.get("userData");
 
   const handleBookNowClick = () => {
     if (isLoggedIn) {
@@ -26,7 +26,6 @@ const Collections = () => {
     } else {
       // toast.error("Please log in to book.");
       router.push("/login");
-
     }
   };
 
@@ -109,11 +108,13 @@ const Collections = () => {
             <div className="flex justify-center items-center">
               <Styled.Subspan>
                 <WcIcon color="success" fontSize="medium" />
-                <span className="hidden md:inline">Passenger:</span>{data.passenger}
+                <span className="hidden md:inline">Passenger:</span>
+                {data.passenger}
               </Styled.Subspan>
               <Styled.Subspan>
                 <BusinessCenterIcon color="primary" fontSize="medium" />
-                <span className="hidden md:inline">Luggages:</span> {data.luggage}
+                <span className="hidden md:inline">Luggages:</span>{" "}
+                {data.luggage}
               </Styled.Subspan>
               <Styled.Subspan>
                 <WifiIcon color="error" fontSize="medium" />
@@ -121,10 +122,12 @@ const Collections = () => {
               </Styled.Subspan>
             </div>
             <div className="flex justify-around my-2">
-              <Link href={`/${data ? data.slug.current : null}`}>
-                <Styled.Viewdetails>View Details</Styled.Viewdetails>
-              </Link>{" "}
-              <Styled.BookNow onClick={handleBookNowClick}>Book Now</Styled.BookNow>
+              <Styled.Viewdetails href={`/${data ? data.slug.current : null}`}>
+                View Details
+              </Styled.Viewdetails>
+              <Styled.BookNow onClick={handleBookNowClick}>
+                Book Now
+              </Styled.BookNow>
             </div>
           </Styled.Card>
         ))}
@@ -134,11 +137,9 @@ const Collections = () => {
           <Styled.SeeMore onClick={showMoreProducts}>See More</Styled.SeeMore>
         </div>
       )} */}
-      <Link href="/allcars">
-        <div className="mt-5 flex justify-center">
-          <Styled.SeeMore>See More</Styled.SeeMore>
-        </div>
-      </Link>
+      <div className="mt-5 flex justify-center">
+        <Styled.SeeMore href="/allcars">click here</Styled.SeeMore>
+      </div>
     </Styled.Main>
   );
 };

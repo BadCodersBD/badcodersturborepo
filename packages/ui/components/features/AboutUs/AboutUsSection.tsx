@@ -67,16 +67,16 @@ const AboutUsSection = ({ historyColor, historyData, headingColor }: Props) => {
           <GridColumn xs={12} lg={4}>
             <div className="h-full w-full flex flex-col items-center justify-center">
               <Styled.Cardone historyColor={historyColor}>
-                <h4 className="font-bold text-xl">
+                <h1 className="font-bold text-xl">
                   <RemoveRedEyeOutlinedIcon fontSize="large" />
                   Values
-                </h4>
+                </h1>
                 <Styled.content>{data.cardonedata}</Styled.content>
               </Styled.Cardone>
               <Styled.Cardsecond historyColor={historyColor}>
-                <h4 className="font-bold text-xl">
+                <h1 className="font-bold text-xl">
                   <RadarIcon fontSize="large" /> Vision
-                </h4>
+                </h1>
                 <Styled.content>{data.cardtwodata}</Styled.content>
               </Styled.Cardsecond>
             </div>

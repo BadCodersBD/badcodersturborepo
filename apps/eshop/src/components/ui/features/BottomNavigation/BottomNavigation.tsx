@@ -65,11 +65,11 @@ const SimpleBottomNavigation = () => {
             </Styled.Span>
             <Styled.Span>Home</Styled.Span>
           </Styled.NavItem>
-          <Styled.NavItem href="/service">
+          <Styled.NavItem href="/allcars">
             <Styled.Span>
               <InventoryIcon />
             </Styled.Span>
-            <Styled.Span>Service</Styled.Span>
+            <Styled.Span>All Cars</Styled.Span>
           </Styled.NavItem>
           {/* {navigationData.map(({ name, Icon, url }, index) => {
             if (
@@ -90,15 +90,13 @@ const SimpleBottomNavigation = () => {
             <Styled.Span>
               <CollectionsIcon />
             </Styled.Span>
-            <Styled.Span>Collection</Styled.Span>
+            <Styled.Span>Contact Us</Styled.Span>
           </Styled.NavItem>
-          <Styled.NavItem href="/contact-us">
+          <Styled.NavItem href="/profile">
             <Styled.Span>
               <AccountCircleIcon />
             </Styled.Span>
             <Styled.Span>My Profile</Styled.Span>
-          </Styled.NavItem>
-          <Styled.NavItem>
           </Styled.NavItem>
         </Styled.Nav>
       )}

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const Nav = styled.nav`
   display: flex;
@@ -14,7 +15,7 @@ const Nav = styled.nav`
   z-index: 1000;
 `
 
-const NavItem = styled.a`
+const NavItem = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: white;

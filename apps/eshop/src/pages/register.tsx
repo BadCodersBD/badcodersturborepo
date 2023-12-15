@@ -10,6 +10,7 @@ import { Input } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Cookies from "universal-cookie";
+import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -231,6 +232,9 @@ const RegisterForm = () => {
         </FormWrapper>
       </div>
       <Footer />
+      <div className="inline md:hidden">
+        <SimpleBottomNavigation />
+      </div>
     </div>
   );
 };

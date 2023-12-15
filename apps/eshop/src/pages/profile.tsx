@@ -1,6 +1,5 @@
 import react from "react";
 import Head from "next/head";
-import ChatBot from "@/components/ui/features/MessengerChatbot/MessengerChatbot";
 import metaData from "../../public/meta.json";
 import Footer from "@/components/ui/features/footer/Footer";
 import UserNewDashboardLayout from "@/components/layouts/UserNewdashboardlayout";
@@ -31,7 +30,6 @@ const Profile = () => {
         <UserMain />
       </UserNewDashboardLayout>
     </div>
-      <ChatBot />
     </>
   );
 };
