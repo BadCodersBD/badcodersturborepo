@@ -4,6 +4,7 @@ import Header from "@/components/ui/features/Header/Header";
 import Footer from "@/components/ui/features/footer/Footer";
 import Allcars from "@/components/ui/features/OurCollections/AllCars/AllCars";
 import metaData from "../../public/meta.json";
+import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
 
 
 const AllCars = () => {
@@ -32,6 +33,9 @@ const AllCars = () => {
       <Header />
       <Allcars product={[]}/>
       <Footer />
+      <div className="inline md:hidden">
+        <SimpleBottomNavigation />
+      </div>
     </>
   );
 };

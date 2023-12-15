@@ -56,7 +56,7 @@ const Services = () => {
       </div>
       <Link href="/service">
         <div className="mt-5 flex justify-center">
-          <Styled.SeeMore>See More</Styled.SeeMore>
+          <Styled.SeeMore>click here</Styled.SeeMore>
         </div>
       </Link>
     </Styled.Main>

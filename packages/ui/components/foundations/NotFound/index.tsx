@@ -6,10 +6,10 @@ const NotFound: React.FC = () => (
     <Styled.FourZeroFourBgH1>404</Styled.FourZeroFourBgH1>
     <Styled.FourZeroFourBg></Styled.FourZeroFourBg>
     <Styled.ContantBox404>
-      <Styled.FourZeroFourBgH3>Look like you're lost</Styled.FourZeroFourBgH3>
-      <h4 className="text-center text-xl ">
+      <Styled.FourZeroFourBgH3>{`Look like you're lost`}</Styled.FourZeroFourBgH3>
+      <h1 className="text-center text-xl ">
         the page you are looking for not avaible!
-      </h4>
+      </h1>
       <Styled.Link404 href="/">Go to Home</Styled.Link404>
     </Styled.ContantBox404>
   </Styled.Page404>

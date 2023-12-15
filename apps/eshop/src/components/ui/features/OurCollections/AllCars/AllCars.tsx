@@ -102,7 +102,7 @@ const Allcars = ({ product }: ProductDetailsType) => {
       </div>
       {showLoadMoreButton && (
         <div className="mt-5 flex justify-center">
-          <Styled.SeeMore onClick={showMoreProducts}>See More</Styled.SeeMore>
+          <Styled.SeeMore onClick={showMoreProducts}>click here</Styled.SeeMore>
         </div>
       )}
     </Styled.Main>

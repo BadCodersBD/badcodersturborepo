@@ -10,6 +10,7 @@ import metaData from "../../public/meta.json";
 import { Input } from "antd";
 import Cookies from "universal-cookie";
 import { UserData } from "../components/ui/features/Header/UserWidget/UserWidget";
+import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -215,6 +216,9 @@ const LoginForm = () => {
         </FormWrapper>
       </div>
       <Footer />
+      <div className="inline md:hidden">
+        <SimpleBottomNavigation />
+      </div>
     </div>
   );
 };

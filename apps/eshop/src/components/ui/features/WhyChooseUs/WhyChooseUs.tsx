@@ -32,7 +32,7 @@ const ChooseUs = () => {
           <Grid item lg={6} xs={12}>
             <div className="flex justify-center items-center- pl-10">
             <div className="w-full ">
-              <h4 className="text-3xl font-bold ">Why Choose Us</h4>
+              <h1 className="text-3xl font-bold ">Why Choose Us</h1>
               <h2 className="text-4xl font-extrabold my-5">
                 Best valued deals <br></br> you will ever find
               </h2>
@@ -62,7 +62,7 @@ const ChooseUs = () => {
                   className=" object-contain"
                 />
                 <div>
-                  <h4 className="text-2xl font-bold">Cross Country Drive</h4>
+                  <h1 className="text-2xl font-bold">Cross Country Drive</h1>
                   <p className="text-lg my-3">
                     Take your driving experience to the next level with our
                     top-notch vehicles for your cross-country adventures.
@@ -79,7 +79,7 @@ const ChooseUs = () => {
                   className=" object-contain"
                 />
                 <div>
-                  <h4 className="text-2xl font-bold">All Inclusive Pricing</h4>
+                  <h1 className="text-2xl font-bold">All Inclusive Pricing</h1>
                   <p className="text-lg my-3">
                     Get everything you need in one convenient, transparent price
                     with our all-inclusive pricing policy.
@@ -96,7 +96,7 @@ const ChooseUs = () => {
                   className=" object-contain"
                 />
                 <div>
-                  <h4 className="text-2xl font-bold">No Hidden Charges</h4>
+                  <h1 className="text-2xl font-bold">No Hidden Charges</h1>
                   <p className="text-lg my-3">
                     Enjoy peace of mind with our no hidden charges policy. We
                     believe in transparent and honest pricing.

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 const Main = styled.div`
   width: 100%;
@@ -57,7 +58,7 @@ const Subspan = styled.span`
   margin-left: 0.5rem;
 `;
 
-const SeeMore = styled.button`
+const SeeMore = styled(Link)`
     width: auto;
     height: auto;
     padding: 1rem 2rem 1rem 2rem;
@@ -73,7 +74,7 @@ const SeeMore = styled.button`
   }
 `;
 
-const Viewdetails = styled.button`
+const Viewdetails = styled(Link)`
     width: auto;
     height: auto;
     padding: 0.8rem 1.5rem 1rem 0.8rem;
