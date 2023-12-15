@@ -8,16 +8,17 @@ import Footer from "@/components/ui/features/footer/Footer";
 import SimpleBottomNavigation from "@/components/ui/features/BottomNavigation/BottomNavigation";
 import metaData from "../../public/meta.json";
 import WhatsAppChatbot from "@/components/ui/features/WhatsAppChatbot/WhatsAppChatbot";
-import FacebookChatPlugin from "@/components/ui/features/FacebookChatPlugin";
+// import FacebookChatPlugin from "@/components/ui/features/FacebookChatPlugin";
 
-export default function Home() {
-  
+ const Home = () => {
+
   return (
     <>
       <Head>
-        <title>Beach Limo: Car Rental Services</title>
+        <title>Beach Limo : Car Rental Services</title>
         <meta name="description" content={metaData.description} />
         <meta name="keywords" content={metaData.keywords} />
+        <meta property="og:title" content={metaData.title} />
         <meta property="og:description" content={metaData.description} />
         <meta property="og:url" content={metaData.url} />
         <meta property="og:type" content={metaData.type} />
@@ -38,7 +39,7 @@ export default function Home() {
       <Header />
       <Main />
       <GoToTopButton />
-      <FacebookChatPlugin pageID="327115761172039"/>
+      {/* <FacebookChatPlugin pageID="327115761172039"/> */}
       <WhatsAppChatbot/>
       <Footer />
       <div className="inline md:hidden">
@@ -47,3 +48,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home
