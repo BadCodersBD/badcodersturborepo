@@ -15,15 +15,15 @@ const generateSitemap = (urls: any) => {
           <lastmod>${new Date().toISOString()}</lastmod>
         </url>
         <url>
-          <loc>${homepage}/allproductslist</loc>
+          <loc>${homepage}/allcars</loc>
           <lastmod>${new Date().toISOString()}</lastmod>
         </url>
         <url>
-          <loc>${homepage}/brands</loc>
+          <loc>${homepage}/login</loc>
           <lastmod>${new Date().toISOString()}</lastmod>
         </url>
         <url>
-          <loc>${homepage}/contact-us</loc>
+          <loc>${homepage}/register</loc>
           <lastmod>${new Date().toISOString()}</lastmod>
         </url>
         ${urls
