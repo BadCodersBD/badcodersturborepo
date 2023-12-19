@@ -41,7 +41,7 @@ jobs:
         run: |
           npm install
       - run: |
-          if [[ -n "${{ env.ECOM_PREVIEW_URL }}" ]]; then echo "URL: ${{ env.ECOM_PREVIEW_URL }}"; fi
+          if [[ -n "${{ env.ECOM_PREVIEW_URL }}" ]]; then echo "URL: ${{ env.ECOM_PREVIEW_URL }}";
       - name: run Lighthouse CI - Desktop
         run: |
           npm install -g @lhci/cli@0.3.x
