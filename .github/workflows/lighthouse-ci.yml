@@ -16,6 +16,8 @@ jobs:
       - name: npm install
         run: |
           npm install
+      - run: |
+          if [[ -n "${{ env.PREVIEW_URL }}" ]]; then echo "URL: ${{ env.PREVIEW_URL }}"; fi
       - name: run Lighthouse CI - Mobile
         run: |
           npm install -g @lhci/cli@0.3.x
@@ -35,6 +37,8 @@ jobs:
       - name: npm install
         run: |
           npm install
+      - run: |
+          if [[ -n "${{ env.PREVIEW_URL }}" ]]; then echo "URL: ${{ env.PREVIEW_URL }}"; fi
       - name: run Lighthouse CI - Desktop
         run: |
           npm install -g @lhci/cli@0.3.x
