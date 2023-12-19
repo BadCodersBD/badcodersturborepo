@@ -2,8 +2,6 @@ name: Lighthouse CI for eshop
 
 on:
   push:
-    paths:
-      - 'apps/eshop'
 
 jobs:
   lhci:
