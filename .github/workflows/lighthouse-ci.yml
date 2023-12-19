@@ -1,0 +1,43 @@
+name: Lighthouse CI for Akij-Turbo Repo
+
+on:
+  push:
+
+jobs:
+  lhci-mobile:
+    name: Lighthouse CI - Mobile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: npm install
+        run: |
+          npm install
+      - name: run Lighthouse CI - Mobile
+        run: |
+          npm install -g @lhci/cli@0.3.x
+          lhci autorun --preset=mobile
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  lhci-desktop:
+    name: Lighthouse CI - Desktop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: npm install
+        run: |
+          npm install
+      - name: run Lighthouse CI - Desktop
+        run: |
+          npm install -g @lhci/cli@0.3.x
+          lhci autorun --preset=desktop
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

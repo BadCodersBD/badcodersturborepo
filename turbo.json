@@ -23,7 +23,11 @@
         "FACEBOOK_SECRET",
         "GOOGLE_ID",
         "GOOGLE_SECRET",
-        "SECRET_KEY"
+        "SECRET_KEY",
+        "LHCI_GITHUB_APP_TOKEN",
+        "ECOM_PREVIEW_URL",
+        "ELECTRONICS_PREVIEW_URL",
+        "LHCI_GITHUB_APP_TOKEN"
       ]
     },
     "test": {

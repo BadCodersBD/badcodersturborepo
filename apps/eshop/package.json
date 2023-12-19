@@ -6,11 +6,14 @@
     "dev": "next dev --port 3021",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lhci:run": "lhci collect && lhci assert",
+    "lhci:upload": "lhci upload"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@lhci/cli": "^0.13.0",
     "@mui/material": "^5.14.5",
     "@sanity/client": "^6.4.9",
     "@sanity/image-url": "^1.0.2",
