@@ -24,11 +24,11 @@ jobs:
         run: echo "PREVIEW_URL=https://eshop-git-preview.rakibkhanofficial.vercel.app" >> $GITHUB_ENV
       - name: run Lighthouse CI - Mobile
         run: |
-          npm install -g @lhci/cli@0.3.x
+          npm install -g @lhci/cli
           lhci autorun --preset=mobile
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          PREVIEW_URL: https://your-app-git-preview.your-username.vercel.app
+          PREVIEW_URL: https://eshop-git-preview.rakibkhanofficial.vercel.app
 
   lhci-desktop:
     name: Lighthouse CI - Desktop
@@ -47,7 +47,7 @@ jobs:
         run: echo "PREVIEW_URL=https://eshop-git-preview.rakibkhanofficial.vercel.app" >> $GITHUB_ENV
       - name: run Lighthouse CI - Desktop
         run: |
-          npm install -g @lhci/cli@0.3.x
+          npm install -g @lhci/cli
           lhci autorun --preset=desktop
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
