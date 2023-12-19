@@ -2,8 +2,6 @@ name: Lighthouse CI for Eshop-Turbo Repo
 
 on:
   push:
-    paths:
-      - 'apps/eshop'
 
 env:
   ECOM_PREVIEW_URL: ${{ secrets.ECOM_PREVIEW_URL }}
@@ -21,14 +19,16 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - run: |
-          if [[ -n "${{ env.ECOM_PREVIEW_URL }}" ]]; then echo "URL: ${{ env.ECOM_PREVIEW_URL }}"; fi
+      # Set preview URL as an environment variable
+      - name: Set Preview URL
+        run: echo "PREVIEW_URL=https://eshop-git-preview.rakibkhanofficial.vercel.app" >> $GITHUB_ENV
       - name: run Lighthouse CI - Mobile
         run: |
           npm install -g @lhci/cli@0.3.x
           lhci autorun --preset=mobile
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          PREVIEW_URL: https://your-app-git-preview.your-username.vercel.app
 
   lhci-desktop:
     name: Lighthouse CI - Desktop
@@ -42,11 +42,13 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - run: |
-          if [[ -n "${{ env.ECOM_PREVIEW_URL }}" ]]; then echo "URL: ${{ env.ECOM_PREVIEW_URL }}"; fi
+      # Set preview URL as an environment variable
+      - name: Set Preview URL
+        run: echo "PREVIEW_URL=https://eshop-git-preview.rakibkhanofficial.vercel.app" >> $GITHUB_ENV
       - name: run Lighthouse CI - Desktop
         run: |
           npm install -g @lhci/cli@0.3.x
           lhci autorun --preset=desktop
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          PREVIEW_URL: https://eshop-git-preview.rakibkhanofficial.vercel.app
