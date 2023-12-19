@@ -2,6 +2,8 @@ name: Lighthouse CI for Eshop-Turbo Repo
 
 on:
   push:
+    paths:
+      - 'apps/eshop'
 
 env:
   ECOM_PREVIEW_URL: ${{ secrets.ECOM_PREVIEW_URL }}
