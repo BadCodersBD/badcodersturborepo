@@ -32,6 +32,8 @@ const AdminAccountHeader = () => {
     }
   }, [cookies]);
 
+  console.log(userData)
+
   return (
     <Styled.HeaderWrapper>
       <Grid container spacing={2}>

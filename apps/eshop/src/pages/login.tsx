@@ -69,13 +69,14 @@ const LoginForm = () => {
       );
       if (response.ok) {
         const responseData = await response.json();
-        console.log(responseData.user.email);
+        // console.log(responseData.user.email);
 
         if (responseData.user.email === "admin1@gmail.com") {
           router.push("/admindashboard"); // Redirect to admindashboard route
-        } else {
           cookies.set("userData", responseData);
+        } else {
           router.push("/");
+          cookies.set("userData", responseData);
         }
       } else {
         console.error("Unexpected response:", response);

@@ -7,6 +7,7 @@ export type UserData = {
   user: {
     username: string;
     email: string;
+    isAdmin: boolean;
   };
 }
 
@@ -22,15 +23,21 @@ const UserWidget = () => {
     }
   }, [cookies]);
 
+
   return (
     <div className="flex gap-4 py-5 font-semibold">
       {userData ? (
         <>
           <Styled.LoginButton
-            onClick={(e) => {
+             onClick={(e) => {
               e.preventDefault();
-              // cookies.set("userData", null);
-              router.push("/profile");
+              
+              // If userData exists and isAdmin is true, redirect to admindashboard
+              if (userData && userData.user.isAdmin === true) {
+                router.push("/admindashboard");
+              } else {
+                router.push("/profile");
+              }
             }}
           >
             My Profile
