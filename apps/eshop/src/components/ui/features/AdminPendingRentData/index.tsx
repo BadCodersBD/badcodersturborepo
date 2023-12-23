@@ -26,9 +26,10 @@ export type RentalDataType = {
   startDate: string;
   endDate: string;
   triptype: string;
+  status: string;
 };
 
-const RentHistory = () => {
+const AdminPendingRentDetails = () => {
   const cookies = useMemo(() => new Cookies(), []); // Create cookies object
   const [userData, setUserData] = useState<UserData | null>(null);
   const [rentalHistory, setRentalHistory] = useState<RentalDataType[]>([]); // Assuming rental history is an array
@@ -51,7 +52,7 @@ const RentHistory = () => {
         // console.log(userId);
 
         const response = await fetch(
-          `https://carrentalserver.vercel.app/api/carrents/rentalbyuser/${userId}`,
+          `https://carrentalserver.vercel.app/api/admin/pendingrentadata`,
           {
             method: "GET",
             headers: {
@@ -91,7 +92,7 @@ const RentHistory = () => {
 
   return (
     <div>
-      <h1 className="text-center text-3xl font-semibold underline py-5">Your Rent history</h1>
+      <h1 className="text-center text-3xl font-semibold underline py-5">Pending Rent List</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 p-5">
         {rentalHistory.map((rental, index) => (
           <div key={index} className="border border-gray-300 p-5 rounded-lg hover:shadow-black hover:shadow-md cursor-pointer">
@@ -108,6 +109,7 @@ const RentHistory = () => {
             <h1 className="border border-gray-400 p-3">Pickup Place: {rental.pickuplocation}</h1>
             <h1 className="border border-gray-400 p-3">Pick Up time {rental.pickuptime}</h1>
             <h1 className="border border-gray-400 p-3">Trip Type: {rental.triptype}</h1>
+            <h1 className="border border-gray-400 p-3">Rent Status: {rental.status}</h1>
             {/* <div className="flex justify-center items-center">
             <button type="button" className="py-2 px-3 border border-green-600 hover:bg-green-500 rounded-lg my-3">View Status</button>
             </div> */}
@@ -118,4 +120,4 @@ const RentHistory = () => {
   );
 };
 
-export default RentHistory;
+export default AdminPendingRentDetails;

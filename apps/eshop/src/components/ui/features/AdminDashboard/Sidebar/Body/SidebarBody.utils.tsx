@@ -14,7 +14,7 @@ export const listOfMenu = [
       },
       {
         id: 2,
-        name: 'Rent History',
+        name: 'Pending Rent History',
         icon: <ViewListIcon />,
         url: '/adminrenthistory',
       },
