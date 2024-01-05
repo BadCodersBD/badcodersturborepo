@@ -50,6 +50,11 @@ export type BrandsProptype = {
   logo: string
 };
 
+export type cargallerytype = {
+  title: string;
+  imagegallery: string
+};
+
 export type TechnologiesPropType = {
   _key: string
   _ref: string

@@ -1,23 +1,19 @@
 import brands from './Brands'
-import cv from './Cv'
 import hero from './Hero'
 import payment from './PaymentIcon'
 import servicesgallery from './ServicesGallery'
 import logo from './logo'
-import pageInfo from './pageInfo'
-import services from './service'
-import skill from './skill'
+import services from './cardetails'
 import social from './social'
+import limocarousel from './limocarcarousel';
 
 export const schemaTypes = [
   logo,
   hero,
   servicesgallery,
   services,
-  pageInfo,
+  limocarousel,
   brands,
-  skill,
   social,
-  cv,
   payment,
 ]

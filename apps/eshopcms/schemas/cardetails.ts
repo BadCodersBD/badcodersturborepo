@@ -3,7 +3,7 @@ import {BottleIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'services',
-  title: 'Our Services Cars',
+  title: 'Car Details',
   type: 'document',
   icon: BottleIcon,
   fields: [
