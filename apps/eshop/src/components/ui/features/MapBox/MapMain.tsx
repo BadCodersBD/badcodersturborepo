@@ -4,7 +4,6 @@ import Image from "next/image";
 import React from "react";
 
 const MapMain = () => {
-  
   return (
     <div className=" text-black bg-white">
       <Grid container spacing={4}>
@@ -31,7 +30,11 @@ const MapMain = () => {
               alt="car image"
             />
           </div>
-          <h1 className=" text-5xl text-center font-extrabold from-stone-700 italic">
+          <h1
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+            className=" text-5xl text-center font-extrabold from-stone-700 italic"
+          >
             Enjoy Your Ride<br></br>
             <span className="text-orange-800">with Our </span> <br></br>{" "}
             Luxerious Premium Cars{" "}
