@@ -6,15 +6,18 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 const OurLocation = () => {
   return (
     <Styled.Main id="location">
-      <h1 className="text-center text-3xl text-lime-500 font-semibold font-serif">
+      <h1
+        data-aos="fade-right"
+        className="text-center text-3xl text-lime-500 font-semibold font-serif"
+      >
         <LocationOnIcon fontSize="large" />
         Our Location
       </h1>
-      <h1 className="text-white text-center my-2">
+      <h1 data-aos="fade-left" className="text-white text-center my-2">
         Our fleet is ready to transport you for all your business or events
         needs.
       </h1>
-      <Grid container spacing={2}>
+      <Grid data-aos="fade-up" container spacing={2}>
         <Grid item xs={12} lg={6}>
           <div className=" flex justify-center items-center mt-5">
             <div>

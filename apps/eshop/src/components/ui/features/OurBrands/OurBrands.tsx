@@ -38,7 +38,7 @@ const OurBrands = () => {
         <h1 className=" text-center text-2xl font-semibold mb-4">Our Luxury Brands</h1>
       <div className="grid  gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6">
         {Brands.map((data, index) => (
-          <Styled.Card key={index}>
+          <Styled.Card key={index} data-aos="fade-right">
             <Styled.CardImage
               src={urlForThumbnail(data.logo)}
               alt="logo"

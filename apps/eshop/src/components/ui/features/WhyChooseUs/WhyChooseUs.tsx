@@ -9,10 +9,10 @@ const ChooseUs = () => {
     <>
       <div className="flex justify-center w-full bg-gray-700">
         <div className="py-10">
-          <h1 className="text-5xl text-center font-bold py-5">
+          <h1 data-aos="fade-left" className="text-5xl text-center font-bold py-5">
             Save Big With Our Cheap Car Rental!
           </h1>
-          <h1 className="text-3xl text-center">
+          <h1 data-aos="fade-right" className="text-3xl text-center">
             Top Airports. Local Suppliers.{" "}
             <span className="text-3xl text-orange-600">24/7</span>Support
           </h1>
@@ -20,6 +20,7 @@ const ChooseUs = () => {
       </div>
       <Styled.Main>
         <Image
+          data-aos="zoom-in-up"
           className="choose-container__img"
           src="/chooseUs/main.png"
           alt="car_img"
@@ -29,7 +30,7 @@ const ChooseUs = () => {
           style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
         <Grid container spacing={4}>
-          <Grid item lg={6} xs={12}>
+          <Grid data-aos="fade-right" item lg={6} xs={12}>
             <div className="flex justify-center items-center- pl-10">
             <div className="w-full ">
               <h1 className="text-3xl font-bold ">Why Choose Us</h1>
@@ -50,7 +51,7 @@ const ChooseUs = () => {
             </div>
             </div>
           </Grid>
-          <Grid item lg={6} xs={12}>
+          <Grid data-aos="fade-left" item lg={6} xs={12}>
             <div className="pl-10">
               <div className="flex justify-center items-center gap-6">
                 <Image
