@@ -39,7 +39,6 @@ import WhatsAppChatbot from "@/components/ui/features/WhatsAppChatbot/WhatsAppCh
       <Header />
       <Main />
       <GoToTopButton />
-      {/* <FacebookChatPlugin pageID="327115761172039"/> */}
       <WhatsAppChatbot/>
       <Footer />
       <div className="inline md:hidden">

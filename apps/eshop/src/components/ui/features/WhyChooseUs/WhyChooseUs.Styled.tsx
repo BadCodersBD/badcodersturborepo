@@ -5,6 +5,7 @@ const Main = styled.div`
     height: auto;
     background-color: #ffffff;
     color: #000000;
+    overflow: hidden !important;
 `;
 
 export const Styled = {

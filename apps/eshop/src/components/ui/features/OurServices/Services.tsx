@@ -40,8 +40,7 @@ const Services = () => {
       <h1 className="text-2xl flex justify-center items-center font-bold my-5">
         Services We Provide
       </h1>
-      <div data-aos="fade-up"
-     data-aos-anchor-placement="bottom-center" className="grid  gap-5 grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+      <div className="grid w-full overflow-hidden  gap-5 grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
         {Services.slice(0, displayServices).map((data, index) => (
           <Styled.Card key={index}>
               <Styled.CardImage

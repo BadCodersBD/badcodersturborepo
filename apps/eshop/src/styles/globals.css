@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Fix overflow caused by aos animations */
+[data-aos] {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}
