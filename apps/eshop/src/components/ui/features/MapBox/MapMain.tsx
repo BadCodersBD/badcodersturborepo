@@ -5,7 +5,7 @@ import React from "react";
 
 const MapMain = () => {
   return (
-    <div className=" text-black bg-white">
+    <div data-aos="fade-up" className=" overflow-hidden text-black bg-white">
       <Grid container spacing={4}>
         {/* <Grid item xs={12} lg={6}>
           <div className="hidden lg:inline">

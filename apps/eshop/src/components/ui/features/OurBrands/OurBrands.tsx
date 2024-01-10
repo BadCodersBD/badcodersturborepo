@@ -35,7 +35,7 @@ const OurBrands = () => {
 
   return (
     <Styled.Main id="brand">
-        <h1 className=" text-center text-2xl font-semibold mb-4">Our Luxury Brands</h1>
+        <h1 data-aos="fade-left" className=" text-center text-2xl font-semibold mb-4">Our Luxury Brands</h1>
       <div className="grid  gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6">
         {Brands.map((data, index) => (
           <Styled.Card key={index} data-aos="fade-right">

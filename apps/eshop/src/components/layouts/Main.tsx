@@ -10,7 +10,7 @@ import MapMain from "../ui/features/MapBox/MapMain";
 
 const Main = () => {
   return (
-    <div>
+    <div className=" w-full ">
       <Hero />
       <Services />
       <Collections />

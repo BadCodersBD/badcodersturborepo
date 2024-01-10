@@ -19,6 +19,9 @@ const CarouselImage = styled(Image)`
     height: 300px;
   }
   @media (min-width: 1025px) {
+    height: 350px;
+  }
+  @media (min-width: 1400px) {
     height: 400px;
   }
 `;

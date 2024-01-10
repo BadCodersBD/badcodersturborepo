@@ -7,6 +7,7 @@ const Main = styled.div`
   padding: 0rem 2rem 1rem 2rem;
   background-color: #ffffff;
   color: #000000;
+  overflow: hidden !important;
 `;
 
 const Card = styled.div`
