@@ -19,15 +19,15 @@ export const Data = [
     href: "#home",
   },
   {
-    name: "Our Services",
-    id: "#services",
-    Icon: <HomeRepairServiceIcon color={"success"} fontSize="medium" />,
-    href: "#home",
-  },
-  {
     name: "Our Collection",
     id: "#gallery",
     Icon: <DirectionsCarIcon color={"success"} fontSize="medium" />,
+    href: "#home",
+  },
+  {
+    name: "Our Services",
+    id: "#services",
+    Icon: <HomeRepairServiceIcon color={"success"} fontSize="medium" />,
     href: "#home",
   },
   {
@@ -37,8 +37,8 @@ export const Data = [
     href: "#home",
   },
   {
-    name: "Location",
-    id: "#location",
+    name: "Why Choose Us",
+    id: "#whychoose",
     Icon: <FmdGoodIcon color={"success"} fontSize="medium" />,
     href: "#home",
   },
@@ -48,12 +48,12 @@ export const Data = [
     Icon: <ContactsIcon color={"success"} fontSize="medium" />,
     href: "#home",
   },
-  {
-    name: "About Us",
-    id: "#aboutus",
-    Icon: <BusinessIcon color={"success"} fontSize="medium" />,
-    href: "#home",
-  },
+  // {
+  //   name: "About Us",
+  //   id: "#aboutus",
+  //   Icon: <BusinessIcon color={"success"} fontSize="medium" />,
+  //   href: "#home",
+  // },
 ];
 
 const NavigationDrawer = (props: any) => {

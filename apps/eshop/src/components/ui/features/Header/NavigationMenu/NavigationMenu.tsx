@@ -1,6 +1,7 @@
 import { Data } from "./NavigationDrawer";
 import { Styled } from "./Navigation.styled";
 import Link from "next/link";
+
 const NavigationMenu = () => {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();

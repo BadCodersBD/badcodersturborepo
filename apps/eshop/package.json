@@ -20,6 +20,7 @@
     "mapbox-gl": "^2.15.0",
     "next-sanity": "^5.4.4",
     "postcss": "^8.4.33",
+    "react-countup": "^6.5.0",
     "react-date-range": "^2.0.0-alpha.4",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.10.1",
