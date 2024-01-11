@@ -31,3 +31,114 @@ body {
   overflow-x: hidden !important;
   overflow-y: hidden !important;
 }
+
+
+.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span::after,
+.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span::after,
+.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span::after,
+.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span::after{
+  background-color: #fff !important;
+}
+
+.rdrDayToday .rdrDayNumber span:after{
+  background: #ed1d24 !important;
+}
+
+.rdrMonthAndYearPickers{
+  font-size: 16px;
+   
+}
+.rdrDayNumber , .rdrWeekDay{
+  color: #1e1f23 !important;
+  font-weight: 500 !important;
+}
+
+.swiper-horizontal> .swiper-pagination-bullets .swiper-pagination-bullet, 
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+  background-color: #f13024;
+}
+
+.body {
+  color: #000000;
+  background: #ffffff;
+}
+
+.text-secondary {
+  color: #000000;
+}
+
+.h1 {
+  font-size: 4rem;
+  line-height: 1.5;
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.h2 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  padding-top: 60px;
+}
+
+.btn {
+  border-radius: 10px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: medium;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.btn-sm {
+  height: 14px;
+}
+
+.btn-lg {
+  height: 16px;
+}
+
+.btn-cta {
+  background-color: #000000;
+  border-radius: 5px;
+  padding: 4px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+}
+
+.btn-accent {
+  background-color: #f13024;
+}
+
+.active {
+  color: #000000;
+}

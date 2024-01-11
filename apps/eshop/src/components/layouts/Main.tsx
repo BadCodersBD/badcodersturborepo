@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../ui/features/Hero/Hero";
+// import Hero from "../ui/features/Hero/Hero";
 import Services from "../ui/features/OurServices/Services";
 import OurBrands from "../ui/features/OurBrands/OurBrands";
 import Collections from "../ui/features/OurCollections/Collections";
@@ -7,11 +7,13 @@ import OurLocation from "../ui/features/OurLocation/OurLocation";
 import ChooseUs from "../ui/features/WhyChooseUs/WhyChooseUs";
 import PlanTrip from "../ui/features/PlanYourTrip/PlanTrup";
 import MapMain from "../ui/features/MapBox/MapMain";
+import HeroSection from "../ui/features/HeroSection";
 
 const Main = () => {
   return (
-    <div className=" w-full ">
-      <Hero />
+    <div className=" w-full bg-white text-black ">
+      {/* <Hero /> */}
+      <HeroSection/>
       <Services />
       <Collections />
       <OurBrands />
