@@ -78,10 +78,10 @@ const Collections = () => {
 
   return (
     <Styled.Main id="gallery">
-      <h1 data-aos="fade-left" className="text-xl lg:text-2xl flex justify-center items-center font-bold my-5">
+      <h1 className="text-xl lg:text-2xl flex justify-center items-center font-bold my-5">
         We Have Everything You Need
       </h1>
-      <div data-aos="zoom-in-down"
+      <div
         className={`grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-${displayServices} xl:grid-cols-${displayServices} 2xl:grid-cols-${displayServices}`}
       >
         {Services.slice(0, displayServices).map((data, index) => (
