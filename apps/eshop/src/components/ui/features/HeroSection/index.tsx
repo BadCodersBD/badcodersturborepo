@@ -18,7 +18,7 @@ const HeroSection = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.6 }}
-              className="h1"
+              className=" text-[3rem] md:text-[3rem] xl:text-[4rem] font-bold mb-2 "
             >
               Explore the Finest <span className="text-[#f11717]">Global</span>
               Offers
