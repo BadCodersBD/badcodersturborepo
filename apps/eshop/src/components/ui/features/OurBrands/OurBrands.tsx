@@ -4,6 +4,9 @@ import { fetchBrands } from "../../../../utils/fetchBrands";
 import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
 import { urlForThumbnail } from "../../../../utils/imageProcess";
 import type { BrandsProptype } from "../../../../types/type";
+import {motion} from 'framer-motion';
+import { fadeIn } from '../../../../../variant';
+
 
 const OurBrands = () => {
   const [Brands, setBrands] = useState<BrandsProptype[]>([]);
@@ -34,7 +37,13 @@ const OurBrands = () => {
   }
 
   return (
-    <Styled.Main id="brand">
+    <Styled.Main>
+      <motion.div 
+        variants={fadeIn("up", 0.4)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.6 }}
+      className='container mx-auto'>
         <h1 data-aos="fade-left" className=" text-center text-2xl font-semibold mb-4">Our Luxury Brands</h1>
       <div className="grid  gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6">
         {Brands.map((data, index) => (
@@ -50,6 +59,7 @@ const OurBrands = () => {
           </Styled.Card>
         ))}
       </div>
+      </motion.div>
     </Styled.Main>
   );
 };

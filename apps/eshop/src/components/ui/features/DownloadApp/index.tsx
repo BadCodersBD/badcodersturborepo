@@ -5,7 +5,7 @@ import { fadeIn } from "../../../../../variant";
 
  const DownloadApp = () => {
   return (
-    <section className="pt-24 xl:pt-48 flex items-end pb-0 overflow-hidden " id="contact">
+    <section className="pt-24 pb-4 xl:pt-48 flex items-end overflow-hidden " id="contact">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row xl:items-center">
           <div className="flex-1 xl:ml-24 text-center md:text-left mb-12 md:mb-0 ">
@@ -22,8 +22,7 @@ import { fadeIn } from "../../../../../variant";
                whileInView={"show"}
                viewport={{ once: false, amount: 0.6 }}
                className="mb-10"
-              >{`Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
+              >{`Join the thousands of satisfied travelers who have embraced the convenience of our rental car service app. Elevate your journey, embrace the freedom of mobility, and let the open road become your canvas. Download our app now and make every trip an unforgettable experience! 🌟🚗`}
               </motion.p>
               <motion.div 
               variants={fadeIn("right", 0.6)}
@@ -43,7 +42,7 @@ import { fadeIn } from "../../../../../variant";
             viewport={{ once: false, amount: 0.2 }}
             className="flex-1 flex justify-center order-1 md:order-none "
           >
-            <Image alt="phone" src={"/images/cta/phone.svg"} width={320} height={640} />
+            <Image alt="phone" src={"/images/cta/phone2.png"} width={320} height={640} />
           </motion.div>
         </div>
       </div>

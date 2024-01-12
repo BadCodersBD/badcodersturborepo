@@ -20,8 +20,9 @@ const Main = () => {
     <div className=" w-full bg-white text-black ">
       <HeroSection/>
       <Collections />
+      <OurBrands/>
       <AboutSection/>
-      <BrandsSection/>
+      {/* <BrandsSection/> */}
       <Whychoose/>
       <Testimonial/>
       <DownloadApp/>

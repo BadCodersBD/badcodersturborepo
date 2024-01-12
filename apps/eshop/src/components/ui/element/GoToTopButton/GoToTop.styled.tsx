@@ -13,7 +13,7 @@ const opacityAnimation = keyframes`
 `;
 
 const Button = styled.button`
-  background-color: #000000;
+  background-color: #E70909;
   position: fixed;
   bottom: 6.5rem;
   right: 3rem;
@@ -23,7 +23,7 @@ const Button = styled.button`
   cursor: pointer;
   animation: ${opacityAnimation} 0.5s ease-in-out;
   &:hover {
-    background-color: #000fff;
+    background-color: #FF7B00;
     transition: background-color 0.3s ease-in-out;
   }
 `;
