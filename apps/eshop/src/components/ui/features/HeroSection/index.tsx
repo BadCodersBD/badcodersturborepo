@@ -9,7 +9,7 @@ import { fadeIn } from "../../../../../variant";
 const HeroSection = () => {
   const searchActive = useContext(SearchContext);
   return (
-    <section className="h-screen xl:h-[90vh] bg-[#b2b7c2]/10 " id="home">
+    <section className="h-screen xl:h-auto bg-[#b2b7c2]/10 " id="home">
       <div className="container mx-auto h-full xl:pt-10 ">
         <div className="flex flex-col xl:flex-row justify-center items-center xl:justify-start h-full">
           <div className="text-center xl:max-w-xl xl:text-left mt-16 xl:mt-0">
@@ -18,7 +18,7 @@ const HeroSection = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.6 }}
-              className="h1"
+              className=" text-[3rem] md:text-[3rem] xl:text-[4rem] font-bold mb-2 "
             >
               Explore the Finest <span className="text-[#f11717]">Global</span>
               Offers
