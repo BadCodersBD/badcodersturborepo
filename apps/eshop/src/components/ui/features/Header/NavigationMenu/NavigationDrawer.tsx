@@ -19,9 +19,9 @@ export const Data = [
     href: "#home",
   },
   {
-    name: "Our Collection",
-    id: "#gallery",
-    Icon: <DirectionsCarIcon color={"success"} fontSize="medium" />,
+    name: "Brands",
+    id: "#brand",
+    Icon: <AirportShuttleIcon color={"success"} fontSize="medium" />,
     href: "#home",
   },
   {
@@ -31,19 +31,13 @@ export const Data = [
     href: "#home",
   },
   {
-    name: "Brands",
-    id: "#brand",
-    Icon: <AirportShuttleIcon color={"success"} fontSize="medium" />,
-    href: "#home",
-  },
-  {
     name: "Why Choose Us",
     id: "#whychoose",
     Icon: <FmdGoodIcon color={"success"} fontSize="medium" />,
     href: "#home",
   },
   {
-    name: "Contact Us",
+    name: "Download App",
     id: "#contact",
     Icon: <ContactsIcon color={"success"} fontSize="medium" />,
     href: "#home",

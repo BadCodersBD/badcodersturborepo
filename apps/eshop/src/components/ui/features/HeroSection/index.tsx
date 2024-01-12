@@ -64,13 +64,14 @@ const HeroSection = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.6 }}
-            className="relative w-full h-full max-h-[50vh] md:max-w-[70vw] xl:max-w-[860px] 
-          xl:max-h-[542px] xl:absolute xl:-right-[100px] min-[1680px]:right-[120px] xl:top-48"
+          //   className="relative w-full h-full max-h-[50vh] md:max-w-[70vw] xl:max-w-[860px] 
+          // xl:max-h-[542px] xl:absolute xl:-right-[100px] min-[1680px]:right-[120px] xl:top-48"
           >
             <Image
-              src={"/images/hero/car.svg"}
-              fill
-              alt=" "
+              src={"/images/limocars/carred.png"}
+              width={800}
+              height={500}
+              alt="image"
               style={{ objectFit: "contain" }}
               priority
             />

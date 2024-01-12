@@ -77,7 +77,7 @@ const Collections = () => {
   const showLoadMoreButton = displayServices < totalSerives;
 
   return (
-    <Styled.Main id="gallery">
+    <Styled.Main id="brand">
       <h1 className="text-xl lg:text-2xl flex justify-center items-center font-bold my-5">
         We Have Everything You Need
       </h1>

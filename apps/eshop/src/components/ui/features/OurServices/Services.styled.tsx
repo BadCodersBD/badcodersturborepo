@@ -5,6 +5,7 @@ const Main = styled.div`
   width: 100%;
   height: auto;
   padding: 2rem;
+  margin-top: 2rem;
   background-color: #ffffff;
   color: #000000;
   overflow: hidden !important;

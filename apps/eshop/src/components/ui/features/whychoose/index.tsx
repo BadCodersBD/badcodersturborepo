@@ -35,7 +35,7 @@ import { fadeIn } from "../../../../../variant";
           viewport={{ once: false, amount: 0.6 }}
           className="hidden md:flex justify-center mb-6 xl:mb-2  "
         >
-          <Image src={"/images/why/car.svg"} width={1068} height={420} alt="car" />
+          <Image src={"/images/limocars/allcars2.png"} width={1068} height={420} alt="car" />
         </motion.div>
         <motion.div 
          variants={fadeIn("up", 0.8)}
