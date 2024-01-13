@@ -5,7 +5,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(30, 30, 30, 0.8);
+  background: rgba(44, 43, 43, 0.8);
   backdrop-filter: blur(12.5px);
   -webkit-backdrop-filter: blur(12.5px);
   border-radius: 10px 10px 0px 0px;

@@ -6,14 +6,15 @@ import { fadeIn } from "../../../../../variant";
 
  const Whychoose = () => {
   return (
-    <section className="section flex items-center " id="whychoose">
-      <div className="container mx-auto">
+    <section className=" h-[90vh] flex items-center " id="whychoose">
+      <div className="container mx-auto grid gap-2 md:gap-6">
+        <div>
         <motion.h2
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.6 }}
-          className="h2 text-center"
+          className="text-[2rem] font-bold md:text-[4rem] text-center"
         >
           Unmatched excellence and customer satisfaction
         </motion.h2>
@@ -28,15 +29,19 @@ import { fadeIn } from "../../../../../variant";
           the competition. From the moment you engage with us, we strive to
           exceed your expectations in every interaction.
         </motion.p>
+        </div>
+        <div>
         <motion.div
           variants={fadeIn("up", 0.6)}
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.6 }}
-          className="hidden md:flex justify-center mb-6 xl:mb-2  "
+          className=" md:flex justify-center xl:mb-2  "
         >
           <Image src={"/images/limocars/allcars2.png"} width={1068} height={420} alt="car" />
         </motion.div>
+        </div>
+        <div>
         <motion.div 
          variants={fadeIn("up", 0.8)}
          initial="hidden"
@@ -70,6 +75,7 @@ import { fadeIn } from "../../../../../variant";
             </p>
           </div>
         </motion.div>
+        </div>
       </div>
     </section>
   );

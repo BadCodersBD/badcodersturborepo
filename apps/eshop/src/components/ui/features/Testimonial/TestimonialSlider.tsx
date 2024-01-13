@@ -18,16 +18,16 @@ const testimonialData = [
   },
   {
     message:
-      "They truly excedded my expectations and made my car rental experience a delight",
+      "Surpassing my expectations, they turned my car rental into a delightful experience. Their exceptional service was consciously appreciated",
     avatar: "/images/testimonial/avatar.png",
-    name: "John Sparrow",
+    name: "Michael",
     job: "Software Developer",
   },
   {
     message:
-      "They truly excedded my expectations and made my car rental experience a delight",
+      "Conscious appreciation for their exceptional service that exceeded expectations, making my car rental an absolute delight.",
     avatar: "/images/testimonial/avatar.png",
-    name: "John Sparrow",
+    name: "Robert",
     job: "Software Developer",
   },
 ];
@@ -71,7 +71,7 @@ const TestimonialSlider = () => {
                   className="mb-4"
                 />
                 <div className="text-lg font-medium">{name}</div>
-                <div className="text-secondary">{job}</div>
+                {/* <div className="text-secondary">{job}</div> */}
               </div>
             </SwiperSlide>
           );
