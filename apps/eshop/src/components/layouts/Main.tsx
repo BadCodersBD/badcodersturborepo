@@ -22,10 +22,10 @@ const Main = () => {
       <Collections />
       <OurBrands/>
       <AboutSection/>
-      {/* <BrandsSection/> */}
       <Whychoose/>
       <Testimonial/>
       <DownloadApp/>
+      <BrandsSection/>
     </div>
   );
 };
