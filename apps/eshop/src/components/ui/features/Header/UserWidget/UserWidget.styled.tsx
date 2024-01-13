@@ -23,13 +23,13 @@ const LoginButton = styled.button`
   align-items: center;
   color: #000000;
   border: 1px solid;
-  border-color: #000000;
+  border-color: #9B9696;
   white-space: nowrap;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 1rem 1.5rem 1rem 1.5rem;
   &:hover {
     background-color: #f08408;
-    color: #000000;
+    color: #ffffff;
   }
 `;
 const RegistrationButton = styled.button`
@@ -38,13 +38,13 @@ const RegistrationButton = styled.button`
   align-items: center;
   color: #000000;
   border: 1px solid;
-  border-color: #000000;
+  border-color: #9B9696;
   white-space: nowrap;
-  border-radius: 20px;
-  padding: 1rem 1.5rem 1rem 1.5rem;
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 1rem;
   &:hover {
     background-color: #f08408;
-    color: #000000;
+    color: #ffffff;
   }
 `;
 

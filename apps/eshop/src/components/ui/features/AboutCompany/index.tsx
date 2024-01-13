@@ -16,9 +16,10 @@ const AboutSection = () => {
   });
 
   return (
-    <section className="section flex justify-center items-center" id="services" ref={ref}>
+    <section className=" h-[90vh] flex justify-center items-center my-20 md:my-2" id="services" ref={ref}>
       <div className="container mx-auto ">
         <div className="flex flex-col xl:flex-row xl:justify-around">
+          <div>
           <motion.div
             variants={fadeIn("up", 0.2)}
             initial="hidden"
@@ -27,7 +28,7 @@ const AboutSection = () => {
             className="flex-1 mb-8 xl:mb-0"
           >
             <Image
-              className="rounded-[20px] "
+              className="md:rounded-[20px] "
               src={"/images/limocars/side.png"}
               width={800}
               height={448}
@@ -36,6 +37,7 @@ const AboutSection = () => {
               alt="cars"
             />
           </motion.div>
+          </div>
           <div className="flex-1 flex items-center xl:justify-center ">
             <div className="xl:max-w-[517px]">
               <motion.h2
@@ -43,7 +45,7 @@ const AboutSection = () => {
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0.6 }}
-                className="h2 text-center md:text-start"
+                className=" text-[2.5rem] md:text-[4rem] font-bold text-center md:text-start"
               >
                 Cars Services Simplified
               </motion.h2>

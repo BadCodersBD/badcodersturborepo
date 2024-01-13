@@ -5,7 +5,7 @@ import { fadeIn } from "../../../../../variant";
 
  const DownloadApp = () => {
   return (
-    <section className="pt-16 pb-4 xl:pt-18 flex items-end overflow-hidden " id="contact">
+    <section className=" pt-5 md:pt-16 pb-4 xl:pt-18 flex items-end overflow-hidden " id="download">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row xl:items-center">
           <div className="flex-1 xl:ml-24 text-center md:text-left mb-12 md:mb-0 ">
@@ -15,13 +15,13 @@ import { fadeIn } from "../../../../../variant";
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.6 }}
-              className="h2">Download our app now and hit the road with ease</motion.h2>
+              className=" text-[2rem] font-bold md:text-[4rem] ">Download our app now and hit the road with ease</motion.h2>
               <motion.p
                variants={fadeIn("right", 0.4)}
                initial="hidden"
                whileInView={"show"}
                viewport={{ once: false, amount: 0.6 }}
-               className="mb-10 text-lg px-4"
+               className="mb-10 md:text-lg px-4"
               >{`Join the thousands of satisfied travelers who have embraced the convenience of our rental car service app. Elevate your journey, embrace the freedom of mobility, and let the open road become your canvas. Download our app now and make every trip an unforgettable experience! 🌟🚗`}
               </motion.p>
               <motion.div 

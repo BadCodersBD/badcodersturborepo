@@ -2,44 +2,42 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
 import { Styled } from "./Navigation.styled";
-import HomeIcon from "@mui/icons-material/Home";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
-import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
-import AirportShuttleIcon from "@mui/icons-material/AirportShuttle";
-import FmdGoodIcon from "@mui/icons-material/FmdGood";
-import ContactsIcon from "@mui/icons-material/Contacts";
-import BusinessIcon from "@mui/icons-material/Business";
+import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
 import UserWidget from "../UserWidget/UserWidget";
+import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
+import DirectionsCarOutlinedIcon from '@mui/icons-material/DirectionsCarOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 export const Data = [
   {
     name: "Home",
     id: "#home",
-    Icon: <HomeIcon color={"success"} fontSize="medium" />,
+    Icon: <HomeOutlinedIcon fontSize="medium" />,
     href: "#home",
   },
   {
     name: "Brands",
     id: "#brand",
-    Icon: <AirportShuttleIcon color={"success"} fontSize="medium" />,
+    Icon: <DirectionsCarOutlinedIcon fontSize="medium" />,
     href: "#home",
   },
   {
     name: "Our Services",
     id: "#services",
-    Icon: <HomeRepairServiceIcon color={"success"} fontSize="medium" />,
+    Icon: <HomeRepairServiceIcon fontSize="medium" />,
     href: "#home",
   },
   {
     name: "Why Choose Us",
     id: "#whychoose",
-    Icon: <FmdGoodIcon color={"success"} fontSize="medium" />,
+    Icon: <LiveHelpOutlinedIcon fontSize="medium" />,
     href: "#home",
   },
   {
     name: "Download App",
-    id: "#contact",
-    Icon: <ContactsIcon color={"success"} fontSize="medium" />,
+    id: "#download",
+    Icon: <ArrowDownwardOutlinedIcon fontSize="medium" />,
     href: "#home",
   },
   // {
@@ -81,8 +79,7 @@ const NavigationDrawer = (props: any) => {
             >
               <Styled.Navigation>
                 <span>{Icon}</span>
-                {name}
-                <span />
+                <span>{name}</span>
               </Styled.Navigation>
             </Link>
           ))}
