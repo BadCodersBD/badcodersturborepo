@@ -16,7 +16,7 @@ const AboutSection = () => {
   });
 
   return (
-    <section className="section flex items-center" id="services" ref={ref}>
+    <section className="section flex justify-center items-center" id="services" ref={ref}>
       <div className="container mx-auto ">
         <div className="flex flex-col xl:flex-row xl:justify-around">
           <motion.div
@@ -29,8 +29,10 @@ const AboutSection = () => {
             <Image
               className="rounded-[20px] "
               src={"/images/limocars/side.png"}
-              width={600}
+              width={800}
               height={448}
+              // fill
+              priority={true}
               alt="cars"
             />
           </motion.div>
@@ -41,16 +43,16 @@ const AboutSection = () => {
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0.6 }}
-                className="h2"
+                className="h2 text-center md:text-start"
               >
-                Cars services simplified.
+                Cars Services Simplified
               </motion.h2>
               <motion.p
                 variants={fadeIn("up", 0.6)}
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0.6 }}
-                className="mb-[42px] max-w-md"
+                className="mb-[42px] text-lg text-opacity-25 max-w-md text-center md:text-start"
               >
                 Rent, choose, and repair with ease. Our convinent locations,
                 diverse car types, and reliable repair points ensure a seamless
@@ -61,9 +63,9 @@ const AboutSection = () => {
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0.2 }}
-                className="flex items-center gap-x-8 mb-12"
+                className="flex justify-center lg:justify-start items-center gap-8 mb-12"
               >
-                <div className="flex flex-col w-[100px]">
+                <div className="flex justify-center items-center md:justify-start md:items-start flex-col w-[100px]">
                   <MdOutlineDirectionsCar className="text-5xl text-[#f13024] mb-2" />
                   <div className="text-3xl font-black mb-2">
                     {inView ? (
@@ -77,7 +79,7 @@ const AboutSection = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col w-[100px]">
+                <div className="flex  justify-center items-center md:justify-start md:items-start flex-col w-[100px]">
                   <MdOutlineMapsHomeWork className="text-5xl text-[#f13024] mb-2" />
                   <div className="text-3xl font-black mb-2">
                     {inView ? (
@@ -92,7 +94,7 @@ const AboutSection = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col w-[100px]">
+                <div className="flex justify-center items-center md:justify-start md:items-start flex-col w-[100px]">
                   <MdOutlineBuildCircle className="text-5xl text-[#f13024] mb-2" />
                   <div className="text-3xl font-black mb-2">
                     {inView ? (

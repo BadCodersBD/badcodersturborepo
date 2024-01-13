@@ -9,6 +9,8 @@ import { urlForThumbnail } from "../../../../utils/imageProcess";
 import type { LogoPropsType } from "../../../../types/type";
 import { fetchlogo } from "../../../../utils/fetchLogo";
 import { GenericSpinner } from "../../element/GenericSpinner/GenericSpinner";
+import { CiMenuFries } from "react-icons/ci";
+
 // import CallIcon from "@mui/icons-material/Call";
 
 const Header = () => {
@@ -67,8 +69,8 @@ const Header = () => {
         onClick={() => setOpen(!open)}
         className="inline lg:hidden"
       >
-        <span className="mr-4 text-black text-sm lg:text-lg">
-          <MenuIcon className="h-10 w-10" />
+        <span className="mr-4 text-black flex justify-center items-center text-sm lg:text-lg">
+          <CiMenuFries className="h-10 w-10" />
         </span>
         <NavigationDrawer open={open} />
       </button>
