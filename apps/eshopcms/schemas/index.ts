@@ -5,7 +5,8 @@ import servicesgallery from './ServicesGallery'
 import logo from './logo'
 import services from './cardetails'
 import social from './social'
-import limocarousel from './limocarcarousel';
+import limocarousel from './limocarcarousel'
+import carimageschema from './ImageSchema'
 
 export const schemaTypes = [
   logo,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   brands,
   social,
   payment,
+  carimageschema,
 ]
