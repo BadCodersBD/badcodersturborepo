@@ -16,9 +16,9 @@ const AboutSection = () => {
   });
 
   return (
-    <section className=" h-[90vh] flex justify-center items-center my-20 md:my-2" id="services" ref={ref}>
+    <section className=" h-[90vh] flex justify-center items-center  my-20 md:my-2" id="services" ref={ref}>
       <div className="container mx-auto ">
-        <div className="flex flex-col xl:flex-row xl:justify-around">
+        <div className="flex flex-col xl:flex-row xl:justify-around md:gap-8 2xl:gap-2">
           <div>
           <motion.div
             variants={fadeIn("up", 0.2)}
