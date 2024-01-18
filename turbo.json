@@ -28,7 +28,17 @@
         "FACEBOOK_SECRET",
         "GOOGLE_ID",
         "GOOGLE_SECRET",
-        "SECRET_KEY"
+        "SECRET_KEY",
+        "APP_PORT",
+        "APP_BASE_URL",
+        "MONGO_URI",
+        "APP_NAME",
+        "JWT_SECRET_KEY",
+        "JWT_TOKEN_COOKIE_EXPIRES",
+        "JWT_ACCESS_TOKEN_EXPIRES",
+        "WT_REFRESH_TOKEN_EXPIRES",
+        "SEND_GRID_API_KEY",
+        "SEND_SENDER_MAIL"
       ]
     },
     "test": {
