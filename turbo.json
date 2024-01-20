@@ -31,6 +31,7 @@
         "SECRET_KEY",
         "APP_PORT",
         "APP_BASE_URL",
+        "APP_SERVICE_URL",
         "APP_LOG_LEVEL",
         "MONGO_URI",
         "APP_NAME",
