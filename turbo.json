@@ -31,14 +31,16 @@
         "SECRET_KEY",
         "APP_PORT",
         "APP_BASE_URL",
+        "APP_LOG_LEVEL",
         "MONGO_URI",
         "APP_NAME",
         "JWT_SECRET_KEY",
         "JWT_TOKEN_COOKIE_EXPIRES",
         "JWT_ACCESS_TOKEN_EXPIRES",
-        "WT_REFRESH_TOKEN_EXPIRES",
+        "JWT_REFRESH_TOKEN_EXPIRES",
         "SEND_GRID_API_KEY",
-        "SEND_SENDER_MAIL"
+        "SEND_SENDER_MAIL",
+        "JWT_REFRESH_TOKEN_SECRET_KEY"
       ]
     },
     "test": {
