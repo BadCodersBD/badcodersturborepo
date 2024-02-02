@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express, { Application, NextFunction, Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import roomRoutes from "./routes/roomRoutes";
 import userRoutes from "./routes/userRoutes";
 import bookingRoutes from "./routes/bookingRoutes";
@@ -13,7 +13,7 @@ import cors from 'cors';
 // import { requiresAuth } from "./middleware/auth";
 import { rateLimit } from 'express-rate-limit';
 
-const app: Application = express();
+const app = express();
 
 // Set up rate limiter
 const limiter = rateLimit({
