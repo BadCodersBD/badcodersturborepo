@@ -4,10 +4,10 @@
   "description": "Car rental Server installation",
   "main": "index.ts",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "nodemon index.ts",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
+    "build": "tsc",
     "dev": "nodemon index.ts"
   },
   "keywords": [],
@@ -21,6 +21,7 @@
     "@types/jsonwebtoken": "^9.0.3",
     "@types/morgan": "^1.9.5",
     "@types/multer": "^1.4.11",
+    "@types/serve-favicon": "^2.5.7",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
     "eslint": "^8.48.0",
@@ -44,6 +45,7 @@
     "mongodb": "^5.8.1",
     "mongoose": "^7.4.5",
     "morgan": "^1.10.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "serve-favicon": "^2.5.0"
   }
 }
