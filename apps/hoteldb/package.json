@@ -8,7 +8,8 @@
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "dev": "nodemon index.ts"
+    "dev": "nodemon index.ts",
+    "commit": "cz"
   },
   "keywords": [],
   "author": "",
@@ -47,5 +48,10 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "serve-favicon": "^2.5.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
