@@ -52,9 +52,9 @@ app.use(
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // // Default
-// app.get("/api", (req: Request, res: Response) => {
-//   res.status(201).json({ message: "Welcome to Hotel Booking App Api" });
-// });
+app.get("/api", (req: Request, res: Response) => {
+  res.status(201).json({ message: "Welcome to Hotel Booking App Api" });
+});
 
 // Room Route
 app.use("/api/rooms", roomRoutes);
@@ -73,9 +73,9 @@ app.get("/api/config/paypal", (req, res) => {
 });
 
 // // Default
-// app.get("/", (req: Request, res: Response) => {
-//   res.status(201).json({ message: "Welcome to Hotel Booking App" });
-// });
+app.get("/", (req: Request, res: Response) => {
+  res.status(201).json({ message: "Welcome to Hotel Booking App" });
+});
 
 // Serve Swagger UI
 const swaggerOptions = {
@@ -92,7 +92,7 @@ const swaggerOptions = {
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
-app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Handle 404 errors
 app.use((req, res, next) => {
