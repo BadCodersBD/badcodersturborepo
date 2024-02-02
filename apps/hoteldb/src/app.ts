@@ -6,7 +6,7 @@ import bookingRoutes from "./routes/bookingRoutes";
 import uploadRoutes from "./routes/uploadRoutes";
 import path from "path";
 import morgan from "morgan";
-import { isHttpError } from "http-errors";
+import createHttpError, { isHttpError } from "http-errors";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import cors from "cors";
@@ -51,7 +51,7 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // Default
 app.get("/api", (req: Request, res: Response) => {
-    res.status(201).json({ message: "Welcome to Hotel Booking App" });
+    res.status(201).json({ message: "Welcome to Hotel Booking App Api" });
   });
   
   // Room Route
@@ -69,12 +69,18 @@ app.get("/api", (req: Request, res: Response) => {
   app.get("/api/config/paypal", (req, res) => {
     res.status(201).send(process.env.PAYPAL_CLIENT_ID);
   });
+
+    // Default
+app.get("/", (req: Request, res: Response) => {
+  res.status(201).json({ message: "Welcome to Hotel Booking App" });
+});
   
-  // Handle 404 errors
-  app.use((req, res,) => {
-    res.send("Hello Mongo!");
-    // next(createHttpError(404, "Endpoint not found"));
-  });
+// Handle 404 errors
+app.use((req, res, next) => {
+  res.send("Hello Mongo!");
+  console.log("404 handler reached");
+  next(createHttpError(404, "Endpoint not found"));
+});
   
   // Error handler
   app.use(
