@@ -41,7 +41,15 @@
         "JWT_REFRESH_TOKEN_EXPIRES",
         "SEND_GRID_API_KEY",
         "SEND_SENDER_MAIL",
-        "JWT_REFRESH_TOKEN_SECRET_KEY"
+        "JWT_REFRESH_TOKEN_SECRET_KEY",
+        "PORT",
+        "DATABASE",
+        "JWT_SECRET",
+        "STRIPE_SECRET",
+        "STRIPE_REDIRECT_URL",
+        "STRIPE_SETTING_REDIRECT_URL",
+        "STRIPE_SUCCESS_URL",
+        "STRIPE_CANCEL_URL"
       ]
     },
     "test": {
