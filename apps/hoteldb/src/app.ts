@@ -11,12 +11,14 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import cors from "cors";
 import { rateLimit } from "express-rate-limit";
-import favicon from "serve-favicon";
+// import favicon from "serve-favicon";
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
 // Serve favicon.ico
-app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+// app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 // Set up rate limiter
 const limiter = rateLimit({
@@ -49,52 +51,65 @@ app.use(
 
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
-// Default
-app.get("/api", (req: Request, res: Response) => {
-    res.status(201).json({ message: "Welcome to Hotel Booking App Api" });
-  });
-  
-  // Room Route
-  app.use("/api/rooms", roomRoutes);
-  
-  // User Route
-  app.use("/api/users", userRoutes);
-  
-  // Booking Route
-  app.use("/api/bookings", bookingRoutes);
-  
-  // Upload Route
-  app.use("/api/uploads", uploadRoutes);
-  
-  app.get("/api/config/paypal", (req, res) => {
-    res.status(201).send(process.env.PAYPAL_CLIENT_ID);
-  });
+// // Default
+// app.get("/api", (req: Request, res: Response) => {
+//   res.status(201).json({ message: "Welcome to Hotel Booking App Api" });
+// });
 
-    // Default
-app.get("/", (req: Request, res: Response) => {
-  res.status(201).json({ message: "Welcome to Hotel Booking App" });
+// Room Route
+app.use("/api/rooms", roomRoutes);
+
+// User Route
+app.use("/api/users", userRoutes);
+
+// Booking Route
+app.use("/api/bookings", bookingRoutes);
+
+// Upload Route
+app.use("/api/uploads", uploadRoutes);
+
+app.get("/api/config/paypal", (req, res) => {
+  res.status(201).send(process.env.PAYPAL_CLIENT_ID);
 });
-  
+
+// // Default
+// app.get("/", (req: Request, res: Response) => {
+//   res.status(201).json({ message: "Welcome to Hotel Booking App" });
+// });
+
+// Serve Swagger UI
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "Hotel Booking API",
+      version: "1.0.0",
+      description: "API documentation for Hotel Booking App",
+    },
+    basePath: "/api",
+  },
+  apis: ["./routes/*.ts"],
+};
+
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 // Handle 404 errors
 app.use((req, res, next) => {
-  res.send("Hello Mongo!");
   console.log("404 handler reached");
   next(createHttpError(404, "Endpoint not found"));
 });
-  
-  // Error handler
-  app.use(
-    (error: unknown, req: Request, res: Response) => {
-      console.error(error);
-      let errorMessage = "An unknown error occurred";
-      let statusCode = 500;
-      if (isHttpError(error)) {
-        statusCode = error.status;
-        errorMessage = error.message;
-      }
-      res.status(statusCode).json({ error: errorMessage });
-    }
-  );
-  
-  export default app;
 
+// Error handler
+app.use((error: unknown, req: Request, res: Response) => {
+  console.error(error);
+  let errorMessage = "An unknown error occurred";
+  let statusCode = 500;
+  if (isHttpError(error)) {
+    statusCode = error.status;
+    errorMessage = error.message;
+  }
+  res.status(statusCode).json({ error: errorMessage });
+});
+
+export default app;
