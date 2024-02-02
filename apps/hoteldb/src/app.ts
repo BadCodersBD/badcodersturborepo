@@ -11,14 +11,14 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import cors from "cors";
 import { rateLimit } from "express-rate-limit";
-// import favicon from "serve-favicon";
+import favicon from "serve-favicon";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
 // Serve favicon.ico
-// app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 // Set up rate limiter
 const limiter = rateLimit({
