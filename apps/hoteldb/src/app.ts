@@ -38,7 +38,7 @@ app.use(session({
     },
     rolling: true,
     store: MongoStore.create({
-        mongoUrl: "mongodb+srv://badcoder:DFHp6Zfz4BbQt1hr@badcodercluster.acw7rry.mongodb.net/?retryWrites=true&w=majority"
+        mongoUrl: process.env.MONGO_URI as string
     }),
 }));
 
