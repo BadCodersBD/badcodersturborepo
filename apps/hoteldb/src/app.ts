@@ -17,6 +17,8 @@ import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
+app.set('trust proxy', 'loopback'); // Replace 'loopback' with the actual IP address
+
 // Serve favicon.ico
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
@@ -24,6 +26,7 @@ app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later',
 });
 
 app.use(limiter);
