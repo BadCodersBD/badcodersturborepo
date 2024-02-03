@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import app from "./src/app";
 import mongoose from "mongoose";
+import { ConnectionOptions } from "tls";
 
 dotenv.config();
 
@@ -15,34 +16,29 @@ for (const envVar of requiredEnvVariables) {
 }
 
 // Connect to MongoDB and start the server
-// async function startServer() {
-//   try {
-//     await mongoose.connect(process.env.MONGO_URI as string);
-//     console.log("Mongoose connected");
-//     app.listen(process.env.PORT || 5000, () => {
-//       console.log("Server running on port: " + (process.env.PORT || 5000));
-//     });
-//   } catch (error) {
-//     console.error("Mongoose connection error:", error);
-//   }
-// }
+const connectDB = () => {
+  mongoose
+    .connect(process.env.MONGO_URI as string, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    } as ConnectionOptions)
+    .then(() => {
+      console.log("Mongoose connected");
 
-// startServer();
-// module.exports = app;
+      const port = process.env.PORT || 5000;
 
-
-mongoose
-  .connect(process.env.MONGO_URI as string)
-  .then(() => {
-    console.log("Mongoose connected");
-    app.listen(process.env.PORT || 5000, () => {
-      console.log("Server running on port: " + (process.env.PORT || 5000));
+      app.listen(port, () => {
+        console.log("Server running on port: " + port);
+      });
+    })
+    .catch((error) => {
+      console.error("Error connecting to MongoDB:", error);
+      process.exit(1); // Terminate the process on MongoDB connection failure
     });
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-    process.exit(1); // Terminate the process on MongoDB connection failure
-  });
+};
 
-module.exports = app;
+// Call the connectDB function to initiate the connection
+connectDB();
+
+export default connectDB;
 
