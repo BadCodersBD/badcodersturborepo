@@ -16,7 +16,6 @@ for (const envVar of requiredEnvVariables) {
 }
 
 // Connect to MongoDB and start the server
-const connectDB = () => {
   mongoose
     .connect(process.env.MONGO_URI as string, {
       useNewUrlParser: true,
@@ -35,10 +34,5 @@ const connectDB = () => {
       console.error("Error connecting to MongoDB:", error);
       process.exit(1); // Terminate the process on MongoDB connection failure
     });
-};
 
-// Call the connectDB function to initiate the connection
-connectDB();
-
-export default connectDB;
-
+module.exports.app
