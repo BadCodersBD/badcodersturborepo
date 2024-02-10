@@ -12,7 +12,7 @@ interface RequestWithUser extends Request {
   user?: DecodedUser;
 }
 
-const secretKey = "Badcoder@%repo";
+const secretKey = process.env.JWT_SECRET as string
 
 export const requiresAuth = (req: RequestWithUser, res: Response, next: NextFunction) => {
   const token = req.headers.authorization?.split(' ')[1];
