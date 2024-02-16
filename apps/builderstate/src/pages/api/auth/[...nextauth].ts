@@ -60,19 +60,16 @@ const authOptions: NextAuthOptions = {
       const { user, account } = params;
       // console.log('signIn callback triggered:', user, account);
       if (
-        (user && account && account.provider === "facebook") ||
+        (user && account && account.provider === "github") ||
         (account && account.provider === "google")
       ) {
         const { id, name, email, image } = user;
-        console.log(name, email, image, id);
+        // console.log(name, email, image, id);
         const postData = {
-          strUserName: name,
-          strFirstName: name,
-          // strLastName: name,
-          strEmail: email,
-          strPhone: email,
-          // image: image,
-          strPassword: id,
+          name: name,
+          email: email,
+          avatar: image,
+          password: id,
         };
 
         try {

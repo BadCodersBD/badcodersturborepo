@@ -6,9 +6,9 @@ const initialState: IAuthReducer = {
   registerInput: {
     email: "",
     password: "",
-    firstName: "",
-    lastName: "",
-    phone: "",
+    // firstName: "",
+    // lastName: "",
+    // phone: "",
     username: "",
   },
   isSubmitting: false,

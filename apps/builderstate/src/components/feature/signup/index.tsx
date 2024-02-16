@@ -36,26 +36,23 @@ const UserSignUp = () => {
     isSignup,
   } = useSignup();
 
-  // const router = useRouter();
-  // const { data: session, status } = useSession();
+  const router = useRouter();
+  const { data: session, status } = useSession();
 
-  // useEffect(() => {
-  //   // @ts-expect-error type error is not solved
-  //   if (session?.user?.role === "Customer")  {
-  //     router.replace("/userdashboard");
-  //   }
-  //   // @ts-expect-error type error is not solved
-  //   else if (session?.user?.role === "Admin") {
-  //     router.replace("/admindashboard");
-  //   }
-  //   // @ts-expect-error type error is not solved
-  //   else if (session?.user?.role === "Service-man") {
-  //     router.replace("/servicemandashboard");
-  //   }
-
-  // }, [status, session, router]);
-
-  // console.log(useSignup())
+  useEffect(() => {
+    if (session?.user) {
+      // @ts-expect-error type error is not solved
+      if (session?.user?.role === "Customer") {
+        router.replace("/userdashboard");
+        // @ts-expect-error type error is not solved
+      } else if (session?.user?.role === "Admin") {
+        router.replace("/admindashboard");
+        // @ts-expect-error type error is not solved
+      } else if (session?.user?.role === "Service-man") {
+        router.replace("/servicemandashboard");
+      }
+    }
+  }, [status, session, router]);
 
   return (
     <div className="w-full">
@@ -97,7 +94,7 @@ const UserSignUp = () => {
               size="lg"
               handleChange={handleChangeRegisterInput}
             />
-            <TextInput
+            {/* <TextInput
               type="text"
               isInvalid={isInvalidfirstName}
               color={isInvalidfirstName ? "danger" : "default"}
@@ -132,7 +129,7 @@ const UserSignUp = () => {
               value={phone}
               size="lg"
               handleChange={handleChangeRegisterInput}
-            />
+            /> */}
             <TextInput
               type="email"
               isInvalid={isInvalid}

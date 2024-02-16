@@ -65,8 +65,8 @@ export const useLogin = () => {
     await postMethod({
       route: endPoints.auth.login,
       postData: {
-        strEmailOrPhone: emailorphone,
-        strPassword: password,
+        email: emailorphone,
+        password: password,
       },
     })
       .then(async (response) => {

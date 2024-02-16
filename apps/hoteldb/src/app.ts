@@ -12,8 +12,6 @@ import MongoStore from "connect-mongo";
 import cors from "cors";
 import { rateLimit } from "express-rate-limit";
 import favicon from "serve-favicon";
-import swaggerJSDoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
@@ -54,11 +52,6 @@ app.use(
 
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
-// // Default
-// app.get("/api", (req: Request, res: Response) => {
-//   res.status(201).json({ message: "Welcome to Hotel Booking App Api" });
-// });
-
 // Room Route
 app.use("/api/rooms", roomRoutes);
 
@@ -79,23 +72,10 @@ app.get("/api/config/paypal", (req, res) => {
 app.get("/", (req: Request, res: Response) => {
   res.status(201).json({ message: "Welcome to Hotel Booking App" });
 });
-
-// Serve Swagger UI
-const swaggerOptions = {
-  swaggerDefinition: {
-    info: {
-      title: "Hotel Booking API",
-      version: "1.0.0",
-      description: "API documentation for Hotel Booking App",
-    },
-    basePath: "/api",
-  },
-  apis: ["./routes/*.ts"],
-};
-
-const swaggerSpec = swaggerJSDoc(swaggerOptions);
-
-app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+//Api
+app.get("/api", (req: Request, res: Response) => {
+  res.status(201).json({ message: "Welcome to Hotel Booking Api" });
+});
 
 // Handle 404 errors
 app.use((req, res, next) => {
