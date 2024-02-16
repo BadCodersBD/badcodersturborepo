@@ -51,7 +51,10 @@
         "STRIPE_SUCCESS_URL",
         "STRIPE_CANCEL_URL",
         "PAYPAL_CLIENT_ID",
-        "STRIPE_API_KEY"
+        "STRIPE_API_KEY",
+        "NEXT_PUBLIC_API_URL",
+        "GITHUB_ID",
+        "GITHUB_SECRET"
       ]
     },
     "test": {
