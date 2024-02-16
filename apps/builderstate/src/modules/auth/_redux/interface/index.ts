@@ -5,10 +5,10 @@ export interface IAuthReducer {
   registerInput: {
     email: string;
     password: string;
-    firstName: string;
-    lastName: string;
+    // firstName: string;
+    // lastName: string;
     username: string;
-    phone: string;
+    // phone: string;
   };
 }
 

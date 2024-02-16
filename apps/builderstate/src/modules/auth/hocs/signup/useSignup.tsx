@@ -115,25 +115,26 @@ export const useSignup = () => {
     await postMethod({
       route: endPoints.auth.register,
       postData: {
-        strEmail: email,
-        strPassword: password,
-        strUserName: username,
-        strFirstName: firstname,
-        strLastName: lastname,
-        strPhone: phone,
-        intConcernId: 1,
+        email: email,
+        password: password,
+        name: username,
+        avatar: "noimage",
+        // strFirstName: firstname,
+        // strLastName: lastname,
+        // strPhone: phone,
+        // intConcernId: 1,
       },
     })
       .then(async (response) => {
         const responseData: ResponseType = response?.data?.data;
         if (responseData?.statusCode === 200) {
           router.push("/login");
-        } else {
-          dispatch(handleErros("SignUpError", ""));
-          // await signIn("credentials", {
+          //  await signIn("credentials", {
           //   ...responseData?.data,
           //   redirect: false,
           // });
+        } else {
+          dispatch(handleErros("SignUpError", responseData.error || responseData.message));
           toast.error(responseData.message, {
             duration: 3000,
             position: "top-center",
