@@ -46,6 +46,8 @@ const UserLogin = () => {
     }
   }, [status, session, router]);
 
+  console.log(session)
+
   return (
     <div className=" w-full">
       <div className=" mt-5 px-20 underline ">

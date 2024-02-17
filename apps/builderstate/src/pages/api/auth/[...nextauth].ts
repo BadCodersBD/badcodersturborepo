@@ -103,40 +103,30 @@ const authOptions: NextAuthOptions = {
       // console.log(account);
       if (user) {
         token.id = user.id;
-        token.picture = user.image;
+        // @ts-expect-error type error is not solved
+        token.picture = user.avatar;
         token.email = user.email;
         token.name = user.name;
         // @ts-expect-error type error is not solved
-        token.userId = user.userId;
+        token.isAdmin = user.isAdmin;
         // @ts-expect-error type error is not solved
-        token.phone = user.phone;
-        // @ts-expect-error type error is not solved
-        token.role = user.role;
-        // @ts-expect-error type error is not solved
-        token.strAccess_token = user.strAccess_token;
-        // @ts-expect-error type error is not solved
-        token.strRefresh_token = user.strRefresh_token;
+        token.token = user.token;
       }
       return token;
     },
     
     async session({ session, token }) {
       if (token) {
-        session.user.image = token.picture;
+        // @ts-expect-error type error is not solved
+        session.user.avatar = token.picture;
         // @ts-expect-error type error is not solved
         session.user.id = token.id;
         session.user.email = token.email;
         session.user.name = token.name;
         // @ts-expect-error type error is not solved
-        session.user.userId = token.userId;
+        session.user.isAdmin = token.isAdmin;
         // @ts-expect-error type error is not solved
-        session.user.role = token.role;
-        // @ts-expect-error type error is not solved
-        session.user.strAccess_token = token.strAccess_token;
-        // @ts-expect-error type error is not solved
-        session.user.strRefresh_token = token.strRefresh_token;
-        // @ts-expect-error type error is not solved
-        session.user.phone = token.phone;
+        session.user.token = token.token;
       }
       return session;
     },
