@@ -1,25 +1,25 @@
 import type { ReactNode } from 'react'
-import type { UnknownAction, Dispatch } from '@reduxjs/toolkit'
 import { useAppDispatch } from '../../../_redux/hooks/hooks'
-import { Input } from '@nextui-org/react'
+import { Textarea } from '@nextui-org/react'
+import type { UnknownAction, Dispatch } from '@reduxjs/toolkit'
 
 type Props = {
-  type: 'text' | 'password' | 'email' | 'date' | 'number'
   name: string
-  isInvalid?: boolean
-  errorMessage?: string
+  minRows?: number
+  maxRows?: number
+  isInvalid: boolean
+  errorMessage: string
   variant: 'flat' | 'bordered' | 'faded' | 'underlined'
   label: string
   placeholder?: string
   color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
   endContent?: ReactNode
   startContent?: ReactNode
-  value?: string
+  value: string
   handleChange: (name: string, value: string | number) => (dispatch: Dispatch<UnknownAction>) => void
   size: 'lg' | 'md' | 'sm'
 }
-const TextInput = ({
-  type,
+const TextAreaInput = ({
   name,
   isInvalid,
   errorMessage,
@@ -32,12 +32,14 @@ const TextInput = ({
   placeholder,
   handleChange,
   size,
+  minRows = 1,
+  maxRows = 5,
 }: Props) => {
   const dispatch = useAppDispatch()
   return (
-    <Input
-      autoComplete="on"
-      type={type}
+    <Textarea
+      minRows={minRows}
+      maxRows={maxRows}
       name={name}
       isInvalid={isInvalid}
       color={isInvalid ? 'danger' : color}
@@ -55,4 +57,4 @@ const TextInput = ({
   )
 }
 
-export default TextInput
+export default TextAreaInput

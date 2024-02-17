@@ -1,40 +1,47 @@
-import { type Session } from "next-auth";
-import { SessionProvider, signIn, useSession } from "next-auth/react";
-import { type AppType } from "next/app";
+"use client";
+import "~@/styles/globals.css";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import {  NextUIProvider } from "@nextui-org/react";
+import { NextUIProvider } from "@nextui-org/react";
+import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
-import store from "~@/_redux/store/store";
+import { SessionProvider, signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { endPoints } from "~@/utils/api/route";
 import { postMethod } from "~@/utils/api/postMethod";
 import { useAppDispatch, useAppSelector } from "~@/_redux/hooks/hooks";
 import { handleErros } from "~@/modules/auth/_redux/actions/login-auth-actions";
+import store from "~@/_redux/store/store";
 
-import "../styles/globals.css";
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
-const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <SessionProvider session={session}>
-      <NextThemesProvider defaultTheme="system" attribute="class">
-        <NextUIProvider>
-          <Provider store={store}>
-            <Main>
-              <Component {...pageProps} />
-            </Main>
-            <Toaster />
-          </Provider>
-        </NextUIProvider>
-      </NextThemesProvider>
-    </SessionProvider>
+    <html lang="en">
+      <body className={`font-sans ${inter.variable}`}>
+        <div>
+          <SessionProvider>
+            <NextThemesProvider defaultTheme="system" attribute="class">
+              <NextUIProvider>
+                <Provider store={store}>
+                  <Main>{children}</Main>
+                  <Toaster position="top-center" />
+                </Provider>
+              </NextUIProvider>
+            </NextThemesProvider>
+          </SessionProvider>
+        </div>
+      </body>
+    </html>
   );
-};
-
-export default MyApp;
+}
 
 const Main = ({ children }: { children: React.ReactNode }) => {
   const theme = useAppSelector((state) => state?.theme?.themeToggle?.dark);
@@ -74,7 +81,7 @@ const Main = ({ children }: { children: React.ReactNode }) => {
     };
 
     handleLogin();
-  }, [session, dispatch]);
+  }, [session]);
 
   return <div className={`${theme ? "dark" : ""}`}>{children}</div>;
 };

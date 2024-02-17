@@ -1,32 +1,40 @@
 "use client";
 import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button, Spinner } from "@nextui-org/react";
 import Link from "next/link";
 import { Checkbox } from "@nextui-org/react";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import TextInput from "../../../components/elements/input";
-import { useLogin } from "../../../modules/auth/hocs/login/useLogin";
-import { handleChangeLogInput } from "../../../modules/auth/_redux/actions/login-auth-actions";
+import TextInput from "../../elements/input/index";
+import { handleChangeRegisterInput } from "../../../modules/auth/_redux/actions/auth-action";
+import { useSignup } from "../../../modules/auth/hocs/signup/useSignup";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-const UserLogin = () => {
+const UserSignUp = () => {
   const {
     isInvalid,
-    emailorphone,
-    loginError,
+    email,
+    signUpError,
     isVisible,
     password,
+    phone,
+    firstname,
+    lastname,
+    username,
     toggleVisibility,
-    handleLogin,
+    handleSignUp,
     isInvalidPassword,
+    isInvalidusername,
+    isInvalidfirstName,
+    isInvalidLastName,
+    isInvalidPhone,
     handleSignUpwithgoogle,
     handleSignUpwithMicrosoft,
     isSubmitting,
-    isLogin,
-  } = useLogin();
+    isSignup,
+  } = useSignup();
 
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -49,8 +57,8 @@ const UserLogin = () => {
   console.log(session)
 
   return (
-    <div className=" w-full dark:bg-slate-900 dark:text-white bg-white text-black min-h-screen">
-      <div className=" pt-5 px-20 underline ">
+    <div className="w-full">
+      <div className=" mt-5 px-20 underline ">
         <Link href="/">Go Back</Link>
       </div>
       <div className=" flex items-center justify-center pb-20">
@@ -62,34 +70,82 @@ const UserLogin = () => {
               width={0}
               height={0}
               sizes="100vw"
-              priority={true}
               style={{ width: "200px", height: "100px", objectFit: "contain" }}
             />
-            <h1 className=" text-2xl font-medium text-white ">Demo Register</h1>
+            <h1 className=" text-2xl font-medium text-black ">Demo Login</h1>
           </div>
+
           <h1>
-            {`Don't have account?`}
+            {`have an account?`}
             <span className="pl-1">
-              <Link className="font-semibold hover:underline" href="/register">
-                Register
+              <Link className="font-semibold hover:underline" href="/login">
+                Log In
               </Link>
             </span>
           </h1>
           <form className="h-full w-full ">
+            {/* <TextInput
+              type="text"
+              isInvalid={isInvalidusername}
+              color={isInvalidusername ? "danger" : "default"}
+              errorMessage={"Enter your Your Username"}
+              name="username"
+              variant="underlined"
+              label="User Name"
+              value={username}
+              size="lg"
+              handleChange={handleChangeRegisterInput}
+            /> */}
             <TextInput
               type="text"
-              isInvalid={isInvalid}
-              color={isInvalid ? "danger" : "default"}
-              errorMessage={"Please enter email or Phone"}
-              name="emailorphone"
+              isInvalid={isInvalidfirstName}
+              color={isInvalidfirstName ? "danger" : "default"}
+              errorMessage={"Enter your Name"}
+              name="firstname"
               variant="underlined"
-              label="Email Or Phone"
-              value={emailorphone}
+              label="Name"
+              value={firstname}
               size="lg"
-              handleChange={handleChangeLogInput}
+              handleChange={handleChangeRegisterInput}
+            />
+            {/* <TextInput
+              type="text"
+              isInvalid={isInvalidLastName}
+              color={isInvalidLastName ? "danger" : "default"}
+              errorMessage={"Enter your Last Name"}
+              name="lastname"
+              variant="underlined"
+              label="Last Name"
+              value={lastname}
+              size="lg"
+              handleChange={handleChangeRegisterInput}
             />
             <TextInput
-              type={isVisible ? "text" : "password"}
+              type="text"
+              isInvalid={isInvalidPhone}
+              color={isInvalidPhone ? "danger" : "default"}
+              errorMessage={"Enter your Phone Number"}
+              name="phone"
+              variant="underlined"
+              label="Phone Number"
+              value={phone}
+              size="lg"
+              handleChange={handleChangeRegisterInput}
+            /> */}
+            <TextInput
+              type="email"
+              isInvalid={isInvalid}
+              color={isInvalid ? "danger" : "default"}
+              errorMessage={"Please enter a valid email"}
+              name="email"
+              variant="underlined"
+              label="Email address"
+              value={email}
+              size="lg"
+              handleChange={handleChangeRegisterInput}
+            />
+            <TextInput
+              type={isInvalidPassword ? "text" : "password"}
               label="Password"
               color={isInvalidPassword ? "danger" : "default"}
               isInvalid={isInvalidPassword}
@@ -97,7 +153,7 @@ const UserLogin = () => {
               name="password"
               variant="underlined"
               value={password}
-              handleChange={handleChangeLogInput}
+              handleChange={handleChangeRegisterInput}
               size="lg"
               endContent={
                 <button
@@ -117,23 +173,23 @@ const UserLogin = () => {
           <div className="flex w-full">
             <Checkbox>Remember Me</Checkbox>
           </div>
-          {loginError && <p className="text-red-500">{loginError}</p>}
+          {signUpError && <p className="text-red-500">{signUpError}</p>}
           <Button
             size="lg"
-            onClick={handleLogin}
+            onClick={handleSignUp}
             className={`w-full rounded-md font-semibold ${
               !isInvalid &&
               !isInvalidPassword &&
-              emailorphone !== "" &&
+              email !== "" &&
               password !== ""
-                ? "bg-[#21865c] text-white"
+                ? "bg-[#3f2de2] text-white"
                 : "cursor-not-allowed"
             }`}
             disabled={
-              isLogin ||
+              isSignup ||
               isInvalid ||
               isInvalidPassword ||
-              emailorphone == "" ||
+              email == "" ||
               password == "" ||
               isSubmitting
             }
@@ -145,11 +201,11 @@ const UserLogin = () => {
               )
             }
           >
-            {isLogin ? <Spinner size="md" /> : "Log In"}
+            {isSignup ? <Spinner size="md" /> : "Create Account"}
           </Button>
-          <Link className="flex w-full hover:underline" href="/forget-password">
-            Forgot My Password
-          </Link>
+          {/* <Link className="flex w-full hover:underline" href="/forget-password">
+              Forgot My Password
+            </Link> */}
           <div className="flex w-full flex-col gap-4 sm:flex-row">
             <button
               title="Sign Up"
@@ -186,4 +242,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default UserSignUp;
