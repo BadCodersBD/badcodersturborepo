@@ -1,8 +1,8 @@
-import { type Config } from "tailwindcss";
+import { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
-const {nextui} = require("@nextui-org/react");
+import { nextui } from "@nextui-org/react";
 
-export default {
+const config: Config = {
   content: [
     "./src/**/*.tsx",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
@@ -16,4 +16,6 @@ export default {
   },
   darkMode: "class",
   plugins: [nextui()],
-} satisfies Config;
+};
+
+export default config;
