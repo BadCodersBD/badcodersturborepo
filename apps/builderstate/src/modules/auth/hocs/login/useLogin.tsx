@@ -8,7 +8,7 @@ import {
 import { postMethod } from "../../../../utils/api/postMethod";
 import { endPoints } from "../../../../utils/api/route";
 // import { useSession } from "next-auth/react";
-import type { ResponseType } from "../../../../types";
+// import type { ResponseType } from "../../../../types";
 // import { useRouter } from "next/navigation";
 
 export const useLogin = () => {
@@ -70,19 +70,17 @@ export const useLogin = () => {
       },
     })
       .then(async (response) => {
-        const responseData: ResponseType = response?.data?.data;
-        // console.log(responseData)
-        if (responseData?.statusCode === 200) {
-          // dispatch(handleErros("loginError", ""));
+        const responseData = response?.data;
+        if (responseData) {
           await signIn("credentials", {
-            ...responseData?.data,
+            ...responseData,
             redirect: false,
           });
         } else {
           dispatch(
             handleErros(
               "loginError",
-              responseData.error || responseData.message,
+              "",
             ),
           );
           // console.log(responseData?.data)
@@ -100,7 +98,7 @@ export const useLogin = () => {
 
   // useEffect(() => {
   //   // @ts-expect-error type error is not solved
-  //   if (session?.user?.strAccess_token) {
+  //   if (session?.user?.token) {
   //     router.replace('/dashboard')
   //   }
   // }, [session, router])

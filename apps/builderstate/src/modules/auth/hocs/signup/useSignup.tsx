@@ -3,14 +3,14 @@ import { signIn } from "next-auth/react";
 // import { useRouter } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "../../../../_redux/hooks/hooks";
 import {
-  handleChangeRegisterInput,
+  // handleChangeRegisterInput,
   handleErros,
-  handleNextPrev,
+  // handleNextPrev,
   handleSubmitting,
 } from "../../_redux/actions/auth-action";
 import { postMethod } from "../../../../utils/api/postMethod";
 import { endPoints } from "../../../../utils/api/route";
-import type { ResponseType } from "../../../../types";
+// import type { ResponseType } from "../../../../types";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
@@ -117,7 +117,7 @@ export const useSignup = () => {
       postData: {
         email: email,
         password: password,
-        name: username,
+        name: firstname,
         avatar: "noimage",
         // strFirstName: firstname,
         // strLastName: lastname,
@@ -126,15 +126,14 @@ export const useSignup = () => {
       },
     })
       .then(async (response) => {
-        const responseData: ResponseType = response?.data?.data;
-        if (responseData?.statusCode === 200) {
-          router.push("/login");
-          //  await signIn("credentials", {
-          //   ...responseData?.data,
-          //   redirect: false,
-          // });
+        const responseData = response?.data;
+        if (responseData) {
+           await signIn("credentials", {
+            ...responseData,
+            redirect: false,
+          });
         } else {
-          dispatch(handleErros("SignUpError", responseData.error || responseData.message));
+          dispatch(handleErros("SignUpError", responseData?.error || responseData?.message));
           toast.error(responseData.message, {
             duration: 3000,
             position: "top-center",
@@ -151,10 +150,10 @@ export const useSignup = () => {
       });
   };
 
-  useEffect(() => {
-    dispatch(handleNextPrev(0));
-    dispatch(handleChangeRegisterInput("otp", 0));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(handleNextPrev(0));
+  //   dispatch(handleChangeRegisterInput("otp", 0));
+  // }, [dispatch]);
 
   return {
     isInvalid,

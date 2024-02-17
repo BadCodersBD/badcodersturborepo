@@ -54,6 +54,8 @@ const UserSignUp = () => {
     }
   }, [status, session, router]);
 
+  console.log(session)
+
   return (
     <div className="w-full">
       <div className=" mt-5 px-20 underline ">
@@ -82,7 +84,7 @@ const UserSignUp = () => {
             </span>
           </h1>
           <form className="h-full w-full ">
-            <TextInput
+            {/* <TextInput
               type="text"
               isInvalid={isInvalidusername}
               color={isInvalidusername ? "danger" : "default"}
@@ -93,20 +95,20 @@ const UserSignUp = () => {
               value={username}
               size="lg"
               handleChange={handleChangeRegisterInput}
-            />
-            {/* <TextInput
+            /> */}
+            <TextInput
               type="text"
               isInvalid={isInvalidfirstName}
               color={isInvalidfirstName ? "danger" : "default"}
-              errorMessage={"Enter your First Name"}
+              errorMessage={"Enter your Name"}
               name="firstname"
               variant="underlined"
-              label="First Name"
+              label="Name"
               value={firstname}
               size="lg"
               handleChange={handleChangeRegisterInput}
             />
-            <TextInput
+            {/* <TextInput
               type="text"
               isInvalid={isInvalidLastName}
               color={isInvalidLastName ? "danger" : "default"}
